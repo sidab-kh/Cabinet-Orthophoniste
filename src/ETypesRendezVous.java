@@ -1,5 +1,5 @@
 
-public enum TypesRendezVous {
+public enum ETypesRendezVous {
 	Consultation,
 	Suivi,
 	Atelier
