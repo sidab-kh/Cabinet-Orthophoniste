@@ -1,3 +1,4 @@
+package rendezVous;
 import java.util.Date;
 
 public class SeanceSuivi extends RendezVous {

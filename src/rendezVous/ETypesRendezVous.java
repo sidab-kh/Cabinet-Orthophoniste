@@ -1,3 +1,4 @@
+package rendezVous;
 
 public enum ETypesRendezVous {
 	Consultation,

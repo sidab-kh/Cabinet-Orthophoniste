@@ -1,3 +1,4 @@
+package patient;
 import java.util.Date;
 
 public class Adulte extends Patient {

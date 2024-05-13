@@ -1,3 +1,4 @@
+package rendezVous;
 import java.util.Date;
 
 public abstract class RendezVous {

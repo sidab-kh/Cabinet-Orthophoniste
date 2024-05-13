@@ -1,7 +1,11 @@
+package application;
 import java.util.List;
 
+import patient.Patient;
+import rendezVous.RendezVous;
+
 public class Application {
-	CompteOrthophoniste compteOrthophoniste;
+	public CompteOrthophoniste compteOrthophoniste;
 	
 	public class CompteOrthophoniste {
 		String nom, prenom, adresse, email, motDePasse;

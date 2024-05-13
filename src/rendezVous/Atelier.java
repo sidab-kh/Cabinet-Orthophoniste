@@ -1,3 +1,4 @@
+package rendezVous;
 import java.util.List;
 
 public class Atelier extends RendezVous {

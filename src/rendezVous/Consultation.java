@@ -1,4 +1,7 @@
+package rendezVous;
 import java.util.Date;
+
+import patient.Patient;
 
 public class Consultation extends RendezVous {
 	Patient patient;
