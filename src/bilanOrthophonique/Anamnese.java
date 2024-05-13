@@ -1,4 +1,4 @@
-package bilanOrthopedique;
+package bilanOrthophonique;
 
 public class Anamnese {
 
