@@ -1,5 +1,8 @@
 package mvc;
 
+import exceptionsPersonnalisees.NumeroDossierExistantException;
+import exceptionsPersonnalisees.OrthophonisteNonDisponibleException;
+import patient.DossierPatient;
 import patient.Patient;
 import rendezVous.RendezVous;
 

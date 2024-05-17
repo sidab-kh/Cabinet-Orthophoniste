@@ -7,6 +7,7 @@ public class Atelier extends RendezVous {
 	String thematique;
 	List<Integer> numerosDossiers;
 	
+	// Constructeur
 	public Atelier(LocalDateTime dateEtHeure, String thematique, List<Integer> numerosDossiers) {
 		super.dateEtHeure = dateEtHeure;
 		this.thematique = thematique;

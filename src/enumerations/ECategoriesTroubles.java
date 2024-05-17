@@ -1,4 +1,4 @@
-package bilanOrthophonique;
+package enumerations;
 
 public enum ECategoriesTroubles {
 	DeDeglutition,

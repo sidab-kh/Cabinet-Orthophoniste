@@ -1,5 +1,7 @@
 package bilanOrthophonique;
 
+import enumerations.ECategoriesTroubles;
+
 public class Trouble {
 	String nom;
 	ECategoriesTroubles categorie;

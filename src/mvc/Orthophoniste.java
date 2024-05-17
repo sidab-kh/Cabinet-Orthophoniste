@@ -7,6 +7,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import patient.DossierPatient;
 import patient.Patient;
 import rendezVous.RendezVous;
 
