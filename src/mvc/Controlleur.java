@@ -20,7 +20,7 @@ public final class Controlleur {
         return instance;
     }
 	
-    // Methode pour introduire les informations de l'orthophoniste
+    // Methode pour introduire les informations de l'orthophoniste quand il s'inscrit pour la premiere fois
     public void inscrireOrthophoniste() {
     	// Faire appel a la vue pour lire les differents champs
     	Vue.getInstance().lireInformationsOrthophoniste();
@@ -42,5 +42,5 @@ public final class Controlleur {
          * - Sinon : */ Orthophoniste.getInstance().agenda.add(rendezVous);
     }
     
-    // TODO: public void creerTest() 
+    // TODO: public void creerTest()
 }

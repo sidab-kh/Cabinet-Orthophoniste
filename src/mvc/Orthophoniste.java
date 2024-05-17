@@ -11,14 +11,20 @@ import patient.Patient;
 import rendezVous.RendezVous;
 
 // Cette classe joue le role de modele selon l'architecture MVC
-// Contient les donnees de l'application
+// Contient les donnees de l'orthophoniste
 public final class Orthophoniste {
 	
 	// Patron de conception singleton
-	private static Orthophoniste instance; // La seule et unique instance d'orthophoniste
+	private static Orthophoniste instance; /* Celle-ci est la seule et unique instance d'orthophoniste, si on decide de permettre 
+	plusieurs orthophonistes, on devra stocker leurs informations dans un fichier, puis charger l'orthophoniste voulu dans ce
+	singleton. On pourra utiliser le fait que l'instance soit non nulle pour indiquer qu'un orthophoniste est connecte, 
+	mais de toute facon, ca sera toujours le cas, l'application ne fonctionnera pas s'il n'y a pas de session ouverte */
 	
+	// Ces champs sont prives car confidentiels
 	private String nom, prenom, adresse, email, motDePasse;
     private int numeroTelephone;
+    
+    // Ceux-ci sont en acces package puisqu'ils ne sont pas confidentiels et le controlleur/vue en ont besoin constamment
     List<RendezVous> agenda;
     Set<DossierPatient> dossiersPatients;
     List<Patient> nouveauxPatients; // Pour y mettre les nouveaux patients qui n'ont pas encore de dossier
@@ -47,14 +53,15 @@ public final class Orthophoniste {
 		return instance;
 	}
 	
-	// Methode pour inscrire l'unique orthophoniste
+	// Methode pour mettre l'orthophoniste en ligne
 	public static void setOrthophoniste(String nom, String prenom, String adresse, String email,
             String motDePasse, int numeroTelephone) {
+		// Si aucun orthophoniste est connecte
 		if (instance == null) instance = new Orthophoniste(nom, prenom, adresse, email, motDePasse, numeroTelephone);
 		else System.out.println("Un orthophoniste est deja connecte !");
 	}
 	
-	// Verifier si l'orthophoniste est connecte
+	// Verifier si un orthophoniste est connecte
 	public static boolean estConnecte() {
 		return instance != null;
 	}

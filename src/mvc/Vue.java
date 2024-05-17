@@ -24,6 +24,7 @@ public final class Vue {
     public void lireInformationsOrthophoniste() {
         Scanner scanner = new Scanner(System.in);
 
+        // Lire les informations de l'othophoniste
         System.out.print("Nom: ");
         String nom = scanner.nextLine();
 
@@ -42,9 +43,10 @@ public final class Vue {
         System.out.print("Numero de telephone: ");
         int numeroTelephone = scanner.nextInt();
         
+        // Le mettre en ligne
         Orthophoniste.setOrthophoniste(nom, prenom, adresse, email, motDePasse, numeroTelephone);
         
-        scanner.close();
+        scanner.close(); // Fermer le scanner
     }  
     
     // Afficher les informations de l'orthophoniste
