@@ -1,4 +1,4 @@
-package Application;
+package application;
 
 import mvc.Controlleur;
 import mvc.Vue;
