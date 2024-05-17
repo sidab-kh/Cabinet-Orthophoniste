@@ -1,4 +1,4 @@
-package application;
+package mvc;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,10 +7,10 @@ import bilanOrthophonique.BilanOrthophonique;
 
 @SuppressWarnings("serial")
 public class DossierPatient implements Serializable {
-	int numero; // Doit etre unique
+	int numero; // Doit etre unique !
 	List<RendezVous> HistoriqueRendezVous;
 	List<BilanOrthophonique> HistoriqueBilansOrthophoniques;
-	// TODO: HistoriqueFichesSuivi
+	// TODO: List<FicheSuivi> HistoriqueFichesSuivi
 	
 	public DossierPatient(int numero) {
 		this.numero = numero;
@@ -19,11 +19,13 @@ public class DossierPatient implements Serializable {
 	}
 	
 	public void archiverRendezVous(RendezVous rendezVous) {
-		HistoriqueRendezVous.add(rendezVous); // Serialiser le rendez-vous et l'ecrire dans le fichier
+		HistoriqueRendezVous.add(rendezVous);
+		// TODO: Serialiser le rendez-vous et l'ecrire dans le fichier
 	}
 	
 	public void archiverBilanOrthophonique(BilanOrthophonique bilanOrthophonique) {
-		HistoriqueBilansOrthophoniques.add(bilanOrthophonique);  // Serialiser le bilan orthophonique et l'ecrire dans le fichier
+		HistoriqueBilansOrthophoniques.add(bilanOrthophonique);
+		// TODO: Serialiser le bilan orthophonique et l'ecrire dans le fichier
 	}
 	
 	// TODO: archiverFicheSuivi(FicheSuivi fichesSuivi)
