@@ -1,12 +1,12 @@
 package patient;
-import java.util.Date;
+import java.time.LocalDate;
 
 public abstract class Patient {
 	String nom, prenom, lieuNaissance, adresse, numeroTelephone;
-	Date dateNaissance;
+	LocalDate dateNaissance; // LocalDate plutot que Date
 	
 	public Patient(String nom, String prenom, String lieuNaissance, String adresse,
-			String numeroTelephone, Date dateNaissance) {
+			String numeroTelephone, LocalDate dateNaissance) {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.lieuNaissance = lieuNaissance;

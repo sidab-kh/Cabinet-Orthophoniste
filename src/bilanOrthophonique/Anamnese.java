@@ -1,5 +1,7 @@
 package bilanOrthophonique;
+import java.io.Serializable;
 
-public class Anamnese {
+@SuppressWarnings("serial")
+public class Anamnese implements Serializable {
 
 }

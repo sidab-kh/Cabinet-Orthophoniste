@@ -1,5 +1,7 @@
 package bilanOrthophonique;
+import java.io.Serializable;
 
-public class EpreuveClinique {
+@SuppressWarnings("serial")
+public class EpreuveClinique implements Serializable {
 
 }

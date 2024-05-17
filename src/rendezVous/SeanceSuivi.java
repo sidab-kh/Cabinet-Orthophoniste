@@ -1,12 +1,13 @@
 package rendezVous;
-import java.util.Date;
+import java.time.LocalDateTime;
 
+@SuppressWarnings("serial")
 public class SeanceSuivi extends RendezVous {
 	int numeroDossier;
 	boolean presentiel;
 	
-	public SeanceSuivi(Date date, int numeroDossier, boolean presentiel) {
-		super.date = date;
+	public SeanceSuivi(LocalDateTime dateEtHeure, int numeroDossier, boolean presentiel) {
+		super.dateEtHeure = dateEtHeure;
 		this.numeroDossier = numeroDossier;
 		this.presentiel = presentiel;
 	}

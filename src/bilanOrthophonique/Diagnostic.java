@@ -1,6 +1,8 @@
 package bilanOrthophonique;
+import java.io.Serializable;
 
-public class Diagnostic {
+@SuppressWarnings("serial")
+public class Diagnostic implements Serializable {
 	public class Trouble {
 		public enum ECategoriesTroubles {
 			
