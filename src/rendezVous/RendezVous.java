@@ -8,7 +8,7 @@ public abstract class RendezVous implements Serializable {
 	String duree = "1h"; // 1h par defaut 
     String observation = ""; 
 
-	// Ecrire une observation apres la fin d'un rendez vous (Destinee a l'orthophoniste) 
+	// Ecrire une observation apres la fin d'un rendez vous (sera probablement deplacee vers le controlleur)
 	public void ajouterObservation(String observation) {
 		this.observation = observation;
 	}
