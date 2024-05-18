@@ -1,6 +1,7 @@
 package patient;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 public abstract class Patient {
 	private String nom, prenom, lieuNaissance, adresse, numeroTelephone;
@@ -30,4 +31,9 @@ public abstract class Patient {
 	public void setNumeroTelephone(String numeroTelephone) { this.numeroTelephone = numeroTelephone; }
 	public LocalDate getDateNaissance() { return dateNaissance; }
 	public void setDateNaissance(LocalDate dateNaissance) { this.dateNaissance = dateNaissance; }
+	
+	// Autres methodes 
+	public int getAge() {
+		return Period.between(dateNaissance, LocalDate.now()).getYears();
+	}
 }

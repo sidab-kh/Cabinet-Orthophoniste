@@ -13,15 +13,9 @@ import rendezVous.SeanceSuivi;
 public class FabriqueRendezVous {
 
 	// Creer un rendez-vous de type Consultation
-	public static Consultation creerConsultation(String type, LocalDateTime dateEtHeure, Patient patient) {
-		switch (type.toLowerCase()) {
-		case "enfant":
-			return new Consultation(dateEtHeure, Duration.ofHours(2).plusMinutes(30), patient);
-		case "adulte":
-			return new Consultation(dateEtHeure, Duration.ofHours(1).plusMinutes(30), patient);
-		default:
-			throw new IllegalArgumentException("Type de consultation invalide : " + type);
-	    }
+	public static Consultation creerConsultation(LocalDateTime dateEtHeure, Patient patient) {
+		if (patient.getAge() < 18) return new Consultation(dateEtHeure, Duration.ofHours(2).plusMinutes(30), patient);
+		else return new Consultation(dateEtHeure, Duration.ofHours(1).plusMinutes(30), patient);
 	}
 	
 	// Creer un rendez-vous de type Seance de Suivi

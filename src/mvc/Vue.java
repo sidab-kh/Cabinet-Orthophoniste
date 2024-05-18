@@ -8,10 +8,7 @@ import java.util.Scanner;
 
 import fabriques.FabriquePatient;
 import fabriques.FabriqueRendezVous;
-import patient.Adulte;
-import patient.Enfant;
 import patient.Patient;
-import rendezVous.Consultation;
 
 // Cette classe joue le role de 'View' dans l'architecture MVC
 // Contient toutes les methodes d'affichage et d'interaction avec l'utilisateur
@@ -75,13 +72,11 @@ public final class Vue {
             String numeroPere = lireChaine("Numero de telephone du pere : ");
             String numeroMere = lireChaine("Numero de telephone de la mere : ");
             String niveauEtudes = lireChaine("Niveau d'etudes : ");
-            saut();
             return FabriquePatient.creerEnfant(nom, prenom, lieuNaissance, adresse, dateNaissance, numeroPere,
             		numeroMere, niveauEtudes);
         } else {  
             String diplome = lireChaine("Diplome : ");
             String profession = lireChaine("Profession : ");
-            saut();
             return FabriquePatient.creerAdulte(nom, prenom, lieuNaissance, adresse, adresse, dateNaissance,
             		diplome, profession);
         }
@@ -91,11 +86,9 @@ public final class Vue {
     public void lireConsultation() {
     	afficher("Entrez la date et heure de la seance (YYYY-MM-DD HH:MM) : ");
         LocalDateTime dateEtHeure = lireDateEtHeure();
-        saut();
         if (controlleur.estDisponible(dateEtHeure)) {
         	Patient nouveauPatient = lirePatient();
-        	controlleur.confirmerRendezVous(FabriqueRendezVous.creerConsultation(nouveauPatient.getClass().toString(),
-        			dateEtHeure, nouveauPatient));
+        	controlleur.confirmerRendezVous(FabriqueRendezVous.creerConsultation(dateEtHeure, nouveauPatient));
         }
     }
 
