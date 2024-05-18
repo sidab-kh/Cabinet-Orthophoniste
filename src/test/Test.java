@@ -10,6 +10,12 @@ public abstract class Test {
 	private float scoreTotal;
 	private String conclusion;
 	
+	// Constructeur
+	public Test(String nom, ECapacites capacite) {
+		this.nom = nom;
+		this.capacite = capacite;
+	}
+	
 	// Getters et setters
 	public String getNom() { return nom; }
 	public void setNom(String nom) { this.nom = nom; }

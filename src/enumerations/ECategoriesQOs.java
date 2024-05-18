@@ -1,6 +1,8 @@
 package enumerations;
 
 public enum ECategoriesQOs {
+	AUCUNE,
+	
 	// Pour adulte
 	HISTOIRE_MALADIE,
 	SUIVI_MEDICAL,
