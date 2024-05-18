@@ -2,7 +2,7 @@ package mvc;
 
 import java.util.Scanner;
 
-// Cette classe joue le role de vue pour selon l'architecture MVC
+// Cette classe joue le role de 'Vue' dans l'architecture MVC
 // Contient toutes les methodes d'affichage et d'interaction avec l'utilisateur
 public final class Vue { 
 

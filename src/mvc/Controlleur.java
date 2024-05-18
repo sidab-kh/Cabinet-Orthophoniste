@@ -5,7 +5,8 @@ import exceptionsPersonnalisees.OrthophonisteNonDisponibleException;
 import patient.DossierPatient;
 import rendezVous.RendezVous;
 
-// Cette classe joue le role de controlleur selon l'architecture MVC
+// Cette classe joue le role de 'Controlleur' dans l'architecture MVC
+// Notre architecture : Vue <- Controlleur -> Couche Service -> Modele
 public final class Controlleur {
 
 	private ServiceOrthophoniste serviceOrthophoniste;

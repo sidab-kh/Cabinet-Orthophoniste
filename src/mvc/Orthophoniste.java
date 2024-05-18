@@ -12,7 +12,7 @@ import patient.DossierPatient;
 import patient.Patient;
 import rendezVous.RendezVous;
 
-// Cette classe joue le role de modele selon l'architecture MVC
+// Cette classe joue le role de 'Modele' dans l'architecture MVC
 // Contient les donnees de l'orthophoniste
 @SuppressWarnings("serial")
 public final class Orthophoniste implements Serializable {
@@ -21,7 +21,7 @@ public final class Orthophoniste implements Serializable {
 	private String nom, prenom, adresse, email, motDePasse;
     private int numeroTelephone;
     
-    // Ceux-ci sont en acces package puisqu'ils ne sont pas confidentiels et le service layer en a besoin constamment
+    // Ceux-ci sont en acces package puisqu'ils ne sont pas confidentiels et la couche service en a besoin constamment
     List<RendezVous> agenda;
     Set<DossierPatient> dossiersPatients;
     List<Patient> nouveauxPatients; // Pour y mettre les nouveaux patients qui n'ont pas encore de dossier

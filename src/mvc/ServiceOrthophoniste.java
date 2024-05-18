@@ -9,7 +9,8 @@ import patient.Patient;
 import persistance.OrthophonisteDAO;
 import rendezVous.RendezVous;
 
-// Cette classe represente le service layer (patron de conception)
+// Cette classe represente le patron de conception 'Couche Service', colle bien avec la structure MVC
+// Fournit tous les services possibles a l'orthophoniste, c'est l'unique classe ayant acces direct au modele (Orthophoniste)
 public class ServiceOrthophoniste {
 	private Orthophoniste orthophoniste;
 	private OrthophonisteDAO orthophonisteDAO;
