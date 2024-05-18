@@ -1,5 +1,6 @@
 package mvc;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -13,27 +14,24 @@ import rendezVous.RendezVous;
 
 // Cette classe joue le role de modele selon l'architecture MVC
 // Contient les donnees de l'orthophoniste
-public final class Orthophoniste {
+@SuppressWarnings("serial")
+public final class Orthophoniste implements Serializable {
 	
-	// Patron de conception singleton
-	private static Orthophoniste instance; /* Celle-ci est la seule et unique instance d'orthophoniste, si on decide de permettre 
-	plusieurs orthophonistes, on devra stocker leurs informations dans un fichier, puis charger l'orthophoniste voulu dans ce
-	singleton. On pourra utiliser le fait que l'instance soit non nulle pour indiquer qu'un orthophoniste est connecte, 
-	mais de toute facon, ca sera toujours le cas, l'application ne fonctionnera pas s'il n'y a pas de session ouverte */
-	
-	// Ces champs sont prives car confidentiels
+	// Ces champs sont prives car ils sont confidentiels
 	private String nom, prenom, adresse, email, motDePasse;
     private int numeroTelephone;
     
-    // Ceux-ci sont en acces package puisqu'ils ne sont pas confidentiels et le controlleur/vue en ont besoin constamment
+    // Ceux-ci sont en acces package puisqu'ils ne sont pas confidentiels et le service layer en a besoin constamment
     List<RendezVous> agenda;
     Set<DossierPatient> dossiersPatients;
     List<Patient> nouveauxPatients; // Pour y mettre les nouveaux patients qui n'ont pas encore de dossier
     Map<Integer, Patient> patients; // Pour y mettre les patients avec comme cle leurs numeros de dossier
     
-	// Constructeur prive pour eviter toute instanciation externe
-	private Orthophoniste(String nom, String prenom, String adresse, String email,
-             String motDePasse, int numeroTelephone) {
+    // Constructeur par defaut
+    public Orthophoniste() {}
+    
+    // Constructeur
+	public Orthophoniste(String nom, String prenom, String adresse, String email, String motDePasse, int numeroTelephone) {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.adresse = adresse;
@@ -45,72 +43,16 @@ public final class Orthophoniste {
 		nouveauxPatients = new ArrayList<Patient>();
 		patients = new TreeMap<Integer, Patient>();
 	}
-	
-	// Methode pour recuperer l'instance unique de l'orthophoniste a partir des autres classes
-	public static Orthophoniste getInstance() {
-		if (instance == null) {
-			System.out.println("Aucun orthophoniste connecte !");
-		}
-		return instance;
-	}
-	
-	// Methode pour mettre l'orthophoniste en ligne
-	public static void setOrthophoniste(String nom, String prenom, String adresse, String email,
-            String motDePasse, int numeroTelephone) {
-		// Si aucun orthophoniste est connecte
-		if (instance == null) instance = new Orthophoniste(nom, prenom, adresse, email, motDePasse, numeroTelephone);
-		else System.out.println("Un orthophoniste est deja connecte !");
-	}
-	
-	// Verifier si un orthophoniste est connecte
-	public static boolean estConnecte() {
-		return instance != null;
-	}
-	
-	// Methode pour se deconnecter
-	public static void seDeconnecter() {
-		instance = null;
-	}
 
     // Getters et setters
-	public String getNom() {
-		return nom;
-	}
-
-	public String getPrenom() {
-		return prenom;
-	}
-
-	public String getAdresse() {
-		return adresse;
-	}
-
-	public void setAdresse(String adresse) {
-		this.adresse = adresse;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getMotDePasse() {
-		return motDePasse;
-	}
-
-	public void setMotDePasse(String motDePasse) {
-		this.motDePasse = motDePasse;
-	}
-
-	public int getNumeroTelephone() {
-		return numeroTelephone;
-	}
-
-	public void setNumeroTelephone(int numeroTelephone) {
-		this.numeroTelephone = numeroTelephone;
-	}
-
+	String getNom() { return nom; }
+	String getPrenom() { return prenom; }
+	String getAdresse() { return adresse; }
+	void setAdresse(String adresse) { this.adresse = adresse;	}
+	String getEmail() { return email; }
+	void setEmail(String email) { this.email = email; }
+	String getMotDePasse() { return motDePasse; }
+	void setMotDePasse(String motDePasse) { this.motDePasse = motDePasse; }
+	int getNumeroTelephone() { return numeroTelephone; }
+	void setNumeroTelephone(int numeroTelephone) { this.numeroTelephone = numeroTelephone; }
 }

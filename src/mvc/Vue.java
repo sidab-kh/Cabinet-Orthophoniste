@@ -5,58 +5,77 @@ import java.util.Scanner;
 // Cette classe joue le role de vue pour selon l'architecture MVC
 // Contient toutes les methodes d'affichage et d'interaction avec l'utilisateur
 public final class Vue { 
-	
-    // Patron de conception singleton
-    private static Vue instance;
-    
-    // Constructeur prive pour eviter toute instanciation externe
-    private Vue() {}
 
-    // Methode pour recuperer l'instance unique de la vue a partir des autres classes
-    public static Vue getInstance() {
-        if (instance == null) {
-            instance = new Vue();
-        }
-        return instance;
+	Scanner scanner;
+	
+	// Constructeur
+    public Vue() {
+    	scanner = new Scanner(System.in);
     }
     
-    // Lire les informations de l'orthophoniste
-    public void lireInformationsOrthophoniste() {
-        Scanner scanner = new Scanner(System.in);
-
-        // Lire les informations de l'othophoniste
-        System.out.print("Nom: ");
-        String nom = scanner.nextLine();
-
-        System.out.print("Prenom: ");
-        String prenom = scanner.nextLine();
-
-        System.out.print("Adresse: ");
-        String adresse = scanner.nextLine();
-
-        System.out.print("Email: ");
-        String email = scanner.nextLine();
-
-        System.out.print("Mot de passe: ");
-        String motDePasse = scanner.nextLine();
-
-        System.out.print("Numero de telephone: ");
-        int numeroTelephone = scanner.nextInt();
-        
-        // Le mettre en ligne
-        Orthophoniste.setOrthophoniste(nom, prenom, adresse, email, motDePasse, numeroTelephone);
-        
-        scanner.close(); // Fermer le scanner
-    }  
-    
     // Afficher les informations de l'orthophoniste
-    public void afficherInformationsOrthophoniste() {
-    	Orthophoniste orthophoniste = Orthophoniste.getInstance();
+    public void afficherInformationsOrthophoniste(Orthophoniste orthophoniste) {
     	System.out.println("Nom: " + orthophoniste.getNom());
         System.out.println("Prenom: " + orthophoniste.getPrenom());
         System.out.println("Adresse: " + orthophoniste.getAdresse());
         System.out.println("Email: " + orthophoniste.getEmail());
         System.out.println("Mot de Passe: " + orthophoniste.getMotDePasse());
         System.out.println("Numero de telephone: " + orthophoniste.getNumeroTelephone());
+    }
+    
+    // Afficher le menu principal (test seulement)
+    public void afficherMenuPrincipal() {
+        System.out.println("Menu principal");
+        System.out.println("1. Gérer les orthophonistes");
+        System.out.println("2. Gérer les patients");
+        System.out.println("3. Gérer les rendez-vous");
+        System.out.println("4. Quitter");
+
+        System.out.print("Votre choix: ");
+    }
+
+    // Lire le choix de l'utilisateur
+    public int lireChoixUtilisateur() {
+        int choix = scanner.nextInt();
+        return choix;
+    }
+
+    // Afficher un message d'erreur
+    public void afficherErreur(String message) {
+        System.out.println("(!) Erreur: " + message);
+    }
+
+    // Afficher un message
+    public void afficher(String message) {
+        System.out.println(message);
+    }
+    
+    // Lire un entier
+    public int lireEntier() {
+    	return scanner.nextInt();
+    }
+    
+    // Surcharge
+    public int lireEntier(String label) {
+        System.out.print(label);
+        return scanner.nextInt();
+    }
+
+    // Lire une chaine de caracteres
+    public String lireChaine() {
+    	return scanner.nextLine();
+    }
+    
+    // Surcharge
+    public String lireChaine(String label) {
+        System.out.print(label);
+        return scanner.nextLine();
+    }
+    
+    // Demander la confirmation de l'utilisateur
+    public boolean demanderConfirmation(String message) {
+        System.out.print(message + " (oui/non): ");
+        String reponse = scanner.nextLine();
+        return reponse.equalsIgnoreCase("oui");
     }
 }

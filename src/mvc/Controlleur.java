@@ -3,47 +3,52 @@ package mvc;
 import exceptionsPersonnalisees.NumeroDossierExistantException;
 import exceptionsPersonnalisees.OrthophonisteNonDisponibleException;
 import patient.DossierPatient;
-import patient.Patient;
 import rendezVous.RendezVous;
 
 // Cette classe joue le role de controlleur selon l'architecture MVC
-// Controle la logique de l'application
 public final class Controlleur {
 
-	// Patron de conception singleton
-	private static Controlleur instance;
-
-	private Controlleur() {} // Constructeur prive pour eviter toute instanciation externe
+	private ServiceOrthophoniste serviceOrthophoniste;
+    private Vue vue;
     
-	// Methode pour recuperer l'instance unique du controlleur a partir des autres classes
-    public static Controlleur getInstance() {
-        if (instance == null) {
-            instance = new Controlleur();
-        }
-        return instance;
+    public Controlleur() {
+        this.serviceOrthophoniste = new ServiceOrthophoniste();
+        this.vue = new Vue();
+    }
+    
+    public void afficherMenu() {
+    	vue.afficherMenuPrincipal();
     }
 	
-    // Methode pour introduire les informations de l'orthophoniste quand il s'inscrit pour la premiere fois
-    public void inscrireOrthophoniste() {
-    	// Faire appel a la vue pour lire les differents champs
-    	Vue.getInstance().lireInformationsOrthophoniste();
+    public void lireInformationsOrthophoniste() {
+        String nom = vue.lireChaine("Nom: ");
+        String prenom = vue.lireChaine("Prenom: ");
+        String adresse = vue.lireChaine("Adresse: ");
+        String email = vue.lireChaine("Email: ");
+        String motDePasse = vue.lireChaine("Mot de passe: ");
+        int numeroTelephone = vue.lireEntier("Numero de telephone: ");
+        
+        serviceOrthophoniste.inscrireOrthophoniste(nom, prenom, adresse, email, motDePasse, numeroTelephone);
+        vue.afficher("Informations de l'orthophoniste enregistrées avec succès.");
     }
     
-    public void ajouterDossierPatient(DossierPatient dossierPatient) throws NumeroDossierExistantException {
-        /* Verifier si le dossier existe deja
-         * - Si c'est le cas : throw new NumeroDossierExistantException();
-         * - Sinon : */ Orthophoniste.getInstance().dossiersPatients.add(dossierPatient);
+    public void afficherInformationsOrthophoniste() {
+    	vue.afficherInformationsOrthophoniste(serviceOrthophoniste.getOrthophoniste());
     }
     
-    public void ajouterNouveauPatient(Patient patient) {
-    	Orthophoniste.getInstance().nouveauxPatients.add(patient);
-    }
-
-    public void ajouterRendezVous(RendezVous rendezVous) throws OrthophonisteNonDisponibleException {
-        /* Verifier si l'orthophoniste est libre
-         * - Si c'est le cas : throw new OrthophonisteNonDisponibleException();
-         * - Sinon : */ Orthophoniste.getInstance().agenda.add(rendezVous);
+    public void ajouterDossierPatient(DossierPatient dossierPatient) {
+    	try {
+    		serviceOrthophoniste.ajouterDossierPatient(dossierPatient);
+    	} catch (NumeroDossierExistantException e) {
+    		vue.afficherErreur(e.getMessage());
+    	}
     }
     
-    // TODO: public void creerTest()
+    public void ajouterRendezVous(RendezVous rendezVous) {
+    	try {
+    		serviceOrthophoniste.ajouterRendezVous(rendezVous);
+    	} catch (OrthophonisteNonDisponibleException e) {
+    		vue.afficherErreur(e.getMessage());
+    	}
+    }
 }

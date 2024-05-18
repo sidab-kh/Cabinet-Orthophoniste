@@ -1,12 +1,15 @@
 package application;
 
 import mvc.Controlleur;
-import mvc.Vue;
+import patient.DossierPatient;
 
 // Cette classe represente l'application elle-meme, elle contient la methode main()
-public class Application {
+public final class Application {
 	public static void main(String[] args) {
-		Controlleur.getInstance().inscrireOrthophoniste();
-		Vue.getInstance().afficherInformationsOrthophoniste();
+		Controlleur controlleur = new Controlleur();
+		controlleur.lireInformationsOrthophoniste();;
+		controlleur.afficherInformationsOrthophoniste();
+		controlleur.ajouterDossierPatient(new DossierPatient(0));
+		controlleur.ajouterDossierPatient(new DossierPatient(0));
 	}
 }

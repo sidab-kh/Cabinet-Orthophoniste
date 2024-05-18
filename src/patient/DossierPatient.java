@@ -6,8 +6,8 @@ import rendezVous.RendezVous;
 import bilanOrthophonique.BilanOrthophonique;
 
 @SuppressWarnings("serial")
-public class DossierPatient implements Serializable {
-	int numero; // Doit etre unique !
+public class DossierPatient implements Serializable, Comparable<DossierPatient>  {
+	int numero;
 	List<RendezVous> HistoriqueRendezVous;
 	List<BilanOrthophonique> HistoriqueBilansOrthophoniques;
 	// TODO: List<FicheSuivi> HistoriqueFichesSuivi
@@ -29,4 +29,9 @@ public class DossierPatient implements Serializable {
 	}
 	
 	// TODO: archiverFicheSuivi(FicheSuivi fichesSuivi)
+	
+	@Override // Comparaison du numero pour le set
+    public int compareTo(DossierPatient autre) {
+        return Integer.compare(this.numero, autre.numero);
+    }
 }

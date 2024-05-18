@@ -1,4 +1,5 @@
 package rendezVous;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import patient.Patient;
 
@@ -9,7 +10,7 @@ public class Consultation extends RendezVous {
 	// Constructeur
 	public Consultation(LocalDateTime dateEtHeure, Patient patient) {
 		super.dateEtHeure = dateEtHeure;
-		super.duree = patient.getClass().toString().equals("Adulte") ? "1h30" : "2h30";
+		super.duree = patient.getClass().toString().equals("Adulte") ? Duration.ofHours(1).plusMinutes(30) : Duration.ofHours(2).plusMinutes(30);;
 		this.patient = patient;
 	}
 }
