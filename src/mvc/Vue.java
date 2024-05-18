@@ -10,7 +10,7 @@ import fabriques.FabriquePatient;
 import fabriques.FabriqueRendezVous;
 import patient.Patient;
 
-// Cette classe joue le role de 'View' dans l'architecture MVC
+// Cette classe joue le role de "View" dans l'architecture MVC
 // Contient toutes les methodes d'affichage et d'interaction avec l'utilisateur
 public final class Vue { 
 

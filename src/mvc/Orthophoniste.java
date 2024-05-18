@@ -12,7 +12,7 @@ import patient.DossierPatient;
 import patient.Patient;
 import rendezVous.RendezVous;
 
-// Cette classe joue le role de 'Model' dans l'architecture MVC
+// Cette classe joue le role de "Model" dans l'architecture MVC
 // Contient les donnees de l'orthophoniste
 @SuppressWarnings("serial")
 public final class Orthophoniste implements Serializable {

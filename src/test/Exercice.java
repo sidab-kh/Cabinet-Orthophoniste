@@ -12,7 +12,6 @@ public class Exercice {
 	
 	// Constructeur
 	public Exercice(String consigne, List<EMateriel> materiel) {
-		super();
 		this.consigne = consigne;
 		this.materiel = materiel;
 	}

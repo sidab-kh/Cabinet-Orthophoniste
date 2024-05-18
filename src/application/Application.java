@@ -1,7 +1,6 @@
 package application;
 
 import mvc.Controlleur;
-import patient.DossierPatient;
 
 // Cette classe represente l'application elle-meme, elle contient la methode main()
 public final class Application {
