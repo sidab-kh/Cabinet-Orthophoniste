@@ -22,10 +22,10 @@ public final class Orthophoniste implements Serializable {
     private int numeroTelephone;
     
     // Ceux-ci sont en acces package puisqu'ils ne sont pas confidentiels et la couche service en a besoin constamment
-    List<RendezVous> agenda;
-    Set<DossierPatient> dossiersPatients;
-    List<Patient> nouveauxPatients; // Pour y mettre les nouveaux patients qui n'ont pas encore de dossier
-    Map<Integer, Patient> patients; // Pour y mettre les patients avec comme cle leurs numeros de dossier
+    List<RendezVous> agenda = new ArrayList<RendezVous>();
+    Set<DossierPatient> dossiersPatients = new TreeSet<DossierPatient>(); // Mis dand l'ordre pour faciliter la recherche
+    List<Patient> nouveauxPatients = new ArrayList<Patient>(); // Pour y mettre les nouveaux patients qui n'ont pas encore de dossier
+    Map<Integer, Patient> patients = new TreeMap<Integer, Patient>(); // Pour y mettre les patients avec comme cle leurs numeros de dossier
     
     // Constructeur par defaut
     public Orthophoniste() {}
@@ -38,10 +38,6 @@ public final class Orthophoniste implements Serializable {
 		this.email = email;
 		this.motDePasse = motDePasse;
 		this.numeroTelephone = numeroTelephone;
-		agenda = new ArrayList<RendezVous>();
-		dossiersPatients = new TreeSet<DossierPatient>();
-		nouveauxPatients = new ArrayList<Patient>();
-		patients = new TreeMap<Integer, Patient>();
 	}
 
     // Getters et setters

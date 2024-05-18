@@ -8,14 +8,12 @@ import bilanOrthophonique.BilanOrthophonique;
 @SuppressWarnings("serial")
 public class DossierPatient implements Serializable, Comparable<DossierPatient>  {
 	int numero;
-	List<RendezVous> HistoriqueRendezVous;
-	List<BilanOrthophonique> HistoriqueBilansOrthophoniques;
+	List<RendezVous> HistoriqueRendezVous = new ArrayList<RendezVous>();
+	List<BilanOrthophonique> HistoriqueBilansOrthophoniques = new ArrayList<BilanOrthophonique>();
 	// TODO: List<FicheSuivi> HistoriqueFichesSuivi
 	
 	public DossierPatient(int numero) {
 		this.numero = numero;
-		HistoriqueRendezVous = new ArrayList<RendezVous>();
-		HistoriqueBilansOrthophoniques = new ArrayList<BilanOrthophonique>();
 	}
 	
 	public void archiverRendezVous(RendezVous rendezVous) {
