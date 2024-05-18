@@ -1,12 +1,12 @@
 package mvc;
 
-import exceptionsPersonnalisees.NumeroDossierExistantException;
-import exceptionsPersonnalisees.OrthophonisteNonDisponibleException;
-import patient.DossierPatient;
+import java.time.LocalDateTime;
+
+import patient.Patient;
 import rendezVous.RendezVous;
 
 // Cette classe joue le role de 'Controlleur' dans l'architecture MVC
-// Notre architecture : Vue <- Controlleur -> Couche Service -> Modele
+// Cette classe doit rester simple et se contenter de donner les ordres
 public final class Controlleur {
 
 	private ServiceOrthophoniste serviceOrthophoniste; // Operations
@@ -14,42 +14,48 @@ public final class Controlleur {
     
     public Controlleur() {
         this.serviceOrthophoniste = new ServiceOrthophoniste();
-        this.vue = new Vue();
+        this.vue = new Vue(this);
     }
     
+    // Afficher le menu principal
     public void afficherMenu() {
     	vue.afficherMenuPrincipal();
     }
 	
+    // Lire les informations personnelles de l'orthophoniste
     public void lireInformationsOrthophoniste() {
-        String nom = vue.lireChaine("Nom: ");
-        String prenom = vue.lireChaine("Prenom: ");
-        String adresse = vue.lireChaine("Adresse: ");
-        String email = vue.lireChaine("Email: ");
-        String motDePasse = vue.lireChaine("Mot de passe: ");
-        int numeroTelephone = vue.lireEntier("Numero de telephone: ");
-        
-        serviceOrthophoniste.inscrireOrthophoniste(nom, prenom, adresse, email, motDePasse, numeroTelephone);
-        vue.afficher("Informations de l'orthophoniste enregistrées avec succès.");
+    	Orthophoniste orthophoniste = vue.lireInformationsOrthophoniste();
+    	serviceOrthophoniste.inscrireOrthophoniste(orthophoniste);
     }
     
+    // Afficher les informations de l'orthophoniste
     public void afficherInformationsOrthophoniste() {
     	vue.afficherInformationsOrthophoniste(serviceOrthophoniste.getOrthophoniste());
     }
     
-    public void ajouterDossierPatient(DossierPatient dossierPatient) {
-    	try {
-    		serviceOrthophoniste.ajouterDossierPatient(dossierPatient);
-    	} catch (NumeroDossierExistantException e) {
-    		vue.afficherErreur(e.getMessage());
-    	}
+    // Ajouter un nouveau patient
+    public void inscrirePatient() {
+    	serviceOrthophoniste.ajouterNouveauPatient(vue.lirePatient());
     }
     
-    public void ajouterRendezVous(RendezVous rendezVous) {
-    	try {
-    		serviceOrthophoniste.ajouterRendezVous(rendezVous);
-    	} catch (OrthophonisteNonDisponibleException e) {
-    		vue.afficherErreur(e.getMessage());
-    	}
+    // Creer un dossier pour un nouveau patient
+    public void creerDossierPatient(Patient patient) {
+    	serviceOrthophoniste.creerDossierPatient(patient);
+    }
+    
+    // Creer une nouvelle consultation
+    public void programmerRendezVous() {
+    	// TODO: switch(type)
+    	vue.lireConsultation();
+    }
+    
+    // Ajouter le rendez-vous a l'agenda
+    public void confirmerRendezVous(RendezVous rendezVous) {
+    	serviceOrthophoniste.ajouterRendezVousAgenda(rendezVous);
+    }
+    
+    // Verifier la disponibilite de l'orthophoniste
+    public boolean estDisponible(LocalDateTime DateEtHeure) {
+    	return serviceOrthophoniste.estDisponible(DateEtHeure);
     }
 }

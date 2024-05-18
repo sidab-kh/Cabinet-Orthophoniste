@@ -3,7 +3,6 @@ package mvc;
 import java.time.LocalDateTime;
 
 import exceptionsPersonnalisees.NumeroDossierExistantException;
-import exceptionsPersonnalisees.OrthophonisteNonDisponibleException;
 import patient.DossierPatient;
 import patient.Patient;
 import persistance.OrthophonisteDAO;
@@ -21,9 +20,8 @@ public class ServiceOrthophoniste {
         this.orthophoniste = new Orthophoniste();
     }
 
-	public void inscrireOrthophoniste(String nom, String prenom, String adresse, String email,
-			String motDePasse, int numeroTelephone) {
-        this.orthophoniste = new Orthophoniste(nom, prenom, adresse, email, motDePasse, numeroTelephone);
+	public void inscrireOrthophoniste(Orthophoniste orthophoniste) {
+        this.orthophoniste = orthophoniste;
     }
 	
 	public Orthophoniste getOrthophoniste() {
@@ -35,6 +33,24 @@ public class ServiceOrthophoniste {
 		if (orthophoniste.dossiersPatients.contains(dossierPatient)) throw new NumeroDossierExistantException();
         orthophoniste.dossiersPatients.add(dossierPatient);
     }
+	
+	public void enregistrerPatient(int numeroDossier, Patient patient) {
+		orthophoniste.patients.put(numeroDossier, patient);
+	}
+	
+	// Creer un dossier pour un nouveau patient
+	public void creerDossierPatient(Patient patient) {
+		if (orthophoniste.nouveauxPatients.contains(patient)) {
+			DossierPatient dossier = new DossierPatient(DossierPatient.getCompteurNumero());
+			try {
+				ajouterDossierPatient(dossier);
+			} catch (NumeroDossierExistantException e) {
+	    		//
+	    	}
+			enregistrerPatient(DossierPatient.getCompteurNumero(), patient);
+			DossierPatient.incrementerCompteurNumero();
+		}	
+	}
     
 	// Ajouter un nouveau patient a la liste des nouveaux patients
     public void ajouterNouveauPatient(Patient patient) {
@@ -42,17 +58,17 @@ public class ServiceOrthophoniste {
     }
 
     // Ajouter un rendez-vous a l'agenda
-    public void ajouterRendezVous(RendezVous rendezVous) throws OrthophonisteNonDisponibleException {
-    	if (!estDisponible(rendezVous.getDateEtHeure())) throw new OrthophonisteNonDisponibleException();
+    public void ajouterRendezVousAgenda(RendezVous rendezVous) {
+    	if (!estDisponible(rendezVous.getDateEtHeure()));
         orthophoniste.agenda.add(rendezVous);
     }
     
     // Verifier la disponibilite de l'orthophoniste a une date/heure donnee
-    private boolean estDisponible(LocalDateTime dateEtHeure) {
+    public boolean estDisponible(LocalDateTime dateEtHeure) {
         for (RendezVous rdv : orthophoniste.agenda) {
         	 // Verifier si la date et l'heure demandees se situent pendant le rendez-vous
-            if (rdv.getDateEtHeure().equals(dateEtHeure)) return false;
-            if (dateEtHeure.isAfter(rdv.getDateEtHeure()) && dateEtHeure.isBefore(rdv.calculerHeureFin())) return false;
+            if (rdv.getDateEtHeure().equals(dateEtHeure) ||
+            		(dateEtHeure.isAfter(rdv.getDateEtHeure()) && dateEtHeure.isBefore(rdv.calculerHeureFin()))) return false;
         }
         // Si aucun rendez-vous ne correspond, l'orthophoniste est disponible
         return true;

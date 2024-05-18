@@ -8,9 +8,8 @@ public class Consultation extends RendezVous {
 	Patient patient;
 
 	// Constructeur
-	public Consultation(LocalDateTime dateEtHeure, Patient patient) {
-		super.dateEtHeure = dateEtHeure;
-		super.duree = patient.getClass().toString().equals("Adulte") ? Duration.ofHours(1).plusMinutes(30) : Duration.ofHours(2).plusMinutes(30);;
+	public Consultation(LocalDateTime dateEtHeure, Duration duree, Patient patient) {
+		super(dateEtHeure, duree);
 		this.patient = patient;
 	}
 }

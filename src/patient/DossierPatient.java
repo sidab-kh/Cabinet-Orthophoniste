@@ -6,7 +6,8 @@ import rendezVous.RendezVous;
 import bilanOrthophonique.BilanOrthophonique;
 
 @SuppressWarnings("serial")
-public class DossierPatient implements Serializable, Comparable<DossierPatient>  {
+public class DossierPatient implements Serializable, Comparable<DossierPatient> {
+	private static int compteurNumero;
 	int numero;
 	List<RendezVous> HistoriqueRendezVous = new ArrayList<RendezVous>();
 	List<BilanOrthophonique> HistoriqueBilansOrthophoniques = new ArrayList<BilanOrthophonique>();
@@ -32,4 +33,12 @@ public class DossierPatient implements Serializable, Comparable<DossierPatient> 
     public int compareTo(DossierPatient autre) {
         return Integer.compare(this.numero, autre.numero);
     }
+
+	public static int getCompteurNumero() {
+		return compteurNumero;
+	}
+	
+	public static void incrementerCompteurNumero() {
+		compteurNumero++;
+	}
 }

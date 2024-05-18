@@ -1,4 +1,5 @@
 package rendezVous;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -8,8 +9,8 @@ public class Atelier extends RendezVous {
 	List<Integer> numerosDossiers;
 	
 	// Constructeur
-	public Atelier(LocalDateTime dateEtHeure, String thematique, List<Integer> numerosDossiers) {
-		super.dateEtHeure = dateEtHeure;
+	public Atelier(LocalDateTime dateEtHeure, Duration duree, String thematique, List<Integer> numerosDossiers) {
+		super(dateEtHeure, duree);
 		this.thematique = thematique;
 		this.numerosDossiers = numerosDossiers;
 	}

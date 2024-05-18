@@ -3,12 +3,19 @@ import java.io.Serializable;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
+// Sous-classes: Atelier, Consultation, SeanceSuivi
 @SuppressWarnings("serial")
 public abstract class RendezVous implements Serializable {
-	LocalDateTime dateEtHeure; // LocalDateTime est moderne et contient des informations sur la date et l'heure en meme temps
+	LocalDateTime dateEtHeure;
 	Duration duree = Duration.ofHours(1);
     String observation = ""; 
 
+    // Constructeur
+	public RendezVous(LocalDateTime dateEtHeure, Duration duree) {
+		this.dateEtHeure = dateEtHeure;
+		this.duree = duree;
+	}
+	
 	// Getters et setters
 	public LocalDateTime getDateEtHeure() { return dateEtHeure; }
 	public void setDateEtHeure(LocalDateTime dateEtHeure) { this.dateEtHeure = dateEtHeure; }

@@ -2,13 +2,12 @@ package patient;
 import java.time.LocalDate;
 
 public class Enfant extends Patient {
-	String niveauEtudes;
-	int numeroTelephoneMere;
+	String niveauEtudes, numeroTelephoneMere;
 	
-	public Enfant(String nom, String prenom, String lieuNaissance, String adresse, String numeroTelephone,
-			LocalDate dateNaissance, String niveauEtudes, int numeroMere) {
-		super(nom, prenom, lieuNaissance, adresse, numeroTelephone, dateNaissance);
+	public Enfant(String nom, String prenom, String lieuNaissance, String adresse, LocalDate dateNaissance, 
+			String numeroTelephonePere, String numeroTelephoneMere, String niveauEtudes) {
+		super(nom, prenom, lieuNaissance, adresse, numeroTelephonePere, dateNaissance);
+		this.numeroTelephoneMere = numeroTelephoneMere;
 		this.niveauEtudes = niveauEtudes;
-		this.numeroTelephoneMere = numeroMere;
 	}
 }
