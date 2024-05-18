@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import patient.Patient;
 import rendezVous.RendezVous;
 
-// Cette classe joue le role de 'Controlleur' dans l'architecture MVC
+// Cette classe joue le role de 'Controller' dans l'architecture MVC
 // Cette classe doit rester simple et se contenter de donner les ordres
 public final class Controlleur {
 

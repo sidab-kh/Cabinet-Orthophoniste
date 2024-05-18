@@ -13,7 +13,7 @@ import patient.Enfant;
 import patient.Patient;
 import rendezVous.Consultation;
 
-// Cette classe joue le role de 'Vue' dans l'architecture MVC
+// Cette classe joue le role de 'View' dans l'architecture MVC
 // Contient toutes les methodes d'affichage et d'interaction avec l'utilisateur
 public final class Vue { 
 
@@ -47,7 +47,6 @@ public final class Vue {
         System.out.println("Prenom: " + orthophoniste.getPrenom());
         System.out.println("Adresse: " + orthophoniste.getAdresse());
         System.out.println("Email: " + orthophoniste.getEmail());
-        System.out.println("Mot de Passe: " + orthophoniste.getMotDePasse());
         System.out.println("Numero de telephone: " + orthophoniste.getNumeroTelephone());
     }
     
