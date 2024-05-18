@@ -23,7 +23,7 @@ public final class Orthophoniste implements Serializable {
     
     // Ceux-ci sont en acces package puisqu'ils ne sont pas confidentiels et la couche service en a besoin constamment
     List<RendezVous> agenda = new ArrayList<RendezVous>();
-    Set<DossierPatient> dossiersPatients = new TreeSet<DossierPatient>(); // Mis dand l'ordre pour faciliter la recherche
+    Set<DossierPatient> dossiersPatients = new TreeSet<DossierPatient>(); // Mis dans l'ordre pour faciliter la recherche
     List<Patient> nouveauxPatients = new ArrayList<Patient>(); // Pour y mettre les nouveaux patients qui n'ont pas encore de dossier
     Map<Integer, Patient> patients = new TreeMap<Integer, Patient>(); // Pour y mettre les patients avec comme cle leurs numeros de dossier
     
