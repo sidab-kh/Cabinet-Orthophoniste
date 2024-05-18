@@ -86,7 +86,7 @@ public final class Vue {
     public void lireConsultation() {
     	afficher("Entrez la date et heure de la seance (YYYY-MM-DD HH:MM) : ");
         LocalDateTime dateEtHeure = lireDateEtHeure();
-        if (controlleur.estDisponible(dateEtHeure)) {
+        if (controlleur.orthophonisteDisponible(dateEtHeure)) {
         	Patient nouveauPatient = lirePatient();
         	controlleur.confirmerRendezVous(FabriqueRendezVous.creerConsultation(dateEtHeure, nouveauPatient));
         }

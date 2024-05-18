@@ -55,7 +55,7 @@ public final class Controlleur {
     }
     
     // Verifier la disponibilite de l'orthophoniste
-    public boolean estDisponible(LocalDateTime DateEtHeure) {
+    public boolean orthophonisteDisponible(LocalDateTime DateEtHeure) {
     	return serviceOrthophoniste.estDisponible(DateEtHeure);
     }
 }
