@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import patient.Adulte;
 import patient.Enfant;
 
-// Patron de conception "Factory Method"
+// Patron de conception "Factory Method", sert a encapsuler les instanciations
 public class FabriquePatient {
 
 	// Creer un patient de type Enfant

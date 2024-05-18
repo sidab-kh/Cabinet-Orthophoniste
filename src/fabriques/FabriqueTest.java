@@ -9,7 +9,7 @@ import test.TestQuestionnaire;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-// Patron de conception "Factory Method"
+// Patron de conception "Factory Method", sert a encapsuler les instanciations
 public class FabriqueTest {
 
 	// Creer un test de type Questionnaire

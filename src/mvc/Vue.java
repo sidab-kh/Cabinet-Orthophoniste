@@ -3,6 +3,7 @@ package mvc;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 import fabriques.FabriquePatient;
@@ -118,7 +119,8 @@ public final class Vue {
     
     // Lire date et heure 
     public LocalDateTime lireDateEtHeure() {
-    	return LocalDateTime.parse(scanner.nextLine());
+    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+    	return LocalDateTime.parse(scanner.nextLine(), formatter);
     }
     
     // Lire une date

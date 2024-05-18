@@ -13,7 +13,7 @@ public final class Controlleur {
     private Vue vue; // Affichages
     
     public Controlleur() {
-        this.serviceOrthophoniste = new ServiceOrthophoniste();
+        this.serviceOrthophoniste = new ServiceOrthophoniste(this);
         this.vue = new Vue(this);
     }
     

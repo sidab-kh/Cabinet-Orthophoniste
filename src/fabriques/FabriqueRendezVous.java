@@ -9,7 +9,7 @@ import rendezVous.Atelier;
 import rendezVous.Consultation;
 import rendezVous.SeanceSuivi;
 
-// Patron de conception "Factory Method"
+// Patron de conception "Factory Method", sert a encapsuler les instanciations
 public class FabriqueRendezVous {
 
 	// Creer un rendez-vous de type Consultation
