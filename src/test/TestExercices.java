@@ -9,8 +9,8 @@ public class TestExercices extends Test {
 	List<Exercice> exercices = new ArrayList<Exercice>();
 	Map<Exercice, Integer> compteRendu = new HashMap<Exercice, Integer>();
 	
-	@Override // Redefinition de calculerScore()
-	public float calculerScore() {
-		return -1;
+	@Override // Redefinition de calculerScoreTotal()
+	public float calculerScoreTotal() {
+		return -1; // Calculer et additionner les moyennes de scores de chaque exercice
 	}
 }
