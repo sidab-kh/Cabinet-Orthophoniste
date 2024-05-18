@@ -9,8 +9,8 @@ import rendezVous.RendezVous;
 // Notre architecture : Vue <- Controlleur -> Couche Service -> Modele
 public final class Controlleur {
 
-	private ServiceOrthophoniste serviceOrthophoniste;
-    private Vue vue;
+	private ServiceOrthophoniste serviceOrthophoniste; // Operations
+    private Vue vue; // Affichages
     
     public Controlleur() {
         this.serviceOrthophoniste = new ServiceOrthophoniste();

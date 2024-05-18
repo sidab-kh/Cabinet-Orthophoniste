@@ -1,5 +1,3 @@
 package question;
 
-public class QCU extends Question {
-
-}
+public class QCU extends Question {}
