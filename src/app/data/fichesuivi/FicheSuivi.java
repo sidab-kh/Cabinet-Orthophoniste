@@ -1,5 +1,8 @@
 package app.data.fichesuivi;
 
-public class FicheSuivi {
+import java.io.Serializable;
+
+@SuppressWarnings("serial")
+public class FicheSuivi implements Serializable {
 
 }

@@ -4,19 +4,19 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
-import app.data.patient.DossierPatient;
-import app.data.patient.Patient;
-import app.data.rdv.RendezVous;
-import app.util.enumeration.ETypesRendezVous;
+import app.data.patients.DossierPatient;
+import app.data.patients.Patient;
+import app.data.rendezvous.RendezVous;
+import app.util.enumerations.ETypesRendezVous;
 
 public final class Controlleur {
-
+	
 	private ServiceOrthophoniste serviceOrthophoniste;
     private Vue vue;
 
     // Constructeur
     public Controlleur() {
-        this.serviceOrthophoniste = new ServiceOrthophoniste(this);
+        this.serviceOrthophoniste = new ServiceOrthophoniste();
         this.vue = new Vue(this);
     }
     
@@ -70,4 +70,28 @@ public final class Controlleur {
     		case ATELIER : vue.lireAtelier(); break;
     	}
     }
+
+    // Premiere inscription de l'orthophoniste
+    public void insription() {
+    	Orthophoniste nouvelOrthophoniste = vue.lireInformationsOrthophoniste();
+    	serviceOrthophoniste.setOrthophoniste(nouvelOrthophoniste);
+    	serviceOrthophoniste.sauvegarderOrthophoniste();
+    }
+    
+    // Mettre au point la connexion
+    public void connexion() {
+    	Orthophoniste orthophonisteCharge = serviceOrthophoniste.chargerOrthophoniste();
+    	if (vue.connexion(orthophonisteCharge)) {
+    		serviceOrthophoniste.setOrthophoniste(orthophonisteCharge);
+    	}
+    }
+
+    // Se deconnecter
+    public void deconnexion() {
+    	serviceOrthophoniste = null;
+    	vue.afficher_("Deconnexion reussie.");
+    }
+    
+    // Supprimer l'orthophoniste de la machine
+    public void supprimerCompte() { serviceOrthophoniste.supprimerOrthophoniste(); }
 }

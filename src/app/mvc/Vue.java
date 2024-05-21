@@ -8,11 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import app.data.patient.Patient;
-import app.data.rdv.RendezVous;
+import app.data.patients.Patient;
+import app.data.rendezvous.RendezVous;
 import app.util.Affichable;
-import app.util.fabrique.FabriquePatient;
-import app.util.fabrique.FabriqueRendezVous;
+import app.util.CryptageMotDePasse;
+import app.util.fabriques.FabriquePatient;
+import app.util.fabriques.FabriqueRendezVous;
 
 public final class Vue { 
 
@@ -53,6 +54,24 @@ public final class Vue {
     public void afficherAgenda() {
     	afficher_("Agenda de l'orthophoniste :");
     	for (RendezVous rdv : controlleur.getAgenda()) { afficher(rdv); }
+    }
+    
+    // Afficher le menu de connexion
+    public boolean connexion(Orthophoniste orthophonisteCharge) {
+    	if (orthophonisteCharge == null) {
+    		afficherErreur("Veuillez vous inscrire d'abord.");
+    		return false;
+    	}
+    	afficher_("Bonjour");
+    	String motDePasse = lireChaine("Veuillez enter votre mot de passe : ");
+    	if (CryptageMotDePasse.verifierMotDePasse(motDePasse, orthophonisteCharge.getMotDePasseCrypte())) {
+    		afficher_("Connexion reussie, bienvenue.");
+    		return true;
+    	}
+    	else {
+    		afficherErreur("Mot de passe errone, veuillez reessayer.");
+    		return false;
+    	}
     }
     
     // lire un nouveau patient

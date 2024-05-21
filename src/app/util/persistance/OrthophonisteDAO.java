@@ -1,12 +1,39 @@
 package app.util.persistance;
 
-@SuppressWarnings("unused")
+import java.io.*;
+
+import app.mvc.Orthophoniste;
+
+// Patron de conception "DAO" (Data Access Object)
 public class OrthophonisteDAO {
+	
+    private String fichier;
 
-	// Patron de conception "DAO" (Data Access Object)
-	private static final String FICHIER = "orthophoniste.ser";
+    // Constructeur
+    public OrthophonisteDAO(String fichier) { this.fichier = fichier; }
 
-    // TODO: public static void sauvegarder(Orthophoniste orthophoniste) throws IOException {}
+	// Sauvegarder l'orthophoniste
+    public boolean sauvegarder(Orthophoniste orthophoniste) {
+    	try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fichier))) {
+    		oos.writeObject(orthophoniste);
+    		return true;
+    	}
+    	catch (Exception e) { return false; }
+    }
 
-    // TODO: public static Orthophoniste charger() throws IOException, ClassNotFoundException {}
+    // Charger l'orthophoniste
+    public Orthophoniste charger() {
+    	try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fichier))) {
+    		Orthophoniste orthophoniste = (Orthophoniste) ois.readObject();
+    		return orthophoniste;
+    	}
+    	catch (Exception e) { return null; }
+    }
+    
+    // Supprimer l'orthophoniste
+    public boolean supprimer() {
+        File file = new File(fichier);
+        if (file.exists()) { return file.delete(); }
+        return false;
+    }
 }

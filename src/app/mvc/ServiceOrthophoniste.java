@@ -6,24 +6,20 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import app.data.patient.DossierPatient;
-import app.data.patient.Patient;
-import app.data.rdv.Atelier;
-import app.data.rdv.RendezVous;
-import app.data.rdv.SeanceSuivi;
-import app.util.exception.NumeroDossierExistantException;
+import app.data.patients.DossierPatient;
+import app.data.patients.Patient;
+import app.data.rendezvous.Atelier;
+import app.data.rendezvous.RendezVous;
+import app.data.rendezvous.SeanceSuivi;
+import app.util.exceptions.NumeroDossierExistantException;
 import app.util.persistance.OrthophonisteDAO;
 
-@SuppressWarnings("unused")
 public final class ServiceOrthophoniste {
-	private Controlleur controlleur;
-	private Orthophoniste orthophoniste = new Orthophoniste();
-	private OrthophonisteDAO orthophonisteDAO = new OrthophonisteDAO();
 	
-	// Constructeur
-	public ServiceOrthophoniste(Controlleur controlleur) { this.controlleur = controlleur; }
+	private Orthophoniste orthophoniste = null;
+	private OrthophonisteDAO orthophonisteDAO = new OrthophonisteDAO("orthophoniste.ser");
 
-	// Definir l'orthophoniste
+	// Connecter l'orthophoniste
 	public void setOrthophoniste(Orthophoniste orthophoniste) { this.orthophoniste = orthophoniste; }
 	
 	// Retourner l'orthophoniste
@@ -140,4 +136,13 @@ public final class ServiceOrthophoniste {
     
     // Ajouter une observation pour un rendez-vous
     public void ajouterObservation(RendezVous rendezVous, String observation) { if (rendezVous != null) rendezVous.setObservation(observation); }
+    
+    // Sauvegarder l'orthophoniste
+    public boolean sauvegarderOrthophoniste() { return orthophonisteDAO.sauvegarder(orthophoniste); }
+    
+    // Charger et retourner l'orthophoniste sauvegarde
+    public Orthophoniste chargerOrthophoniste() { return orthophonisteDAO.charger(); }
+    
+    // Supprimer l'orthophoniste
+    public boolean supprimerOrthophoniste() { return orthophonisteDAO.supprimer(); }
 }
