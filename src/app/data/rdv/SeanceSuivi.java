@@ -13,4 +13,11 @@ public class SeanceSuivi extends RendezVous {
 		this.numeroDossier = numeroDossier;
 		this.presentiel = presentiel;
 	}
+	
+	// Autres methodes
+	public void afficher() {
+		System.out.print("- Seance de suivi/ ");
+		super.afficher();
+		System.out.println(String.format("Numero dossier: %s, en %s.", numeroDossier, presentiel ? "presentiel" : "ligne"));
+	}
 }

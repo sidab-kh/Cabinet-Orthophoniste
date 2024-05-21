@@ -14,4 +14,13 @@ public class Atelier extends RendezVous {
 		this.thematique = thematique;
 		this.numerosDossiers = numerosDossiers;
 	}
+	
+	// Autres methodes
+	public void afficher() {
+		System.out.print("- Atelier/ ");
+		super.afficher();
+		System.out.print("Thematique: " + thematique + ", numeros dossiers : ");
+		for (int numeroDossier : numerosDossiers) { System.out.print(numeroDossier + " "); }
+		System.out.println();
+	}
 }

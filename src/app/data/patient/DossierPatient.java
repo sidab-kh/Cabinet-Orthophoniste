@@ -12,34 +12,25 @@ public class DossierPatient implements Serializable, Comparable<DossierPatient> 
 	int numero;
 	List<RendezVous> HistoriqueRendezVous = new ArrayList<RendezVous>();
 	List<BilanOrthophonique> HistoriqueBilansOrthophoniques = new ArrayList<BilanOrthophonique>();
-	// TODO: List<FicheSuivi> HistoriqueFichesSuivi
 	
-	public DossierPatient(int numero) {
-		this.numero = numero;
-	}
+	// Constructeur
+	public DossierPatient(int numero) { this.numero = numero; }
 	
-	public void archiverRendezVous(RendezVous rendezVous) {
-		HistoriqueRendezVous.add(rendezVous);
-		// TODO: Serialiser le rendez-vous et l'ecrire dans le fichier
-	}
+	// Getters et setters
+	public int getNumero() { return numero; }
 	
-	public void archiverBilanOrthophonique(BilanOrthophonique bilanOrthophonique) {
-		HistoriqueBilansOrthophoniques.add(bilanOrthophonique);
-		// TODO: Serialiser le bilan orthophonique et l'ecrire dans le fichier
-	}
+	public List<RendezVous> getHistoriqueRendezVous() { return HistoriqueRendezVous; }
 	
-	// TODO: archiverFicheSuivi(FicheSuivi fichesSuivi)
+	public List<BilanOrthophonique> getHistoriqueBilansOrthophoniques() { return HistoriqueBilansOrthophoniques; }
 	
-	@Override // Comparaison du numero pour le set
-    public int compareTo(DossierPatient autre) {
-        return Integer.compare(this.numero, autre.numero);
-    }
-
-	public static int getCompteurNumero() {
-		return compteurNumero;
-	}
+	// Autres methodes
+	@Override public int compareTo(DossierPatient autre) { return Integer.compare(this.numero, autre.numero); }
 	
-	public static void incrementerCompteurNumero() {
-		compteurNumero++;
-	}
+	public static int getCompteurNumero() { return compteurNumero; }
+	
+	public static void incrementerCompteurNumero() { compteurNumero++; }
+	
+	public void archiverRendezVous(RendezVous rendezVous) { HistoriqueRendezVous.add(rendezVous); }
+	
+	public void archiverBilanOrthophonique(BilanOrthophonique bilanOrthophonique) { HistoriqueBilansOrthophoniques.add(bilanOrthophonique); }
 }
