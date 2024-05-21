@@ -24,7 +24,7 @@ public final class Controlleur {
     public void afficherMenu() { vue.afficherMenuPrincipal(); }
     
     // Lire les informations personnelles de l'orthophoniste
-    public void lireInformationsOrthophoniste() { serviceOrthophoniste.inscrireOrthophoniste(vue.lireInformationsOrthophoniste()); }
+    public void lireInformationsOrthophoniste() { serviceOrthophoniste.setOrthophoniste(vue.lireInformationsOrthophoniste()); }
     
     // Afficher les informations de l'orthophoniste
     public void afficherInformationsOrthophoniste() { vue.afficherInformationsOrthophoniste(serviceOrthophoniste.getOrthophoniste()); }
@@ -43,6 +43,9 @@ public final class Controlleur {
     
     // Ajouter un rendez-vous a l'agenda
     public void confirmerRendezVous(RendezVous rendezVous) { serviceOrthophoniste.ajouterRendezVous(rendezVous); }
+    
+    // Rediger une observation pour un rendez-vous
+    public void redigerObservation(RendezVous rendezVous) { serviceOrthophoniste.ajouterObservation(rendezVous, vue.lireChaine("Observation : ")); }
     
     // Retourner l'agenda
     public List<RendezVous> getAgenda() { return serviceOrthophoniste.getAgenda(); }

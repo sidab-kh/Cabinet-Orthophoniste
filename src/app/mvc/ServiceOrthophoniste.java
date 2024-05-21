@@ -2,15 +2,19 @@ package app.mvc;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import app.data.patient.DossierPatient;
 import app.data.patient.Patient;
+import app.data.rdv.Atelier;
 import app.data.rdv.RendezVous;
+import app.data.rdv.SeanceSuivi;
 import app.util.exception.NumeroDossierExistantException;
 import app.util.persistance.OrthophonisteDAO;
 
+@SuppressWarnings("unused")
 public final class ServiceOrthophoniste {
 	private Controlleur controlleur;
 	private Orthophoniste orthophoniste = new Orthophoniste();
@@ -19,44 +23,43 @@ public final class ServiceOrthophoniste {
 	// Constructeur
 	public ServiceOrthophoniste(Controlleur controlleur) { this.controlleur = controlleur; }
 
-	// Inscrire l'orthophoniste
-	public void inscrireOrthophoniste(Orthophoniste orthophoniste) { this.orthophoniste = orthophoniste; }
+	// Definir l'orthophoniste
+	public void setOrthophoniste(Orthophoniste orthophoniste) { this.orthophoniste = orthophoniste; }
 	
 	// Retourner l'orthophoniste
 	public Orthophoniste getOrthophoniste() { return this.orthophoniste; }
     
 	// Ajouter un nouveau patient a la liste des nouveaux patients
-    public void ajouterNouveauPatient(Patient patient) { orthophoniste.nouveauxPatients.add(patient); }
+    public void ajouterNouveauPatient(Patient patient) { if (patient != null) orthophoniste.nouveauxPatients.add(patient); }
     
     // Ajouter un dossier au set de dossiers
  	public void ajouterDossierPatient(DossierPatient dossierPatient) throws NumeroDossierExistantException {
- 		if (orthophoniste.dossiersPatients.contains(dossierPatient)) throw new NumeroDossierExistantException();
-        orthophoniste.dossiersPatients.add(dossierPatient);
+ 		if (dossierPatient != null) {
+ 			if (orthophoniste.dossiersPatients.contains(dossierPatient)) throw new NumeroDossierExistantException();
+ 	        orthophoniste.dossiersPatients.add(dossierPatient);
+ 		}
     }
- 	
- 	// Mettre le patient dans la map, avec son numero de dossier comme cle
- 	public void enregistrerPatient(int numeroDossier, Patient patient) {
- 		orthophoniste.patients.put(numeroDossier, patient);
- 		orthophoniste.nouveauxPatients.remove(patient); // Supprimer le patient de la liste des nouveaux patients
- 	}
  	
  	// Creer un dossier pour un nouveau patient
  	public void creerDossierPatient(Patient patient) {
- 		if (orthophoniste.nouveauxPatients.contains(patient)) {
- 			DossierPatient dossier = new DossierPatient(DossierPatient.getCompteurNumero());
- 			try {
- 				ajouterDossierPatient(dossier);
- 			} catch (NumeroDossierExistantException e) {
+ 		if (patient != null && orthophoniste.nouveauxPatients.contains(patient)) {
+ 			int numeroDossier = DossierPatient.getCompteurNumero();
+ 			DossierPatient dossier = new DossierPatient(numeroDossier);
+ 			
+ 			try { ajouterDossierPatient(dossier); }
+ 			catch (NumeroDossierExistantException e) {
  	    		// TODO: Traiter l'exception
  	    	}
- 			enregistrerPatient(DossierPatient.getCompteurNumero(), patient);
- 			DossierPatient.incrementerCompteurNumero(); // Incrementer le compteur pour garentir l'unicite
+ 			
+ 			orthophoniste.patients.put(numeroDossier, patient);
+ 	 		orthophoniste.nouveauxPatients.remove(patient); // Supprimer le patient de la liste des nouveaux patients
+ 			DossierPatient.incrementerCompteurNumero(); // Incrementer le compteur pour garantir l'unicite
  		}	
  	}
  	
  	// Supprimer le dossier d'un patient (et le patient lui-meme)
  	public boolean supprimerDossierPatient(DossierPatient dossier) {
- 		if (orthophoniste.dossiersPatients.contains(dossier)) {
+ 		if (dossier != null && orthophoniste.dossiersPatients.contains(dossier)) {
  			orthophoniste.dossiersPatients.remove(dossier);
  			orthophoniste.patients.remove(dossier.getNumero());
  			return true;
@@ -70,13 +73,48 @@ public final class ServiceOrthophoniste {
  		return null;
  	}
 
-    // Ajouter un rendez-vous a l'agenda
-    public void ajouterRendezVous(RendezVous rendezVous) {
-    	orthophoniste.agenda.add(rendezVous);
-    }
-    
+ 	// Ajouter un rendez-vous a l'agenda
+ 	public void ajouterRendezVous(RendezVous rendezVous) {
+ 	    if (rendezVous != null && orthophoniste.agenda.add(rendezVous)) {
+ 	    	if (rendezVous instanceof Atelier) {
+ 	 	        // Ajouter le rendez-vous aux dossiers de tous les participants
+ 	 	        for (int numeroDossier : ((Atelier) rendezVous).getNumerosDossiers()) {
+ 	 	            DossierPatient dossier = dossierDeNumero(numeroDossier);
+ 	 	            if (dossier != null) dossier.ajouterRendezVous(rendezVous);
+ 	 	        }
+ 	 	    }
+
+ 	 	    if (rendezVous instanceof SeanceSuivi) {
+ 	 	        // Ajouter le rendez-vous au dossier du participant
+ 	 	        DossierPatient dossier = dossierDeNumero(((SeanceSuivi) rendezVous).getNumeroDossier());
+ 	 	        if (dossier != null) dossier.ajouterRendezVous(rendezVous);
+ 	 	    }
+ 	    }
+ 	}
+ 	
+ 	// Annuler un rendez-vous (le supprimer)
+ 	public void annulerRendezVous(RendezVous rendezVous) {
+ 	    if (rendezVous != null && orthophoniste.agenda.remove(rendezVous)) {
+ 	     
+ 	        if (rendezVous instanceof Atelier) {
+ 	        	// Supprimer le rendez-vous des dossiers de tous les participants
+ 	            for (int numeroDossier : ((Atelier) rendezVous).getNumerosDossiers()) {
+ 	                DossierPatient dossier = dossierDeNumero(numeroDossier);
+ 	                if (dossier != null) dossier.supprimerRendezVous(rendezVous);
+ 	            }
+ 	        }
+
+ 	        if (rendezVous instanceof SeanceSuivi) {
+ 	        	// Supprimer le rendez-vous du dossier du participant
+ 	            DossierPatient dossier = dossierDeNumero(((SeanceSuivi) rendezVous).getNumeroDossier());
+ 	            if (dossier != null) dossier.supprimerRendezVous(rendezVous);
+ 	        }
+ 	    }
+ 	}
+
     // Verifier la disponibilite de l'orthophoniste a une date et heure donnees
     public boolean estDisponible(LocalDateTime dateEtHeure) {
+    	if (dateEtHeure == null) return false;
         for (RendezVous rdv : orthophoniste.agenda) {
         	// Verifier si la date et l'heure demandees se situent pendant le rendez-vous
             if (rdv.getDateEtHeure().equals(dateEtHeure) || (dateEtHeure.isAfter(rdv.getDateEtHeure()) &&
@@ -86,18 +124,20 @@ public final class ServiceOrthophoniste {
     }
     
     // Verifier si un dossier existe
-    public boolean existe(int numeroDossier) { return dossierDeNumero(numeroDossier) != null &&
-    		orthophoniste.dossiersPatients.contains(dossierDeNumero(numeroDossier)); }
+    public boolean existe(int numeroDossier) { return dossierDeNumero(numeroDossier) != null; }
     
     // Retourner l'agenda
-    public List<RendezVous> getAgenda() { return orthophoniste.agenda; }
+    public List<RendezVous> getAgenda() { return new ArrayList<>(orthophoniste.agenda); }
     
     // Retourner les dossiers des patients
-    public Set<DossierPatient> getDossiersPatients() { return orthophoniste.dossiersPatients; }
+    public Set<DossierPatient> getDossiersPatients() { return new HashSet<>(orthophoniste.dossiersPatients); }
     
     // Retourner les nouveaux patients
-    public List<Patient> getNouveauxPatients() { return orthophoniste.nouveauxPatients; }
+    public List<Patient> getNouveauxPatients() { return new ArrayList<>(orthophoniste.nouveauxPatients); }
     
     // Retourner la liste des patients
-    List<Patient> getPatients() { return new ArrayList<>(orthophoniste.patients.values()); }
+    public List<Patient> getPatients() { return new ArrayList<>(orthophoniste.patients.values()); }
+    
+    // Ajouter une observation pour un rendez-vous
+    public void ajouterObservation(RendezVous rendezVous, String observation) { if (rendezVous != null) rendezVous.setObservation(observation); }
 }

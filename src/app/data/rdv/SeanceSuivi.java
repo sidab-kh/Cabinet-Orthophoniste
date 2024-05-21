@@ -14,6 +14,15 @@ public class SeanceSuivi extends RendezVous {
 		this.presentiel = presentiel;
 	}
 	
+	// Getters et setters
+	public int getNumeroDossier() { return numeroDossier; }
+
+	public void setNumeroDossier(int numeroDossier) { this.numeroDossier = numeroDossier; }
+
+	public boolean isPresentiel() { return presentiel; }
+
+	public void setPresentiel(boolean presentiel) { this.presentiel = presentiel; }
+
 	// Autres methodes
 	public void afficher() {
 		System.out.print("- Seance de suivi/ ");

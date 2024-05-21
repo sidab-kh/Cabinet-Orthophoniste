@@ -1,9 +1,10 @@
 package app.util.persistance;
 
+@SuppressWarnings("unused")
 public class OrthophonisteDAO {
 
 	// Patron de conception "DAO" (Data Access Object)
-    private static final String FICHIER = "orthophoniste.ser";
+	private static final String FICHIER = "orthophoniste.ser";
 
     // TODO: public static void sauvegarder(Orthophoniste orthophoniste) throws IOException {}
 

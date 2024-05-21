@@ -1,9 +1,10 @@
 package app.util.persistance;
 
+@SuppressWarnings("unused")
 public class PatientDAO {
 
 	// Patron de conception "DAO" (Data Access Object)
-    private static final String FICHIER = "patients.ser";
+	private static final String FICHIER = "patients.ser";
 
     // TODO: public static void sauvegarder(Map<Integer, Patient> patients) throws IOException {}
 

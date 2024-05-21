@@ -10,8 +10,8 @@ import app.data.rdv.RendezVous;
 public class DossierPatient implements Serializable, Comparable<DossierPatient> {
 	private static int compteurNumero;
 	int numero;
-	List<RendezVous> HistoriqueRendezVous = new ArrayList<RendezVous>();
-	List<BilanOrthophonique> HistoriqueBilansOrthophoniques = new ArrayList<BilanOrthophonique>();
+	List<RendezVous> listeRendezVous = new ArrayList<RendezVous>();
+	List<BilanOrthophonique> listeBilansOrthophoniques = new ArrayList<BilanOrthophonique>();
 	
 	// Constructeur
 	public DossierPatient(int numero) { this.numero = numero; }
@@ -19,9 +19,9 @@ public class DossierPatient implements Serializable, Comparable<DossierPatient> 
 	// Getters et setters
 	public int getNumero() { return numero; }
 	
-	public List<RendezVous> getHistoriqueRendezVous() { return HistoriqueRendezVous; }
+	public List<RendezVous> getListRendezVous() { return listeRendezVous; }
 	
-	public List<BilanOrthophonique> getHistoriqueBilansOrthophoniques() { return HistoriqueBilansOrthophoniques; }
+	public List<BilanOrthophonique> getListBilansOrthophoniques() { return listeBilansOrthophoniques; }
 	
 	// Autres methodes
 	@Override public int compareTo(DossierPatient autre) { return Integer.compare(this.numero, autre.numero); }
@@ -30,7 +30,9 @@ public class DossierPatient implements Serializable, Comparable<DossierPatient> 
 	
 	public static void incrementerCompteurNumero() { compteurNumero++; }
 	
-	public void archiverRendezVous(RendezVous rendezVous) { HistoriqueRendezVous.add(rendezVous); }
+	public void ajouterRendezVous(RendezVous rendezVous) { listeRendezVous.add(rendezVous); }
+	public void supprimerRendezVous(RendezVous rendezVous) { listeRendezVous.remove(rendezVous); }
 	
-	public void archiverBilanOrthophonique(BilanOrthophonique bilanOrthophonique) { HistoriqueBilansOrthophoniques.add(bilanOrthophonique); }
+	public void ajouterBilanOrthophonique(BilanOrthophonique bilanOrthophonique) { listeBilansOrthophoniques.add(bilanOrthophonique); }
+	public void supprimerBilanOrthophonique(BilanOrthophonique bilanOrthophonique) { listeBilansOrthophoniques.remove(bilanOrthophonique); }
 }

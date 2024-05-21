@@ -15,6 +15,15 @@ public class Atelier extends RendezVous {
 		this.numerosDossiers = numerosDossiers;
 	}
 	
+	// Getters et setters
+	public String getThematique() { return thematique; }
+
+	public void setThematique(String thematique) { this.thematique = thematique; }
+
+	public List<Integer> getNumerosDossiers() { return numerosDossiers; }
+
+	public void setNumerosDossiers(List<Integer> numerosDossiers) { this.numerosDossiers = numerosDossiers; }
+
 	// Autres methodes
 	public void afficher() {
 		System.out.print("- Atelier/ ");
