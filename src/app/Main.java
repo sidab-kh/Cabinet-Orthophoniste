@@ -31,6 +31,7 @@ public class Main extends Application {
 
 	        // Ajouter l'icone de l'application
 	        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/assets/appicon.png")));
+	        primaryStage.setResizable(false);
 
 	        // Afficher le stage principal
 	        primaryStage.show();

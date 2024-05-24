@@ -36,9 +36,9 @@ public class InscriptionController {
 
     @FXML
     private Button connexionButton;
-
+    
     @FXML
-    private Text inscriptionText;
+    private Text erreurText;
     
     @FXML
     private void initialize() { controlleur = Controlleur.getInstance(); }

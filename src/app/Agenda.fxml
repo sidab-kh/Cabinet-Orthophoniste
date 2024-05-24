@@ -79,7 +79,7 @@
                   <Font size="30.0" />
                </font>
                <fill>
-                  <LinearGradient endX="1.0" endY="1.0" startX="0.8483412322274881" startY="0.23222748815165878">
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.962085308056872" startY="0.23222748815165878">
                      <stops>
                         <Stop>
                            <color>
@@ -130,7 +130,7 @@
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color />
+                              <Color red="0.21052631735801697" green="0.21052631735801697" blue="0.21052631735801697" />
                            </color>
                         </Stop>
                      </stops>
