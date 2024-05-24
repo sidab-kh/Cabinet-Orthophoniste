@@ -1,9 +1,10 @@
 package app.data.bilans;
+
 import java.io.Serializable;
 import java.util.List;
 
-import enumerations.ETypesPatients;
-import question.QO;
+import app.data.questions.QO;
+import app.util.enumerations.ETypesPatients;
 
 @SuppressWarnings("serial")
 public class Anamnese implements Serializable {

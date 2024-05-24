@@ -2,8 +2,6 @@ package app.data.tests;
 
 import java.io.Serializable;
 
-import app.util.enumerations.ECapacites;
-
 // Les epreuves cliniques sont composees de tests
 // Deux sous-classes : TestExercices, TestQuestionnaire
 @SuppressWarnings("serial")

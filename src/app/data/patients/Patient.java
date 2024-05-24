@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.Period;
 
 import app.util.Affichable;
+import app.util.enumerations.ETypesPatients;
 
 @SuppressWarnings("serial")
 public abstract class Patient implements Serializable, Affichable {

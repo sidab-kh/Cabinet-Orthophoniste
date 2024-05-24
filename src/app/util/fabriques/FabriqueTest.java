@@ -7,7 +7,6 @@ import app.data.questions.Question;
 import app.data.tests.Exercice;
 import app.data.tests.TestExercices;
 import app.data.tests.TestQuestionnaire;
-import app.util.enumerations.ECapacites;
 
 // Patron de conception "Factory Method", sert a encapsuler les instanciations
 public class FabriqueTest {

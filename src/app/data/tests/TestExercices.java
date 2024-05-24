@@ -5,8 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import app.util.enumerations.ECapacites;
-
 @SuppressWarnings("serial")
 public class TestExercices extends Test {
 //	List<Exercice> exercices = new ArrayList<Exercice>();

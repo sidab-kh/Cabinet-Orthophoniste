@@ -1,4 +1,4 @@
-package question;
+package app.data.questions;
 
 public class Proposition {
     private String enonce;

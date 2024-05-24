@@ -6,11 +6,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import app.data.bilans.Anamnese;
 import app.data.patients.DossierPatient;
 import app.data.patients.Patient;
 import app.data.rendezvous.Atelier;
 import app.data.rendezvous.RendezVous;
 import app.data.rendezvous.SeanceSuivi;
+import app.data.tests.Test;
 import app.util.exceptions.NumeroDossierExistantException;
 import app.util.persistance.OrthophonisteDAO;
 
@@ -145,4 +147,12 @@ public final class ServiceOrthophoniste {
     
     // Supprimer l'orthophoniste
     public boolean supprimerOrthophoniste() { return orthophonisteDAO.supprimer(); }
+    
+	public void ajouterAnamnese(Anamnese anamnese) {
+        orthophoniste.anamneses.add(anamnese);
+	}
+    
+	public void ajouterTest(Test test) {
+        orthophoniste.tests.add(test);
+	}
 }

@@ -30,7 +30,7 @@ public class OrthophonisteDAO {
     	catch (Exception e) { return null; }
     }
     
-    // Supprimer l'orthophoniste
+    // Supprimer l'orthophoniste de la machine
     public boolean supprimer() {
         File file = new File(fichier);
         if (file.exists()) { return file.delete(); }

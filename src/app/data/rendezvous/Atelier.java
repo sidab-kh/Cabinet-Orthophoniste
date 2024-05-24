@@ -1,7 +1,10 @@
 package app.data.rendezvous;
+
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
+
+import app.util.enumerations.ETypesRendezVous;
 
 @SuppressWarnings("serial")
 public class Atelier extends RendezVous {
@@ -32,4 +35,6 @@ public class Atelier extends RendezVous {
 		for (int numeroDossier : numerosDossiers) { System.out.print(numeroDossier + " "); }
 		System.out.println();
 	}
+	
+	public ETypesRendezVous getType() { return ETypesRendezVous.ATELIER; }
 }

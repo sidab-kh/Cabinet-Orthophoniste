@@ -2,6 +2,8 @@ package app.data.rendezvous;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
+import app.util.enumerations.ETypesRendezVous;
+
 @SuppressWarnings("serial")
 public class SeanceSuivi extends RendezVous {
 	int numeroDossier;
@@ -29,4 +31,6 @@ public class SeanceSuivi extends RendezVous {
 		super.afficher();
 		System.out.println(String.format("Numero dossier: %s, en %s.", numeroDossier, presentiel ? "presentiel" : "ligne"));
 	}
+	
+	public ETypesRendezVous getType() { return ETypesRendezVous.SEANCE_SUIVI; }
 }

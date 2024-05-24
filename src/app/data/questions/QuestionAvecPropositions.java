@@ -1,7 +1,8 @@
-package question;
+package app.data.questions;
 
 import java.util.List;
 
+@SuppressWarnings("serial")
 public abstract class QuestionAvecPropositions extends Question {
 	List<Proposition> propositions;
 	

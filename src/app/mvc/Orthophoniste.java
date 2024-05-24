@@ -2,20 +2,19 @@ package app.mvc;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import app.data.bilans.Anamnese;
 import app.data.patients.DossierPatient;
 import app.data.patients.Patient;
 import app.data.rendezvous.RendezVous;
+import app.data.tests.Test;
 import app.util.CryptageMotDePasse;
 
-// Cette classe joue le role de "Model" dans l'architecture MVC
-// Contient les donnees de l'orthophoniste
 @SuppressWarnings("serial")
 public final class Orthophoniste implements Serializable {
 	

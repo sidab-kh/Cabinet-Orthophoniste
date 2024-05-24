@@ -2,12 +2,10 @@ package app.data.tests;
 
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import app.data.questions.Question;
-import app.util.enumerations.ECapacites;
 
 @SuppressWarnings("serial")
 public class TestQuestionnaire extends Test {
@@ -24,7 +22,7 @@ public class TestQuestionnaire extends Test {
 	public float calculerScoreTotal() {
 		int scoreTotal = 0;
 		for (Map.Entry<Question, Integer> entry : compteRendu.entrySet()) {
-			scoreTotal =+ entry.getValue();			
+			scoreTotal += entry.getValue();			
 		}
 		return scoreTotal;
 	}

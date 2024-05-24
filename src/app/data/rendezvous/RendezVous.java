@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 
 import app.util.Affichable;
+import app.util.enumerations.ETypesRendezVous;
 
 // Sous-classes: Atelier, Consultation, SeanceSuivi
 @SuppressWarnings("serial")

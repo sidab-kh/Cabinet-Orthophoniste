@@ -1,4 +1,4 @@
-package enumerations;
+package app.util.enumerations;
 
 public enum ECategoriesQoEnfant implements ECategoriesQOs {
 	STRUCTURE_FAMILIALE,
