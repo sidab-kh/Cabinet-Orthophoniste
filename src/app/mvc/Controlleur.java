@@ -7,18 +7,22 @@ import java.util.Set;
 import app.data.patients.DossierPatient;
 import app.data.patients.Patient;
 import app.data.rendezvous.RendezVous;
+import app.util.CryptageMotDePasse;
 import app.util.enumerations.ETypesRendezVous;
 
 public final class Controlleur {
-	
-	private ServiceOrthophoniste serviceOrthophoniste;
-    private Vue vue;
 
-    // Constructeur
-    public Controlleur() {
-        this.serviceOrthophoniste = new ServiceOrthophoniste();
-        this.vue = new Vue(this);
+    private static final Controlleur instance = new Controlleur();
+    private ServiceOrthophoniste serviceOrthophoniste;
+	private Vue vue;
+	
+    // Constructeur prive
+    private Controlleur() {
+	   this.serviceOrthophoniste = new ServiceOrthophoniste();
+	   this.vue = new Vue(this);
     }
+
+    public static Controlleur getInstance() { return instance; }
     
     // Afficher le menu principal
     public void afficherMenu() { vue.afficherMenuPrincipal(); }
@@ -72,24 +76,32 @@ public final class Controlleur {
     }
 
     // Premiere inscription de l'orthophoniste
-    public void insription() {
-    	Orthophoniste nouvelOrthophoniste = vue.lireInformationsOrthophoniste();
+    public void inscription(Orthophoniste nouvelOrthophoniste) {
     	serviceOrthophoniste.setOrthophoniste(nouvelOrthophoniste);
     	serviceOrthophoniste.sauvegarderOrthophoniste();
     }
     
     // Mettre au point la connexion
-    public void connexion() {
+    public int connexion(String email, String motDePasse) {
+    	// Cas champs vides
+    	if (email.isEmpty() || motDePasse.isEmpty()) return 0;
+    	
+    	// Charger l'orthophoniste
     	Orthophoniste orthophonisteCharge = serviceOrthophoniste.chargerOrthophoniste();
-    	if (vue.connexion(orthophonisteCharge)) {
-    		serviceOrthophoniste.setOrthophoniste(orthophonisteCharge);
-    	}
+    	
+    	// Cas compte inexistant
+    	if (orthophonisteCharge == null || !email.equals(orthophonisteCharge.getEmail())) return 1;
+    	
+    	// Cas mot de passe errone
+    	if (!CryptageMotDePasse.verifierMotDePasse(motDePasse, orthophonisteCharge.getMotDePasseCrypte())) return 2;
+    	
+    	// Connexion reussie
+    	return 3;
     }
 
     // Se deconnecter
     public void deconnexion() {
-    	serviceOrthophoniste = null;
-    	vue.afficher_("Deconnexion reussie.");
+    	serviceOrthophoniste.setOrthophoniste(null);
     }
     
     // Supprimer l'orthophoniste de la machine

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.InscriptionController">
+   <right>
+      <AnchorPane prefHeight="200.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="nomField" layoutX="71.0" layoutY="168.0" prefHeight="40.0" prefWidth="145.0" promptText="Nom" style="-fx-background-color: #EDEDED; -fx-border-color: #000000; -fx-border-width: 0px 0px 0px 5px; -fx-padding: 0px 0px 0px 10px; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;">
+               <font>
+                  <Font name="Segoe UI Semilight" size="13.0" />
+               </font>
+            </TextField>
+            <Button layoutX="251.0" layoutY="453.0" mnemonicParsing="false" onAction="#handleInscriptionButtonAction" prefHeight="36.0" prefWidth="120.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Inscription" textAlignment="CENTER">
+               <font>
+                  <Font name="Segoe UI Semilight" size="14.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="0.2085308056872038">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.8421052694320679" green="0.8421052694320679" blue="0.8421052694320679" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="25.0" layoutY="173.0" opacity="0.9">
+               <image>
+                  <Image url="@../assets/icon1.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="28.0" layoutY="143.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Inscription">
+               <font>
+                  <Font size="27.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.5657894611358643" green="0.5657894611358643" blue="0.5657894611358643" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <TextField fx:id="adresseField" layoutX="71.0" layoutY="224.0" prefHeight="40.0" prefWidth="300.0" promptText="Adresse" style="-fx-background-color: #EDEDED; -fx-border-color: #000000; -fx-border-width: 0px 0px 0px 5px; -fx-padding: 0px 0px 0px 10px; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;">
+               <font>
+                  <Font name="Segoe UI Semilight" size="13.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="emailField" layoutX="71.0" layoutY="337.0" prefHeight="40.0" prefWidth="300.0" promptText="Email" style="-fx-background-color: #EDEDED; -fx-border-color: #000000; -fx-border-width: 0px 0px 0px 5px; -fx-padding: 0px 0px 0px 10px; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;">
+               <font>
+                  <Font name="Segoe UI Semilight" size="13.0" />
+               </font>
+            </TextField>
+            <PasswordField fx:id="motDePasseField" layoutX="71.0" layoutY="394.0" prefHeight="40.0" prefWidth="300.0" promptText="Mot de passe" style="-fx-background-color: #EDEDED; -fx-border-color: #000000; -fx-border-width: 0px 0px 0px 5px; -fx-padding: 0px 0px 0px 10px; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;">
+               <font>
+                  <Font name="Segoe UI Semilight" size="13.0" />
+               </font>
+            </PasswordField>
+            <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="27.0" layoutY="401.0" opacity="0.9">
+               <image>
+                  <Image url="@../assets/icon2.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="28.0" layoutY="289.0" opacity="0.9">
+               <image>
+                  <Image url="@../assets/icon7.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="26.0" layoutY="343.0" opacity="0.9">
+               <image>
+                  <Image url="@../assets/icon6.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="25.0" layoutY="229.0" opacity="0.9">
+               <image>
+                  <Image url="@../assets/icon5.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="345.0" layoutY="15.0">
+               <image>
+                  <Image url="@../assets/icon4.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="prenomField" layoutX="232.0" layoutY="168.0" prefHeight="40.0" prefWidth="139.0" promptText="Prenom" style="-fx-background-color: #EDEDED; -fx-border-color: #000000; -fx-border-width: 0px 0px 0px 5px; -fx-padding: 0px 0px 0px 10px; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;">
+               <font>
+                  <Font name="Segoe UI Semilight" size="13.0" />
+               </font>
+            </TextField>
+            <Button layoutX="144.0" layoutY="453.0" mnemonicParsing="false" onAction="#handleConnexionButtonAction" prefHeight="36.0" prefWidth="91.0" style="-fx-background-color: #E0E0E0; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Connexion" textAlignment="CENTER">
+               <font>
+                  <Font name="Segoe UI Semilight" size="14.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="0.3886255924170616">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.6052631735801697" green="0.6052631735801697" blue="0.6052631735801697" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <TextField fx:id="telephoneField" layoutX="71.0" layoutY="280.0" prefHeight="40.0" prefWidth="300.0" promptText="Numéro de téléphone" style="-fx-background-color: #EDEDED; -fx-border-color: #000000; -fx-border-width: 0px 0px 0px 5px; -fx-padding: 0px 0px 0px 10px; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;">
+               <font>
+                  <Font name="Segoe UI Semilight" size="13.0" />
+               </font>
+            </TextField>
+         </children>
+      </AnchorPane>
+   </right>
+   <left>
+      <AnchorPane prefHeight="200.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="600.0" fitWidth="400.0" opacity="0.4">
+               <viewport>
+                  <Rectangle2D />
+               </viewport>
+               <image>
+                  <Image url="@../assets/design2.jpg" />
+               </image>
+            </ImageView>
+            <Text layoutX="52.0" layoutY="341.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 900; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Orthy.">
+               <font>
+                  <Font size="100.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.8483412322274881" startY="0.23222748815165878">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <Text layoutX="52.0" layoutY="257.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Bienvenue sur">
+               <font>
+                  <Font size="23.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="1.0" endY="0.2085308056872038">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.34210526943206787" green="0.34210526943206787" blue="0.34210526943206787" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="20.0" layoutY="540.0">
+               <image>
+                  <Image url="@../assets/icon3.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ChargementController">
+   <top>
+      <AnchorPane prefHeight="450.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="450.0" fitWidth="800.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../assets/design3.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </top>
+   <bottom>
+      <AnchorPane prefHeight="150.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text layoutX="124.0" layoutY="99.0" opacity="0.95" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 900; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Orthy.">
+               <font>
+                  <Font size="75.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.8483412322274881" startY="0.23222748815165878">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.006711409395973154">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <Text layoutX="529.0" layoutY="82.0" opacity="0.8" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Facilitez votre vie d'orthophoniste.">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="0.5071090047393364" endY="0.7298578199052133" startX="0.014218009478672985" startY="0.5876777251184835">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.21052631735801697" green="0.21052631735801697" blue="0.21052631735801697" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <ImageView fitHeight="80.0" fitWidth="80.0" layoutX="29.0" layoutY="36.0">
+               <image>
+                  <Image url="@../assets/icon3.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>

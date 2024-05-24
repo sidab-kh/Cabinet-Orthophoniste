@@ -31,7 +31,7 @@ public final class Vue {
         String adresse = lireChaine("Adresse: ");
         String email = lireChaine("Email: ");
         String motDePasse = lireChaine("Mot de passe: ");
-        int numeroTelephone = lireEntier("Numero de telephone: ");
+        String numeroTelephone = lireChaine("Numero de telephone: ");
         afficher_("Informations de l'orthophoniste enregistrées avec succès.");
         
         sautCar();

@@ -19,8 +19,7 @@ import app.util.CryptageMotDePasse;
 public final class Orthophoniste implements Serializable {
 	
 	// Ces champs sont prives car ils sont confidentiels
-	private String nom, prenom, adresse, email, motDePasseCrypte;
-    private int numeroTelephone;
+	private String nom, prenom, adresse, email, motDePasseCrypte, numeroTelephone;
     
     // Ceux-ci sont en acces package puisqu'ils ne sont pas confidentiels et le Service Layer en a besoin constamment
     List<RendezVous> agenda = new ArrayList<RendezVous>();
@@ -32,7 +31,7 @@ public final class Orthophoniste implements Serializable {
     public Orthophoniste() {}
     
     // Constructeur
-	public Orthophoniste(String nom, String prenom, String adresse, String email, String motDePasse, int numeroTelephone) {
+	public Orthophoniste(String nom, String prenom, String adresse, String email, String motDePasse, String numeroTelephone) {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.adresse = adresse;
@@ -49,6 +48,6 @@ public final class Orthophoniste implements Serializable {
 	String getEmail() { return email; }
 	void setEmail(String email) { this.email = email; }
 	String getMotDePasseCrypte() { return motDePasseCrypte; }
-	int getNumeroTelephone() { return numeroTelephone; }
-	void setNumeroTelephone(int numeroTelephone) { this.numeroTelephone = numeroTelephone; }
+	String getNumeroTelephone() { return numeroTelephone; }
+	void setNumeroTelephone(String numeroTelephone) { this.numeroTelephone = numeroTelephone; }
 }
