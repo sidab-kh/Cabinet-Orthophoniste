@@ -3,6 +3,8 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import enumerations.ETypesRendezVous;
+
 @SuppressWarnings("serial")
 public class Atelier extends RendezVous {
 	String thematique;
@@ -14,4 +16,6 @@ public class Atelier extends RendezVous {
 		this.thematique = thematique;
 		this.numerosDossiers = numerosDossiers;
 	}
+
+	public ETypesRendezVous getType() { return ETypesRendezVous.ATELIER; }
 }

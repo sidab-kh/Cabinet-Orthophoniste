@@ -1,18 +1,5 @@
 package enumerations;
 
-public enum ECategoriesQOs {
-	AUCUNE,
-	
-	// Pour adulte
-	HISTOIRE_MALADIE,
-	SUIVI_MEDICAL,
-	
-	// Pour enfant
-	STRUCTURE_FAMILIALE,
-	DYNAMIQUE_FAMILIALE,
-	ANTECEDENTS_FAMILIAUX,
-	CONDITIONS_NATALES,
-	DEVELOPPEMENT_PSYCHOMOTEUR,
-	DEVELOPPEMENT_LANGAGIER,
-	COMPORTEMENT
+public interface ECategoriesQOs {
+
 }

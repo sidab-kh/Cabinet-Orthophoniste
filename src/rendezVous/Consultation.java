@@ -1,6 +1,8 @@
 package rendezVous;
 import java.time.Duration;
 import java.time.LocalDateTime;
+
+import enumerations.ETypesRendezVous;
 import patient.Patient;
 
 @SuppressWarnings("serial")
@@ -12,4 +14,9 @@ public class Consultation extends RendezVous {
 		super(dateEtHeure, duree);
 		this.patient = patient;
 	}
+
+	public ETypesRendezVous getType() { return ETypesRendezVous.CONSULTATION; }
+	
+	public Patient getPatient() { return patient; };
+	
 }

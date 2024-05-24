@@ -2,6 +2,7 @@ package test;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -13,13 +14,25 @@ public class TestQuestionnaire extends Test {
 	Map<Question, Integer> compteRendu = new HashMap<Question, Integer>();
 
 	// Constructeur
-	public TestQuestionnaire(String nom, ECapacites capacite, HashSet<Question> questionnaire) {
+	public TestQuestionnaire(String nom, String capacite, HashSet<Question> questionnaire) {
 		super(nom, capacite);
 		this.questionnaire = questionnaire;
 	}
 
 	@Override // Redefinition de calculerScoreTotal()
 	public float calculerScoreTotal() {
-		return -1; // Calculer simplement la somme des scores
+		int scoreTotal = 0;
+		for (Map.Entry<Question, Integer> entry : compteRendu.entrySet()) {
+			scoreTotal =+ entry.getValue();			
+		}
+		return scoreTotal;
+	}
+
+	public Set<Question> getQuestions() {
+		return questionnaire;
+	}
+
+	public void setCompteRendu(Map<Question, Integer> compteRendu) {
+		this.compteRendu = compteRendu;
 	}
 }

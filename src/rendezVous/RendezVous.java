@@ -3,6 +3,8 @@ import java.io.Serializable;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
+import enumerations.ETypesRendezVous;
+
 // Sous-classes: Atelier, Consultation, SeanceSuivi
 @SuppressWarnings("serial")
 public abstract class RendezVous implements Serializable {
@@ -27,4 +29,5 @@ public abstract class RendezVous implements Serializable {
 	public LocalDateTime calculerHeureFin() {
 	    return dateEtHeure.plus(duree);
 	}
+	public abstract ETypesRendezVous getType();
 }

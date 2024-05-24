@@ -2,14 +2,18 @@ package mvc;
 
 import java.time.LocalDateTime;
 
+import bilanOrthophonique.Anamnese;
+import enumerations.*;
 import patient.Patient;
+import rendezVous.*;
 import rendezVous.RendezVous;
+import test.Test;
 
 // Cette classe joue le role de "Controller" dans l'architecture MVC
 // Cette classe doit rester simple et se contenter de donner les ordres
 public final class Controlleur {
 
-	private ServiceOrthophoniste serviceOrthophoniste; // Operations
+	public ServiceOrthophoniste serviceOrthophoniste; // Operations
     private Vue vue; // Affichages
     
     public Controlleur() {
@@ -57,5 +61,57 @@ public final class Controlleur {
     // Verifier la disponibilite de l'orthophoniste
     public boolean orthophonisteDisponible(LocalDateTime DateEtHeure) {
     	return serviceOrthophoniste.estDisponible(DateEtHeure);
+    }
+    
+    public void deroulerRdv(int rdvCode) {
+    	try {
+    		RendezVous rdv = serviceOrthophoniste.getOrthophoniste().agenda.get(rdvCode);
+    		switch (rdv.getType()) {
+				case CONSULTATION:
+					vue.deroulerConsultation((Consultation)rdv);
+		        	break;
+		        case SEANCESUIVI:
+//					vue.deroulerSeanceSuivi((SeanceSuivi)rdv);
+		        	break;	
+				case ATELIER:
+//					vue.deroulerAtelier((Atelier)rdv);
+		        	break;				
+				default:
+					break;
+			}
+		} catch (IndexOutOfBoundsException e) {
+			 vue.afficherErreur("Le rendez-vous à derouler n'existe pas");
+		}
+    }
+    
+    // Créer une nouvelle anamnese pour l'orthophoniste
+    public void ajouterNouvelleAnamnese() {
+    	Anamnese anamnese = vue.lireAnamnese();
+    	if (anamnese != null) {
+    		serviceOrthophoniste.ajouterAnamnese(anamnese);
+            vue.afficher("Anamnèse ajoutée avec succès.");
+        } else {
+            vue.afficherErreur("Échec de l'ajout de l'anamnèse.");
+        }
+    }
+    
+    // Créer un nouveau test pour l'orthophoniste
+    public void ajouterNouveauTest() {
+    	String typeTest = vue.lireChaine("Entrez le type du test "
+    			+ "(exercice/questionnaire) : ").toLowerCase();
+    	Test test = null;
+    	switch(typeTest) {
+    	case "exercice" :
+    		test = vue.lireTestExercices();
+    		break;
+    	case "questionnaire" :
+    		test = vue.lireTestQuestionnaire();
+    		break;
+    	default :
+    		vue.afficherErreur("Type invalide.");
+    		return;
+    	}
+    	serviceOrthophoniste.ajouterTest(test);
+    	vue.afficher("Test ajouté avec succès.");
     }
 }

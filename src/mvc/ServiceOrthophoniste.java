@@ -1,12 +1,15 @@
 package mvc;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
+import bilanOrthophonique.Anamnese;
 import exceptionsPersonnalisees.NumeroDossierExistantException;
 import patient.DossierPatient;
 import patient.Patient;
 import persistance.OrthophonisteDAO;
 import rendezVous.RendezVous;
+import test.Test;
 
 // Cette classe represente le patron de conception "Service Layer", colle bien avec la structure MVC
 // Fournit tous les services possibles a l'orthophoniste, c'est l'unique classe ayant acces direct au modele (Orthophoniste)
@@ -77,4 +80,30 @@ public class ServiceOrthophoniste {
         // Si aucun rendez-vous ne correspond, l'orthophoniste est disponible
         return true;
     }
+    
+    //Visualiser l'agenda de l'orthophoniste
+    public void afficherAgenda() {
+    	LocalDateTime maintenant = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        System.out.println("Agenda de l'orthophoniste (date actuelle: " + maintenant.format(formatter) + ")\n");
+        
+        for (int i = 0; i < orthophoniste.agenda.size(); i++) {
+            RendezVous rdv = orthophoniste.agenda.get(i);
+        	System.out.println("Code: " + i);
+            System.out.println("Type: " + rdv.getType());
+            System.out.println("Date et heure: " + rdv.getDateEtHeure().format(formatter));
+            System.out.println("Durée: " + rdv.getDuree().toHours() + " heures");
+            System.out.println("Heure de fin: " + rdv.calculerHeureFin().format(formatter));
+            System.out.println("------------------------------");
+        }
+    }
+
+	public void ajouterAnamnese(Anamnese anamnese) {
+        orthophoniste.anamneses.add(anamnese);
+	}
+    
+	public void ajouterTest(Test test) {
+        orthophoniste.tests.add(test);
+	}
+	
 }

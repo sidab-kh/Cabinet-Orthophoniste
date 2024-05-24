@@ -1,9 +1,16 @@
 package question;
 
-public class Question {
-	private int score;
+abstract public class Question {
+	private String enonce;
 	
+	public Question(String enonce) {
+		this.enonce = enonce;
+	}
 	// Getters et setters
-	public int getScore() {return score; }
-    public void setScore(int score) { this.score = score; } 
+    public String getEnonce() { return enonce; }
+    
+    @Override
+    public int hashCode() {
+    	return enonce.hashCode();
+    }
 }

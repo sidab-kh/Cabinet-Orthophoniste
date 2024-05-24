@@ -2,15 +2,18 @@ package mvc;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import bilanOrthophonique.Anamnese;
 import patient.DossierPatient;
 import patient.Patient;
 import rendezVous.RendezVous;
+import test.Test;
 
 // Cette classe joue le role de "Model" dans l'architecture MVC
 // Contient les donnees de l'orthophoniste
@@ -26,6 +29,8 @@ public final class Orthophoniste implements Serializable {
     Set<DossierPatient> dossiersPatients = new TreeSet<DossierPatient>(); // Mis dans l'ordre pour faciliter la recherche
     List<Patient> nouveauxPatients = new ArrayList<Patient>(); // Pour y mettre les nouveaux patients qui n'ont pas encore de dossier
     Map<Integer, Patient> patients = new TreeMap<Integer, Patient>(); // Pour y mettre les patients avec comme cle leurs numeros de dossier
+    List<Anamnese> anamneses = new ArrayList<Anamnese>();
+    List<Test> tests = new ArrayList<Test>();
     
     // Constructeur par defaut
     public Orthophoniste() {}

@@ -2,6 +2,8 @@ package rendezVous;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
+import enumerations.ETypesRendezVous;
+
 @SuppressWarnings("serial")
 public class SeanceSuivi extends RendezVous {
 	int numeroDossier;
@@ -13,4 +15,6 @@ public class SeanceSuivi extends RendezVous {
 		this.numeroDossier = numeroDossier;
 		this.presentiel = presentiel;
 	}
+
+	public ETypesRendezVous getType() { return ETypesRendezVous.SEANCESUIVI; }
 }

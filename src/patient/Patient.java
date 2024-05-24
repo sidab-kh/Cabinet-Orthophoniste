@@ -3,6 +3,8 @@ package patient;
 import java.time.LocalDate;
 import java.time.Period;
 
+import enumerations.ETypesPatients;
+
 public abstract class Patient {
 	private String nom, prenom, lieuNaissance, adresse, numeroTelephone;
 	private LocalDate dateNaissance; // LocalDate plutot que Date
@@ -35,5 +37,9 @@ public abstract class Patient {
 	// Autres methodes 
 	public int getAge() {
 		return Period.between(dateNaissance, LocalDate.now()).getYears();
+	}
+	
+	public ETypesPatients getType() {
+		return getAge()<18 ? ETypesPatients.ENFANT : ETypesPatients.ADULTE ;
 	}
 }
