@@ -12,11 +12,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.LireAtelierController">
    <right>
       <AnchorPane prefHeight="600.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField layoutX="38.0" layoutY="277.0" prefHeight="40.0" prefWidth="325.0" promptText="Thématique" style="-fx-background-color: #EDEDED; -fx-border-color: #000000; -fx-border-width: 0px 0px 5px 0px; -fx-padding: 0px 0px 0px 10px; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;">
+            <TextField fx:id="thematiqueField" layoutX="38.0" layoutY="277.0" prefHeight="40.0" prefWidth="325.0" promptText="Thématique" style="-fx-background-color: #EDEDED; -fx-border-color: #000000; -fx-border-width: 0px 0px 5px 0px; -fx-padding: 0px 0px 0px 10px; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;">
                <font>
                   <Font name="Segoe UI Semilight" size="13.0" />
                </font>
@@ -42,16 +42,37 @@
                   </LinearGradient>
                </fill>
             </Text>
-            <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="345.0" layoutY="15.0">
+            <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="345.0" layoutY="15.0" onMouseClicked="#handleQuitterButtonAction">
                <image>
                   <Image url="@../assets/icon4.png" />
                </image>
             </ImageView>
-            <TextField layoutX="38.0" layoutY="332.0" prefHeight="40.0" prefWidth="325.0" promptText="Numéros de dossiers (séparés par des espaces)" style="-fx-background-color: #EDEDED; -fx-border-color: #000000; -fx-border-width: 0px 0px 5px 0px; -fx-padding: 0px 0px 0px 10px; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;">
+            <TextField fx:id="numerosDossiersField" layoutX="38.0" layoutY="332.0" prefHeight="40.0" prefWidth="325.0" promptText="Numéros de dossiers (séparés par des espaces)" style="-fx-background-color: #EDEDED; -fx-border-color: #000000; -fx-border-width: 0px 0px 5px 0px; -fx-padding: 0px 0px 0px 10px; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;">
                <font>
                   <Font name="Segoe UI Semilight" size="13.0" />
                </font>
             </TextField>
+            <Text fx:id="erreurTextDossiers" layoutX="30.0" layoutY="413.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Compte inexistant, veuillez vous inscrire" textAlignment="RIGHT" visible="false" wrappingWidth="338.9462890625">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.5526315569877625" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.8421052694320679" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
          </children>
       </AnchorPane>
    </right>
@@ -84,17 +105,17 @@
                   </LinearGradient>
                </fill>
             </Text>
-            <TextField layoutX="39.0" layoutY="277.0" prefHeight="40.0" prefWidth="150.0" promptText="Date (JJ/MM/AAAA)" style="-fx-background-color: #EDEDED; -fx-border-color: #000000; -fx-border-width: 0px 0px 0px 5px; -fx-padding: 0px 0px 0px 10px; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;">
+            <TextField fx:id="dateField" layoutX="39.0" layoutY="277.0" prefHeight="40.0" prefWidth="150.0" promptText="Date (JJ/MM/AAAA)" style="-fx-background-color: #EDEDED; -fx-border-color: #000000; -fx-border-width: 0px 0px 0px 5px; -fx-padding: 0px 0px 0px 10px; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;">
                <font>
                   <Font name="Segoe UI Semilight" size="13.0" />
                </font>
             </TextField>
-            <TextField layoutX="213.0" layoutY="277.0" prefHeight="40.0" prefWidth="150.0" promptText="Heure (HH:mm)" style="-fx-background-color: #EDEDED; -fx-border-color: #000000; -fx-border-width: 0px 0px 0px 5px; -fx-padding: 0px 0px 0px 10px; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;">
+            <TextField fx:id="heureField" layoutX="213.0" layoutY="277.0" prefHeight="40.0" prefWidth="150.0" promptText="Heure (HH:mm)" style="-fx-background-color: #EDEDED; -fx-border-color: #000000; -fx-border-width: 0px 0px 0px 5px; -fx-padding: 0px 0px 0px 10px; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;">
                <font>
                   <Font name="Segoe UI Semilight" size="13.0" />
                </font>
             </TextField>
-            <Button layoutX="39.0" layoutY="335.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="325.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Créer l'atelier" textAlignment="CENTER">
+            <Button layoutX="39.0" layoutY="335.0" mnemonicParsing="false" onAction="#handleCreerAtelierButtonAction" prefHeight="36.0" prefWidth="325.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Créer l'atelier" textAlignment="CENTER">
                <font>
                   <Font name="Segoe UI Semilight" size="14.0" />
                </font>
@@ -115,10 +136,26 @@
                   </LinearGradient>
                </textFill>
             </Button>
-            <Text fill="RED" layoutX="38.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bolder;" text="Erreur" visible="false">
+            <Text fx:id="erreurText" layoutX="32.0" layoutY="408.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Compte inexistant, veuillez vous inscrire" textAlignment="RIGHT" visible="false" wrappingWidth="338.9462890625">
                <font>
-                  <Font size="15.0" />
+                  <Font size="14.0" />
                </font>
+               <fill>
+                  <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.5526315569877625" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.8421052694320679" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
             </Text>
          </children>
       </AnchorPane>
