@@ -26,7 +26,7 @@ public class AgendaController {
     	List<String> RendezVousEnTexte = controlleur.AgendaToString();
     	Iterator<String> iterator = RendezVousEnTexte.iterator();
     	// Remplir l'agenda
-    	while (iterator.hasNext()) { agendaArea.appendText(iterator.next()); }
+    	while (iterator.hasNext()) { agendaArea.appendText(iterator.next() + "\n"); }
     }
 
     @FXML // Aller vers la page profil

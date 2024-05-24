@@ -72,7 +72,7 @@
             </TextField>
             <HBox alignment="CENTER_LEFT" layoutX="38.0" layoutY="165.0" prefHeight="25.0" prefWidth="325.0" spacing="20.0">
                <children>
-                  <RadioButton fx:id="enfantButton" mnemonicParsing="false" onAction="#handleTypePatientButtonAction" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Enfant">
+                  <RadioButton fx:id="enfantButton" mnemonicParsing="false" onAction="#handleTypePatientButtonAction" selected="true" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Enfant">
                      <font>
                         <Font size="13.0" />
                      </font>
