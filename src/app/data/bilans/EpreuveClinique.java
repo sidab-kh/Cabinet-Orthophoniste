@@ -10,8 +10,7 @@ public class EpreuveClinique implements Serializable {
 	private Test test;
 	
 	// Constructeur
-	public EpreuveClinique(String observationClinique, Test test) {
-		ObservationClinique = observationClinique;
+	public EpreuveClinique(Test test) {
 		this.test = test;
 	}
 

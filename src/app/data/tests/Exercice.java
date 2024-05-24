@@ -25,4 +25,9 @@ public class Exercice implements Serializable {
     public void setMateriel(List<EMateriel> materiel) { this.materiel = materiel; }
     public int getScore() {return score; }
     public void setScore(int score) { this.score = score; } 
+    
+    @Override
+    public int hashCode() {
+    	return consigne.hashCode();
+    }
 }

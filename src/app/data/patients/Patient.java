@@ -48,4 +48,8 @@ public abstract class Patient implements Serializable, Affichable {
 		System.out.print(String.format("- %s %s, date et lieu de naissance: %s %s, adresse: %s, ",
 				nom, prenom, dateNaissance, lieuNaissance, adresse));
 	}
+	
+	public ETypesPatients getType() {
+		return getAge()<18 ? ETypesPatients.ENFANT : ETypesPatients.ADULTE ;
+	}
 }

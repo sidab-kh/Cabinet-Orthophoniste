@@ -21,3 +21,9 @@ public class Consultation extends RendezVous {
 		System.out.println(String.format("Avec %s %s.", patient.getNom(), patient.getPrenom()));
 	}
 }
+
+	public ETypesRendezVous getType() { return ETypesRendezVous.CONSULTATION; }
+	
+	public Patient getPatient() { return patient; };
+	
+}

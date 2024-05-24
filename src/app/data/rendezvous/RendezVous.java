@@ -33,4 +33,6 @@ public abstract class RendezVous implements Serializable, Affichable {
 	public void afficher() {
 		System.out.print(String.format("Le %s a %s, duree: %s. ", dateEtHeure.toLocalDate(), dateEtHeure.toLocalTime(), duree));
 	}
+	
+	public abstract ETypesRendezVous getType();
 }

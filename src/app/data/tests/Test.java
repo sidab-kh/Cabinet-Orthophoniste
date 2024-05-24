@@ -9,12 +9,12 @@ import app.util.enumerations.ECapacites;
 @SuppressWarnings("serial")
 public abstract class Test implements Serializable {
 	private String nom;
-	private ECapacites capacite;
+	private String capacite;
 	private float scoreTotal;
 	private String conclusion;
 	
 	// Constructeur
-	public Test(String nom, ECapacites capacite) {
+	public Test(String nom, String capacite) {
 		this.nom = nom;
 		this.capacite = capacite;
 	}
@@ -22,8 +22,8 @@ public abstract class Test implements Serializable {
 	// Getters et setters
 	public String getNom() { return nom; }
 	public void setNom(String nom) { this.nom = nom; }
-	public ECapacites getCapacite() { return capacite; }
-	public void setCapacite(ECapacites capacite) { this.capacite = capacite; }
+	public String getCapacite() { return capacite; }
+	public void setCapacite(String capacite) { this.capacite = capacite; }
 	public float getScoreTotal() { return scoreTotal; }
 	public void setScoreTotal(float scoreTotal) { this.scoreTotal = scoreTotal; }
 	public String getConclusion() { return conclusion; }

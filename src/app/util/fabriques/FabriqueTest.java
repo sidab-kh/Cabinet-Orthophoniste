@@ -13,12 +13,12 @@ import app.util.enumerations.ECapacites;
 public class FabriqueTest {
 
 	// Creer un test de type Questionnaire
-	public static TestQuestionnaire creerTestQuestionnaire(String nom, ECapacites capacite, HashSet<Question> questions) {
+	public static TestQuestionnaire creerTestQuestionnaire(String nom, String capacite, HashSet<Question> questions) {
 		return new TestQuestionnaire(nom, capacite, questions);
     }
 	
 	// Creer un test de type Exercices
-	public static TestExercices creerTestExcExercices(String nom, ECapacites capacite, ArrayList<Exercice> exercices) {
+	public static TestExercices creerTestExcExercices(String nom, String capacite, ArrayList<Exercice> exercices) {
 		return new TestExercices(nom, capacite, exercices);
 	}
 }
