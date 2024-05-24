@@ -28,12 +28,10 @@ public class Atelier extends RendezVous {
 	public void setNumerosDossiers(List<Integer> numerosDossiers) { this.numerosDossiers = numerosDossiers; }
 
 	// Autres methodes
-	public void afficher() {
-		System.out.print("- Atelier/ ");
-		super.afficher();
-		System.out.print("Thematique: " + thematique + ", numeros dossiers : ");
-		for (int numeroDossier : numerosDossiers) { System.out.print(numeroDossier + " "); }
-		System.out.println();
+	public String afficher() {
+		String numeros = "";
+		for (int numeroDossier : numerosDossiers) { numeros += numeroDossier + " "; }
+		return "- Atelier / " + super.rdvString() + "Thématique: " + thematique + ", numeros dossiers : " + numeros;
 	}
 	
 	public ETypesRendezVous getType() { return ETypesRendezVous.ATELIER; }

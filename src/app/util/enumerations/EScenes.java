@@ -5,6 +5,12 @@ public enum EScenes {
 	INSCRIPTION("Inscription", "Inscription.fxml"),
 	CONNEXION("Connexion", "Connexion.fxml"),
 	AGENDA("Agenda", "Agenda.fxml"),
+	PROFIL("Profil", "Profil.fxml"),
+	PATIENTS("Patients", "Patients.fxml"),
+	TESTS("Tests", "Tests.fxml"),
+	BILANS("Bilans orthophoniques", "Bilans.fxml"),
+	ANAMNESES("Anamnèses", "Anamneses.fxml"),
+	AIDE("Aide", "Aide.fxml"),
 	LIRE_CONSULTATION("Nouvelle consultation", "LireConsultation.fxml"),
 	LIRE_SEANCE_SUIVI("Nouvelle séance de suivi", "LireSeanceSuivi.fxml"),
 	LIRE_ATELIER("Nouvel atelier", "LireAtelier.fxml");

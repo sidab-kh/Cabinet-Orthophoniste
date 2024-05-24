@@ -12,9 +12,7 @@ public class Main extends Application {
 	
 	private static Stage primaryStage;
 	
-	public static void main(String[] args) { 
-        launch(args); 
-    }
+	public static void main(String[] args) { launch(args); }
 	 
 	@Override
     public void start(Stage primaryStage) {
@@ -27,6 +25,7 @@ public class Main extends Application {
 	    try {
 	        FXMLLoader loader = new FXMLLoader(Main.class.getResource("Chargement.fxml"));
 	        Scene sceneChargement = new Scene(loader.load());
+	        primaryStage.setTitle(EScenes.CHARGEMENT.getNom());
 	        primaryStage.setScene(sceneChargement);
 
 	        // Ajouter l'icone de l'application
@@ -40,7 +39,7 @@ public class Main extends Application {
 	        new Thread(() -> {
 	            try {
 	                Thread.sleep(3000);
-	                Platform.runLater(() -> changerScene(EScenes.INSCRIPTION));
+	                Platform.runLater(() -> changerScene(EScenes.CONNEXION));
 	            } catch (InterruptedException e) { e.printStackTrace(); }
 	        }).start();
 	    } catch (Exception e) { e.printStackTrace(); }

@@ -33,7 +33,7 @@ public class ConnexionController {
     	erreurText.setVisible(false);
     }
     
-    @FXML
+    @FXML 
     private void handleConnexionButtonAction() {
         String email = emailField.getText();
         String motDePasse = motDePasseField.getText();
@@ -41,7 +41,7 @@ public class ConnexionController {
         int etat = controlleur.connexion(email, motDePasse);
         switch (etat) {
         	case 0 : // Cas champs vides
-        		erreurText.setText("Veuillez insérer les champs nécessaires.");
+        		erreurText.setText("Tous les champs sont obligatoires.");
 	        	erreurText.setVisible(true);
 	        	break;
         	case 1 : // Cas compte inexistant

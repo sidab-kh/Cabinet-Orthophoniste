@@ -12,21 +12,21 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.AgendaController">
    <left>
       <AnchorPane prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: #E4E4E4;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="20.0" layoutY="150.0" mnemonicParsing="false" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Patients">
+            <Button layoutX="20.0" layoutY="150.0" mnemonicParsing="false" onAction="#goToPatients" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Patients">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="20.0" layoutY="200.0" mnemonicParsing="false" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Tests">
+            <Button layoutX="20.0" layoutY="200.0" mnemonicParsing="false" onAction="#goToTests" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Tests">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="20.0" layoutY="250.0" mnemonicParsing="false" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Bilans Orthophoniques">
+            <Button layoutX="20.0" layoutY="250.0" mnemonicParsing="false" onAction="#goToBilans" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Bilans Orthophoniques">
                <font>
                   <Font size="15.0" />
                </font>
@@ -57,12 +57,12 @@
                   <Image url="@../assets/icon8.png" />
                </image>
             </ImageView>
-            <Button layoutX="85.0" layoutY="536.0" mnemonicParsing="false" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Besoin d'aide ?">
+            <Button layoutX="85.0" layoutY="536.0" mnemonicParsing="false" onAction="#goToAide" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Besoin d'aide ?">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="20.0" layoutY="50.0" mnemonicParsing="false" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Profil">
+            <Button layoutX="20.0" layoutY="50.0" mnemonicParsing="false" onAction="#goToProfil" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Profil">
                <font>
                   <Font size="15.0" />
                </font>
@@ -73,7 +73,7 @@
    <right>
       <AnchorPane prefHeight="600.0" prefWidth="550.0" BorderPane.alignment="CENTER">
          <children>
-            <TextArea editable="false" layoutX="45.0" layoutY="95.0" prefHeight="400.0" prefWidth="460.0" promptText="Votre agenda est vide. Ajoutez-y des rendez-vous pour le remplir." style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" wrapText="true" />
+            <TextArea fx:id="agendaArea" editable="false" layoutX="45.0" layoutY="95.0" prefHeight="400.0" prefWidth="460.0" promptText="Votre agenda est vide. Ajoutez-y des rendez-vous pour le remplir." style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" wrapText="true" />
             <Text layoutX="45.0" layoutY="75.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 900; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Votre Agenda">
                <font>
                   <Font size="30.0" />
@@ -95,7 +95,7 @@
                   </LinearGradient>
                </fill>
             </Text>
-            <Button layoutX="45.0" layoutY="540.0" mnemonicParsing="false" opacity="0.9" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-padding: 0px;" text="Consultation" underline="true">
+            <Button layoutX="45.0" layoutY="540.0" mnemonicParsing="false" onAction="#goToLireConsultation" opacity="0.9" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-padding: 0px;" text="Consultation" underline="true">
                <font>
                   <Font size="15.0" />
                </font>
@@ -116,7 +116,7 @@
                   </LinearGradient>
                </textFill>
             </Button>
-            <Button layoutX="164.0" layoutY="540.0" mnemonicParsing="false" opacity="0.9" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-padding: 0px;" text="Séance de suivi" underline="true">
+            <Button layoutX="164.0" layoutY="540.0" mnemonicParsing="false" onAction="#goToLireSeanceSuivi" opacity="0.9" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-padding: 0px;" text="Séance de suivi" underline="true">
                <font>
                   <Font size="15.0" />
                </font>
@@ -137,7 +137,7 @@
                   </LinearGradient>
                </textFill>
             </Button>
-            <Button layoutX="300.0" layoutY="540.0" mnemonicParsing="false" opacity="0.9" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-padding: 0px;" text="Atelier" underline="true">
+            <Button layoutX="300.0" layoutY="540.0" mnemonicParsing="false" onAction="#goToLireAtelier" opacity="0.9" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-padding: 0px;" text="Atelier" underline="true">
                <font>
                   <Font size="15.0" />
                </font>

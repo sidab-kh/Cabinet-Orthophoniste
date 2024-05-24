@@ -16,11 +16,7 @@ public class Consultation extends RendezVous {
 	}
 	
 	// Autres methodes
-	public void afficher() {
-		System.out.print("- Consultation/ ");
-		super.afficher();
-		System.out.println(String.format("Avec %s %s.", patient.getNom(), patient.getPrenom()));
-	}
+	public String rdvString() { return "- Consultation / " + super.rdvString() + String.format("Avec %s %s.", patient.getNom(), patient.getPrenom()); }
 
 	public ETypesRendezVous getType() { return ETypesRendezVous.CONSULTATION; }
 	

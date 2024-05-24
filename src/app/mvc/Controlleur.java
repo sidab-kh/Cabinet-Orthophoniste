@@ -1,6 +1,7 @@
 package app.mvc;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -37,9 +38,6 @@ public final class Controlleur {
     // Lire les informations personnelles de l'orthophoniste
     public void lireInformationsOrthophoniste() { serviceOrthophoniste.setOrthophoniste(vue.lireInformationsOrthophoniste()); }
     
-    // Afficher les informations de l'orthophoniste
-    public void afficherInformationsOrthophoniste() { vue.afficherInformationsOrthophoniste(serviceOrthophoniste.getOrthophoniste()); }
-    
     // Verifier la disponibilite de l'orthophoniste
     public boolean orthophonisteDisponible(LocalDateTime DateEtHeure) { return serviceOrthophoniste.estDisponible(DateEtHeure); }
     
@@ -58,9 +56,6 @@ public final class Controlleur {
     // Rediger une observation pour un rendez-vous
     public void redigerObservation(RendezVous rendezVous) { serviceOrthophoniste.ajouterObservation(rendezVous, vue.lireChaine("Observation : ")); }
     
-    // Retourner l'agenda
-    public List<RendezVous> getAgenda() { return serviceOrthophoniste.getAgenda(); }
-    
     // Retourner les dossiers des patients
     public Set<DossierPatient> getDossiersPatients() { return serviceOrthophoniste.getDossiersPatients(); }
     
@@ -70,8 +65,12 @@ public final class Controlleur {
     // Retourner la liste des patients
     List<Patient> getPatients() { return serviceOrthophoniste.getPatients(); }
     
-    // Afficher l'agenda
-    public void afficherAgenda() { vue.afficherAgenda(); }
+    // Transformer l'agenda en une liste de chaines
+    public List<String> AgendaToString() {
+    	List<String> RendezVousEnTexte = new ArrayList<String>();
+    	for (RendezVous rdv : serviceOrthophoniste.getAgenda()) { RendezVousEnTexte.add(rdv.rdvString()); }
+    	return RendezVousEnTexte;
+    }
     
     // Programmer un nouveau rendez-vous
     public void programmerRendezVous(ETypesRendezVous type) {
@@ -102,12 +101,13 @@ public final class Controlleur {
     	// Cas mot de passe errone
     	if (!CryptageMotDePasse.verifierMotDePasse(motDePasse, orthophonisteCharge.getMotDePasseCrypte())) return 2;
     	
-    	// Connexion reussie
-    	return 3;
+    	serviceOrthophoniste.setOrthophoniste(orthophonisteCharge);
+    	return 3; // Connexion reussie
     }
 
     // Se deconnecter
     public void deconnexion() {
+    	serviceOrthophoniste.sauvegarderOrthophoniste();
     	serviceOrthophoniste.setOrthophoniste(null);
     }
     

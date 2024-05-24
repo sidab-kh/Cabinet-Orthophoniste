@@ -13,6 +13,7 @@ import app.data.rendezvous.Atelier;
 import app.data.rendezvous.RendezVous;
 import app.data.rendezvous.SeanceSuivi;
 import app.data.tests.Test;
+import app.util.CryptageMotDePasse;
 import app.util.exceptions.NumeroDossierExistantException;
 import app.util.persistance.OrthophonisteDAO;
 
@@ -148,11 +149,21 @@ public final class ServiceOrthophoniste {
     // Supprimer l'orthophoniste
     public boolean supprimerOrthophoniste() { return orthophonisteDAO.supprimer(); }
     
-	public void ajouterAnamnese(Anamnese anamnese) {
-        orthophoniste.anamneses.add(anamnese);
-	}
+    // Modifier le mot de passe de l'orthophoniste
+    public int modifierMotDePasse(String AncienMdp, String NouveauMdp) {
+    	if (CryptageMotDePasse.verifierMotDePasse(AncienMdp, orthophoniste.getMotDePasseCrypte()) &&
+    			NouveauMdp.length() >= 8) {
+    		orthophoniste.setMotDePasseCrypte(NouveauMdp);
+    		sauvegarderOrthophoniste();
+    		return 0;
+    	}
+    	else if (NouveauMdp.length() < 8) return 1;
+    	else return 2;
+    }
     
-	public void ajouterTest(Test test) {
-        orthophoniste.tests.add(test);
-	}
+    // Ajouter une anamnese la liste d'anamnese
+	public void ajouterAnamnese(Anamnese anamnese) { orthophoniste.anamneses.add(anamnese); }
+    
+	// Ajouter un test a la liste des tests
+	public void ajouterTest(Test test) { orthophoniste.tests.add(test); }
 }

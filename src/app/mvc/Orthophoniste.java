@@ -43,13 +43,11 @@ public final class Orthophoniste implements Serializable {
 	}
 	
     // Getters et setters
-	String getNom() { return nom; }
-	String getPrenom() { return prenom; }
-	String getAdresse() { return adresse; }
-	void setAdresse(String adresse) { this.adresse = adresse;	}
-	String getEmail() { return email; }
-	void setEmail(String email) { this.email = email; }
+	public String getNom() { return nom; }
+	public String getPrenom() { return prenom; }
+	public String getAdresse() { return adresse; }
+	public String getEmail() { return email; }
 	String getMotDePasseCrypte() { return motDePasseCrypte; }
-	String getNumeroTelephone() { return numeroTelephone; }
-	void setNumeroTelephone(String numeroTelephone) { this.numeroTelephone = numeroTelephone; }
+	void setMotDePasseCrypte(String motDePasse) { this.motDePasseCrypte = CryptageMotDePasse.crypter(motDePasse); }
+	public String getNumeroTelephone() { return numeroTelephone; }
 }

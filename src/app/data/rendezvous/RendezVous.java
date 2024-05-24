@@ -3,12 +3,11 @@ import java.io.Serializable;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-import app.util.Affichable;
 import app.util.enumerations.ETypesRendezVous;
 
 // Sous-classes: Atelier, Consultation, SeanceSuivi
 @SuppressWarnings("serial")
-public abstract class RendezVous implements Serializable, Affichable {
+public abstract class RendezVous implements Serializable {
 	LocalDateTime dateEtHeure;
 	Duration duree = Duration.ofHours(1);
     String observation = ""; 
@@ -30,10 +29,8 @@ public abstract class RendezVous implements Serializable, Affichable {
 	public LocalDateTime calculerHeureFin() {
 	    return dateEtHeure.plus(duree);
 	}
-	
-	public void afficher() {
-		System.out.print(String.format("Le %s a %s, duree: %s. ", dateEtHeure.toLocalDate(), dateEtHeure.toLocalTime(), duree));
-	}
+
+	public String rdvString() { return String.format("Le %s à %s, durée: %s. ", dateEtHeure.toLocalDate(), dateEtHeure.toLocalTime(), duree); }
 	
 	public abstract ETypesRendezVous getType();
 }

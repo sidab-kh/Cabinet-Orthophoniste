@@ -57,12 +57,6 @@ public final class Vue {
     // Afficher le menu principal
     public void afficherMenuPrincipal() {}
     
-    // Afficher l'agenda
-    public void afficherAgenda() {
-    	afficher_("Agenda de l'orthophoniste :");
-    	for (RendezVous rdv : controlleur.getAgenda()) { afficher(rdv); }
-    }
-    
     // Afficher le menu de connexion
     public boolean connexion(Orthophoniste orthophonisteCharge) {
     	if (orthophonisteCharge == null) {

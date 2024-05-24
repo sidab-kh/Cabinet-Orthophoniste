@@ -147,7 +147,7 @@
                   </LinearGradient>
                </textFill>
             </Button>
-            <Text fx:id="erreurText" layoutX="33.0" layoutY="445.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Compte inexistant, veuillez vous inscrire" textAlignment="RIGHT" visible="false" wrappingWidth="338.9462890625">
+            <Text fx:id="erreurText" layoutX="33.0" layoutY="445.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Erreur" textAlignment="RIGHT" visible="false" wrappingWidth="338.9462890625">
                <font>
                   <Font size="14.0" />
                </font>

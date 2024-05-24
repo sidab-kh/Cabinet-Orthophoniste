@@ -26,11 +26,7 @@ public class SeanceSuivi extends RendezVous {
 	public void setPresentiel(boolean presentiel) { this.presentiel = presentiel; }
 
 	// Autres methodes
-	public void afficher() {
-		System.out.print("- Seance de suivi/ ");
-		super.afficher();
-		System.out.println(String.format("Numero dossier: %s, en %s.", numeroDossier, presentiel ? "presentiel" : "ligne"));
-	}
+	public String rdvString() { return "- Séance de suivi / " + super.rdvString() + String.format("Numero dossier: %s, en %s.", numeroDossier, presentiel ? "présentiel" : "ligne"); }
 	
 	public ETypesRendezVous getType() { return ETypesRendezVous.SEANCE_SUIVI; }
 }
