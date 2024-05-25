@@ -111,17 +111,14 @@ public class LireConsultationController {
     		numeroField.setPromptText("Numéro du père");
     		numeroMere_diplomeField.setPromptText("Numéro de la mère");
     		niveauEtudes_professionField.setPromptText("Niveau d'études");
-    		numeroField.setText(null);
-    		numeroMere_diplomeField.setText(null);
-    		niveauEtudes_professionField.setText(null);
     	} else {
     		numeroField.setPromptText("Numéro de téléphone");
     		numeroMere_diplomeField.setPromptText("Diplome");
     		niveauEtudes_professionField.setPromptText("Profession");
-    		numeroField.setText(null);
-    		numeroMere_diplomeField.setText(null);
-    		niveauEtudes_professionField.setText(null);
     	}
+    	numeroField.clear();
+		numeroMere_diplomeField.clear();
+		niveauEtudes_professionField.clear();
     }
 
     

@@ -149,6 +149,9 @@ public final class ServiceOrthophoniste {
     // Retourner la liste des patients
     public Map<Integer, Patient> getPatients() { return orthophoniste.patients; }
     
+    // Retourner la liste des patients
+    public List<Anamnese> getAnamneses() { return orthophoniste.anamneses; }
+    
     // Ajouter une observation pour un rendez-vous
     public void ajouterObservation(RendezVous rendezVous, String observation) { if (rendezVous != null) rendezVous.setObservation(observation); }
     

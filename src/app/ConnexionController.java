@@ -31,6 +31,7 @@ public class ConnexionController {
     private void initialize() {
     	controlleur = Controlleur.getInstance();
     	erreurText.setVisible(false);
+    	handleConnexionButtonAction();
     }
     
     @FXML 
@@ -38,7 +39,7 @@ public class ConnexionController {
         String email = emailField.getText();
         String motDePasse = motDePasseField.getText();
         
-        int etat = controlleur.connexion(email, motDePasse);
+        int etat = controlleur.connexion("b@b.bb", "123456789");	// FOR TEST DIRECT LOGIN CHANGE IT AFTER
         switch (etat) {
         	case 0 : // Cas champs vides
         		erreurText.setText("Tous les champs sont obligatoires.");

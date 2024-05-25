@@ -26,7 +26,7 @@
                   <Image url="@../assets/icon4.png" />
                </image>
             </ImageView>
-            <TextArea fx:id="questionssArea" editable="false" layoutX="51.0" layoutY="115.0" prefHeight="370.0" prefWidth="300.0" promptText="Aucune question pour l'instant, ajoutez-en." style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" wrapText="true" />
+            <TextArea fx:id="questionsArea" editable="false" layoutX="51.0" layoutY="115.0" prefHeight="370.0" prefWidth="300.0" promptText="Aucune question pour l'instant, ajoutez-en." style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" wrapText="true" />
             <Button layoutX="51.0" layoutY="511.0" mnemonicParsing="false" onAction="#handleAjouterQuestionButtonAction" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Ajouter une question" textAlignment="CENTER">
                <font>
                   <Font name="Segoe UI Semilight" size="14.0" />

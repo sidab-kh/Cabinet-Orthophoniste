@@ -11,11 +11,19 @@ public enum ECategoriesQOAdulte implements ECategoriesQOs {
     public String getString() { return this.toString; }
     
     public static String[] getAllStrings() {
-        ECategoriesQOEnfant[] values = ECategoriesQOEnfant.values();
+    	ECategoriesQOAdulte[] values = ECategoriesQOAdulte.values();
         String[] strings = new String[values.length];
         for (int i = 0; i < values.length; i++) {
             strings[i] = values[i].getString();
         }
         return strings;
+    }
+    
+    public static ECategoriesQOAdulte getCategorieFromString(String categorieStr) {
+        for (ECategoriesQOAdulte categoriesQOAdulte : ECategoriesQOAdulte.values()) {
+			if (categoriesQOAdulte.toString().equals(categorieStr))
+				return categoriesQOAdulte;
+		}
+        return null;
     }
 }

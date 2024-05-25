@@ -93,8 +93,8 @@ public class ProfilController {
         		erreurText.setFill(Color.BLACK);
         		erreurText.setText("Mot de passe modifié avec succès.");
         		erreurText.setVisible(true);
-        		ancienMotDePasseField.setText("");
-        		nouveauMotDePasseField.setText("");
+        		ancienMotDePasseField.clear();
+        		nouveauMotDePasseField.clear();
         		break;
         	case 1 : // Cas mot de passe trop court
         		erreurText.setText("Nouveau mot de passe trop court !");
