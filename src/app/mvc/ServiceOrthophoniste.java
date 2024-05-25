@@ -137,6 +137,9 @@ public final class ServiceOrthophoniste {
     // Retourner la liste des patients
     public List<Patient> getPatients() { return new ArrayList<>(orthophoniste.patients.values()); }
     
+    // Retourner la liste des patients
+    public List<Anamnese> getAnamneses() { return orthophoniste.anamneses; }
+    
     // Ajouter une observation pour un rendez-vous
     public void ajouterObservation(RendezVous rendezVous, String observation) { if (rendezVous != null) rendezVous.setObservation(observation); }
     

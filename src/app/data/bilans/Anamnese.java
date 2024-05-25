@@ -39,4 +39,8 @@ public class Anamnese implements Serializable {
 	public List<QO> getQuestions() {
 		return questions;
 	}
+
+	public String getChaine() {
+		return String.format("%s , type : %s", nomAnamnese, typeAnamnese.name().toLowerCase());
+	}
 }

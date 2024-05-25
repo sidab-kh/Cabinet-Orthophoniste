@@ -23,5 +23,13 @@ public enum ECategoriesQOEnfant implements ECategoriesQOs {
         }
         return strings;
     }
+    
+    public static ECategoriesQOEnfant getCategorieFromString(String categorieStr) {
+        for (ECategoriesQOEnfant categoriesQOEnfant : ECategoriesQOEnfant.values()) {
+			if (categoriesQOEnfant.toString().equals(categorieStr))
+				return categoriesQOEnfant;
+		}
+        return null;
+    }
 }
 

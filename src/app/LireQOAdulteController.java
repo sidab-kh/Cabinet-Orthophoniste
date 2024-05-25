@@ -1,7 +1,10 @@
 package app;
 
+import app.data.questions.QO;
 import app.mvc.Controlleur;
+import app.mvc.SceneData;
 import app.util.enumerations.ECategoriesQOAdulte;
+import app.util.enumerations.EScenes;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
@@ -12,6 +15,7 @@ import javafx.scene.text.Text;
 public class LireQOAdulteController {
 
 	Controlleur controlleur;
+	SceneData donneesScene;
 	private String[] CategoriesAdulte = ECategoriesQOAdulte.getAllStrings();
 	
     @FXML
@@ -27,16 +31,31 @@ public class LireQOAdulteController {
     private void initialize() { 
     	controlleur = Controlleur.getInstance();
     	categorieBox.getItems().addAll(CategoriesAdulte);
+    	erreurText.setVisible(false);
+    	donneesScene = controlleur.getSceneData();
     }
 
     @FXML
     private void HandleAjouterQuestionButtonAction(ActionEvent event) {
-    	// String categorie = categorieBox.getValue(); ...
-    	// Verifier si champs vides et set le erreurText
+    	String enonce = enonceArea.getText();
+        String categorieStr = categorieBox.getValue();
+
+        if (enonce == null || enonce.isEmpty() || categorieStr == null) {
+            erreurText.setText("Tous les champs sont obligatoires.");
+            erreurText.setVisible(true);
+            return;
+        }
+
+        ECategoriesQOAdulte categorie = ECategoriesQOAdulte.getCategorieFromString(categorieStr);
+        QO question = new QO(enonce, categorie);
+        donneesScene.addQuestion(question);
+
+        // Retourner vers creation anamnese
+        Main.changerScene(EScenes.LIRE_ANAMNESE);
     }
 
     @FXML
     private void HandleQuitterButtonAction(MouseEvent event) {
-    	// retour vers creation anamnese
+    	Main.changerScene(EScenes.LIRE_ANAMNESE);
     }
 }

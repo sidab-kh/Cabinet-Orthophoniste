@@ -7,7 +7,6 @@ import app.mvc.Controlleur;
 import app.util.enumerations.EScenes;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
-import javafx.scene.text.Text;
 
 public class AgendaController {
 
@@ -15,9 +14,6 @@ public class AgendaController {
 
     @FXML
     private TextArea agendaArea;
-
-    @FXML
-    private Text erreurText;
 
     @FXML
     public void initialize() {

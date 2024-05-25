@@ -38,7 +38,7 @@ public class Main extends Application {
 	        // Attendre 5 secondes (simuler un chargement)
 	        new Thread(() -> {
 	            try {
-	                Thread.sleep(3000);
+	                Thread.sleep(1);
 	                Platform.runLater(() -> changerScene(EScenes.CONNEXION));
 	            } catch (InterruptedException e) { e.printStackTrace(); }
 	        }).start();

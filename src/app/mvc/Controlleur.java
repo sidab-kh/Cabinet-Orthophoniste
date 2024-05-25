@@ -19,6 +19,7 @@ public final class Controlleur {
     private static final Controlleur instance = new Controlleur();
     private ServiceOrthophoniste serviceOrthophoniste;
 	private Vue vue;
+	private SceneData donneesScenes;
 	
     // Constructeur prive
     private Controlleur() {
@@ -70,6 +71,13 @@ public final class Controlleur {
     	List<String> RendezVousEnTexte = new ArrayList<String>();
     	for (RendezVous rdv : serviceOrthophoniste.getAgenda()) { RendezVousEnTexte.add(rdv.rdvString()); }
     	return RendezVousEnTexte;
+    }
+    
+    // Transformer la liste des anamneses en une liste de chaines
+    public List<String> AnamnesesToString() {
+    	List<String> anamnesesEnTexte = new ArrayList<String>();
+    	for (Anamnese anamnese : serviceOrthophoniste.getAnamneses()) { anamnesesEnTexte.add(anamnese.getChaine()); }
+    	return anamnesesEnTexte;
     }
     
     // Programmer un nouveau rendez-vous
@@ -164,5 +172,17 @@ public final class Controlleur {
     	}
     	serviceOrthophoniste.ajouterTest(test);
     	vue.afficher("Test ajouté avec succès.");
+    }
+    
+    public SceneData addSceneData(boolean adulteButton, String intituleField) {
+    	return donneesScenes = new SceneData(adulteButton, intituleField);
+    }
+
+    public SceneData getSceneData() {
+        return donneesScenes;
+    }
+
+    public void clearSceneData() {
+        donneesScenes = null;
     }
 }
