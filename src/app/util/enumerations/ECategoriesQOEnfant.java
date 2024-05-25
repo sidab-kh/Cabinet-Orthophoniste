@@ -1,5 +1,8 @@
 package app.util.enumerations;
 
+/**
+ * Cette énumération représente les différentes catégories de questions ouvertes pour les enfants.
+ */
 public enum ECategoriesQOEnfant implements ECategoriesQOs {
     STRUCTURE_FAMILIALE("Structure familiale"),
     DYNAMIQUE_FAMILIALE("Dynamique familiale"),
@@ -11,10 +14,25 @@ public enum ECategoriesQOEnfant implements ECategoriesQOs {
 
     private final String toString;
 
+    /**
+     * Constructeur de l'énumération ECategoriesQOEnfant.
+     * 
+     * @param toString La représentation textuelle de la catégorie.
+     */
     ECategoriesQOEnfant(String toString) { this.toString = toString; }
 
+    /**
+     * Retourne la représentation textuelle de la catégorie.
+     * 
+     * @return La représentation textuelle de la catégorie.
+     */
     public String getString() { return this.toString; }
     
+    /**
+     * Retourne un tableau de chaînes de caractères contenant toutes les représentations textuelles des catégories.
+     * 
+     * @return Un tableau de chaînes de caractères contenant toutes les représentations textuelles des catégories.
+     */
     public static String[] getAllStrings() {
         ECategoriesQOEnfant[] values = ECategoriesQOEnfant.values();
         String[] strings = new String[values.length];
@@ -24,12 +42,17 @@ public enum ECategoriesQOEnfant implements ECategoriesQOs {
         return strings;
     }
     
+    /**
+     * Retourne la catégorie correspondant à la représentation textuelle spécifiée.
+     * 
+     * @param categorieStr La représentation textuelle de la catégorie.
+     * @return La catégorie correspondant à la représentation textuelle spécifiée, ou null si aucune correspondance n'est trouvée.
+     */
     public static ECategoriesQOEnfant getCategorieFromString(String categorieStr) {
         for (ECategoriesQOEnfant categoriesQOEnfant : ECategoriesQOEnfant.values()) {
-			if (categoriesQOEnfant.toString().equals(categorieStr))
-				return categoriesQOEnfant;
-		}
+            if (categoriesQOEnfant.toString().equals(categorieStr))
+                return categoriesQOEnfant;
+        }
         return null;
     }
 }
-

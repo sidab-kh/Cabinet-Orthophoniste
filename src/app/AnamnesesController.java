@@ -19,17 +19,11 @@ public class AnamnesesController {
     @FXML
     public void initialize() {
     	controlleur = Controlleur.getInstance();
-    	// Transformer l'agenda en liste de chaines
-    	List<String> RendezVousEnTexte = controlleur.AnamnesesToString();
-    	Iterator<String> iterator = RendezVousEnTexte.iterator();
-    	// Remplir l'agenda
-    	while (iterator.hasNext()) { anamnesesArea.appendText(iterator.next() + "\n"); }
+    	afficherAnamneses();
     }
     
-    @FXML
-    private void handleAjouterAnamneseButtonAction(ActionEvent event) {
-    	Main.changerScene(EScenes.LIRE_ANAMNESE);
-    }
+    @FXML // Ajouter une nouvelle anamnese
+    private void handleAjouterAnamneseButtonAction(ActionEvent event) { Main.changerScene(EScenes.LIRE_ANAMNESE); }
     
     @FXML // Aller vers la page agenda
     private void goToAgenda() { Main.changerScene(EScenes.AGENDA); }
@@ -45,4 +39,13 @@ public class AnamnesesController {
     
     @FXML // Aller vers la page d'aide
     private void goToAide() { Main.changerScene(EScenes.AIDE); }
+    
+    @FXML // Afficher les anamneses
+    private void afficherAnamneses() {
+    	// Transformer les anamneses en une liste de chaines
+    	List<String> anamnesesEnTexte = controlleur.AnamnesesToString();
+    	Iterator<String> iterator = anamnesesEnTexte.iterator();
+    	// Remplir l'agenda
+    	while (iterator.hasNext()) { anamnesesArea.appendText(iterator.next() + "\n"); }
+    }
 }

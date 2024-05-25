@@ -5,54 +5,68 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * La classe TestExercices représente un test composé d'une série d'exercices.
+ * Elle étend la classe abstraite Test.
+ */
 @SuppressWarnings("serial")
 public class TestExercices extends Test {
-//	List<Exercice> exercices = new ArrayList<Exercice>();
-	// Compte rendu qui contient les moyennes des exerices Map<exercice.hashcode, moyenneExercice>
-	Map<Integer, Float> compteRendu = new HashMap<>();
-	// Integer : hashcode d'un exercice (hashcode de la consigne), List : la liste qui contient le meme exerice un List.sizeOf() nombre de fois (car les exercices sont répétitifs)
-//	Map<Integer, List<Exercice>> exercices = new HashMap<>();
-	List<Exercice> exercices;
-	
-	// Constructeur
-	public TestExercices(String nom, String capacite, ArrayList<Exercice> exercices) {
-		super(nom, capacite);
-//		List<Exercice> exoI;
-//		for(Exercice exercice : exercices) {
-//			if ((exoI = this.exercices.get(exercice.hashCode())) != null) {
-//				exoI.add(exercice);
-//			} else {
-//				exoI = new ArrayList<Exercice>();
-//				exoI.add(exercice);
-//				this.exercices.put(exercice.hashCode(), exoI);
-//			}
-//		}
-		this.exercices = exercices;
-		// Initialiser le compte rendu pour avoir tous les hashcodes des exercices
-		for (Exercice exercice : exercices) {
-			if (compteRendu.get(exercice.hashCode()) == null)
-				compteRendu.put(exercice.hashCode(), 0f);
-		}
-	}
+    /** Le compte rendu des scores obtenus pour chaque exercice, indexé par le hashcode de l'exercice. */
+    Map<Integer, Float> compteRendu = new HashMap<>();
 
-	public List<Exercice> getExercices() {
-		return exercices;
-	}
-	
-	@Override // Redefinition de calculerScoreTotal()
-	public float calculerScoreTotal() {
-		float scoreTotal = 0;
-		for (Map.Entry<Integer, Float> entry : compteRendu.entrySet()) {
-			scoreTotal += entry.getValue();
-		}
-		return scoreTotal;
-	}
+    /** La liste des exercices du test. */
+    List<Exercice> exercices;
+    
+    /**
+     * Constructeur pour créer un test d'exercices avec un nom, une capacité et une liste d'exercices spécifiés.
+     * 
+     * @param nom Le nom du test d'exercices.
+     * @param capacite La capacité du test d'exercices.
+     * @param exercices La liste des exercices du test d'exercices.
+     */
+    public TestExercices(String nom, String capacite, ArrayList<Exercice> exercices) {
+        super(nom, capacite);
 
-	public void setCompteRendu(Map<Integer, Float> compteRendu) {
-		this.compteRendu = compteRendu;
-	}
+        this.exercices = exercices;
+        // Initialiser le compte rendu pour avoir tous les hashcodes des exercices
+        for (Exercice exercice : exercices) {
+            if (compteRendu.get(exercice.hashCode()) == null)
+                compteRendu.put(exercice.hashCode(), 0f);
+        }
+    }
+    
+    /**
+     * Obtient la liste des exercices du test d'exercices.
+     * 
+     * @return La liste des exercices du test d'exercices.
+     */
+    public List<Exercice> getExercices() { return exercices; }
+    
+    /**
+     * Définit le compte rendu des scores obtenus pour chaque exercice du test d'exercices.
+     * 
+     * @param compteRendu Le nouveau compte rendu des scores obtenus pour chaque exercice du test d'exercices.
+     */
+    public void setCompteRendu(Map<Integer, Float> compteRendu) { this.compteRendu = compteRendu; }
 
-	public Map<Integer, Float> getCompteRendu() {
-		return compteRendu;
-	}
+    /**
+     * Obtient le compte rendu des scores obtenus pour chaque exercice du test d'exercices.
+     * 
+     * @return Le compte rendu des scores obtenus pour chaque exercice du test d'exercices.
+     */
+    public Map<Integer, Float> getCompteRendu() { return compteRendu; }
+    
+    /**
+     * Calcule le score total du test d'exercices en ajoutant les scores obtenus pour chaque exercice.
+     * 
+     * @return Le score total du test d'exercices.
+     */
+    @Override
+    public float calculerScoreTotal() {
+        float scoreTotal = 0;
+        for (Map.Entry<Integer, Float> entry : compteRendu.entrySet()) {
+            scoreTotal += entry.getValue();
+        }
+        return scoreTotal;
+    }
 }

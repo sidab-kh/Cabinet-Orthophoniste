@@ -15,39 +15,120 @@ import app.data.rendezvous.RendezVous;
 import app.data.tests.Test;
 import app.util.CryptageMotDePasse;
 
+/**
+ * La classe Orthophoniste représente un orthophoniste dans le système.
+ * Elle contient des informations sur l'orthophoniste ainsi que des données relatives à son activité.
+ */
 @SuppressWarnings("serial")
 public final class Orthophoniste implements Serializable {
-	
-	// Ces champs sont prives car ils sont confidentiels
-	private String nom, prenom, adresse, email, motDePasseCrypte, numeroTelephone;
+    /** Le nom de l'orthophoniste. */
+    private String nom;
     
-    // Ceux-ci sont en acces package puisqu'ils ne sont pas confidentiels et le Service Layer en a besoin constamment
+    /** Le prénom de l'orthophoniste. */
+    private String prenom;
+    
+    /** L'adresse de l'orthophoniste. */
+    private String adresse;
+    
+    /** L'email de l'orthophoniste. */
+    private String email;
+    
+    /** Le mot de passe crypté de l'orthophoniste. */
+    private String motDePasseCrypte;
+    
+    /** Le numéro de téléphone de l'orthophoniste. */
+    private String numeroTelephone;
+    
+    /** L'agenda de rendez-vous de l'orthophoniste. */
     List<RendezVous> agenda = new ArrayList<RendezVous>();
-    Set<DossierPatient> dossiersPatients = new TreeSet<DossierPatient>(); // Mis dans l'ordre pour faciliter la recherche
-    List<Patient> nouveauxPatients = new ArrayList<Patient>(); // Pour y mettre les nouveaux patients qui n'ont pas encore de dossier
-    Map<Integer, Patient> patients = new TreeMap<Integer, Patient>(); // Pour y mettre les patients avec comme cle leurs numeros de dossier
+    
+    /** Les dossiers patients de l'orthophoniste. */
+    Set<DossierPatient> dossiersPatients = new TreeSet<DossierPatient>();
+    
+    /** Les nouveaux patients sans dossier. */
+    List<Patient> nouveauxPatients = new ArrayList<Patient>();
+    
+    /** Les patients de l'orthophoniste, indexés par leur numéro de dossier. */
+    Map<Integer, Patient> patients = new TreeMap<Integer, Patient>();
+    
+    /** Les anamnèses de l'orthophoniste. */
     List<Anamnese> anamneses = new ArrayList<Anamnese>();
+    
+    /** Les tests réalisés par l'orthophoniste. */
     List<Test> tests = new ArrayList<Test>();
     
-    // Constructeur par defaut
+    /** Constructeur par défaut. */
     public Orthophoniste() {}
     
-    // Constructeur
-	public Orthophoniste(String nom, String prenom, String adresse, String email, String motDePasse, String numeroTelephone) {
-		this.nom = nom;
-		this.prenom = prenom;
-		this.adresse = adresse;
-		this.email = email;
-		this.motDePasseCrypte = CryptageMotDePasse.crypter(motDePasse);
-		this.numeroTelephone = numeroTelephone;
-	}
+    /**
+     * Constructeur pour créer un objet Orthophoniste avec toutes les informations nécessaires.
+     * 
+     * @param nom Le nom de l'orthophoniste.
+     * @param prenom Le prénom de l'orthophoniste.
+     * @param adresse L'adresse de l'orthophoniste.
+     * @param email L'email de l'orthophoniste.
+     * @param motDePasse Le mot de passe non crypté de l'orthophoniste.
+     * @param numeroTelephone Le numéro de téléphone de l'orthophoniste.
+     */
+    public Orthophoniste(String nom, String prenom, String adresse, String email, String motDePasse, String numeroTelephone) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresse = adresse;
+        this.email = email;
+        this.motDePasseCrypte = CryptageMotDePasse.crypter(motDePasse);
+        this.numeroTelephone = numeroTelephone;
+    }
+    
+    /**
+     * Obtient le nom de l'orthophoniste.
+     * 
+     * @return Le nom de l'orthophoniste.
+     */
+    public String getNom() { return this.nom; }
+    
+    /**
+     * Obtient le prénom de l'orthophoniste.
+     * 
+     * @return Le prénom de l'orthophoniste.
+     */
+    public String getPrenom() { return this.prenom; }
+    
+    /**
+     * Obtient l'adresse de l'orthophoniste.
+     * 
+     * @return L'adresse de l'orthophoniste.
+     */
+    public String getAdresse() { return adresse; }
+    
+    /**
+     * Obtient l'email de l'orthophoniste.
+     * 
+     * @return L'email de l'orthophoniste.
+     */
+    public String getEmail() { return this.email; }
+    
+    /**
+     * Obtient le mot de passe crypté de l'orthophoniste.
+     * 
+     * @return Le mot de passe crypté de l'orthophoniste.
+     */
+    String getMotDePasseCrypte() { return this.motDePasseCrypte; }
 	
-    // Getters et setters
-	public String getNom() { return nom; }
-	public String getPrenom() { return prenom; }
-	public String getAdresse() { return adresse; }
-	public String getEmail() { return email; }
-	String getMotDePasseCrypte() { return motDePasseCrypte; }
-	void setMotDePasseCrypte(String motDePasse) { this.motDePasseCrypte = CryptageMotDePasse.crypter(motDePasse); }
-	public String getNumeroTelephone() { return numeroTelephone; }
+    /**
+     * Crypte le mot de passe fourni à l'aide de l'algorithme de cryptage spécifié dans la classe CryptageMotDePasse.
+     * 
+     * @param motDePasse Le mot de passe à crypter.
+     */
+    void setMotDePasseCrypte(String motDePasse) {
+        this.motDePasseCrypte = CryptageMotDePasse.crypter(motDePasse);
+    }
+
+    /**
+     * Retourne le numéro de téléphone de l'orthophoniste.
+     * 
+     * @return Le numéro de téléphone de l'orthophoniste.
+     */
+    public String getNumeroTelephone() {
+        return this.numeroTelephone;
+    }
 }

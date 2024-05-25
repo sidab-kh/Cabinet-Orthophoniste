@@ -18,7 +18,6 @@ public class AgendaController {
     @FXML
     public void initialize() {
     	controlleur = Controlleur.getInstance();
-    	
     	afficherAgenda();
     }
 
@@ -48,7 +47,7 @@ public class AgendaController {
     
     @FXML // Afficher l'agenda
     private void afficherAgenda() {
-    	// Transformer l'agenda en liste de chaines
+    	// Transformer l'agenda en une liste de chaines
     	List<String> rendezVousEnChaine = controlleur.agendaToString();
     	Iterator<String> iterator = rendezVousEnChaine.iterator();
     	// Remplir le TextArea

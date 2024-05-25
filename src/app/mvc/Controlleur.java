@@ -100,11 +100,18 @@ public final class Controlleur {
     	return patientsEnChaine;
     }
     
+    // Transformer la liste des tests en une liste de chaines
+    public List<String> testsToString() {
+    	List<String> testsEnChaine = new ArrayList<String>();
+    	for (Test test : serviceOrthophoniste.getTests()) { testsEnChaine.add(test.getChaine()); }
+    	return testsEnChaine;
+    }
+    
     // Transformer la liste des anamneses en une liste de chaines
     public List<String> AnamnesesToString() {
-    	List<String> anamnesesEnTexte = new ArrayList<String>();
-    	for (Anamnese anamnese : serviceOrthophoniste.getAnamneses()) { anamnesesEnTexte.add(anamnese.getChaine()); }
-    	return anamnesesEnTexte;
+    	List<String> anamnesesEnChaine = new ArrayList<String>();
+    	for (Anamnese anamnese : serviceOrthophoniste.getAnamneses()) { anamnesesEnChaine.add(anamnese.getChaine()); }
+    	return anamnesesEnChaine;
     }
     
     // Programmer un nouveau rendez-vous

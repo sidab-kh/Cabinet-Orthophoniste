@@ -1,4 +1,5 @@
 package app.data.rendezvous;
+
 import java.io.Serializable;
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -6,33 +7,90 @@ import java.time.LocalDateTime;
 import app.util.Affichable;
 import app.util.enumerations.ETypesRendezVous;
 
-// Sous-classes : Atelier, Consultation, SeanceSuivi
+/**
+ * La classe abstraite RendezVous représente un rendez-vous.
+ * Elle contient des informations telles que la date et l'heure du rendez-vous, sa durée et une observation éventuelle.
+ */
 @SuppressWarnings("serial")
 public abstract class RendezVous implements Serializable, Affichable {
-	LocalDateTime dateEtHeure;
-	Duration duree = Duration.ofHours(1);
+    /** La date et l'heure du rendez-vous. */
+    LocalDateTime dateEtHeure;
+    
+    /** La durée du rendez-vous. */
+    Duration duree = Duration.ofHours(1);
+    
+    /** Une observation ou un commentaire associé au rendez-vous. */
     String observation = ""; 
 
-    // Constructeur
-	public RendezVous(LocalDateTime dateEtHeure, Duration duree) {
-		this.dateEtHeure = dateEtHeure;
-		this.duree = duree;
-	}
-	
-	// Getters et setters
-	public LocalDateTime getDateEtHeure() { return dateEtHeure; }
-	public void setDateEtHeure(LocalDateTime dateEtHeure) { this.dateEtHeure = dateEtHeure; }
-	public Duration getDuree() { return duree; }
-	public String getObservation() { return observation; }
-	public void setObservation(String observation) { this.observation = observation; }
-	
-	// Autres methodes
-	public LocalDateTime calculerHeureFin() {
-	    return dateEtHeure.plus(duree);
-	}
+    /**
+     * Constructeur pour créer un rendez-vous avec une date et une durée spécifiées.
+     * 
+     * @param dateEtHeure La date et l'heure du rendez-vous.
+     * @param duree La durée du rendez-vous.
+     */
+    public RendezVous(LocalDateTime dateEtHeure, Duration duree) {
+        this.dateEtHeure = dateEtHeure;
+        this.duree = duree;
+    }
+    
+    /**
+     * Obtient la date et l'heure du rendez-vous.
+     * 
+     * @return La date et l'heure du rendez-vous.
+     */
+    public LocalDateTime getDateEtHeure() { return dateEtHeure; }
+    
+    /**
+     * Modifie la date et l'heure du rendez-vous.
+     * 
+     * @param dateEtHeure La nouvelle date et heure du rendez-vous.
+     */
+    public void setDateEtHeure(LocalDateTime dateEtHeure) { this.dateEtHeure = dateEtHeure; }
+    
+    /**
+     * Obtient la durée du rendez-vous.
+     * 
+     * @return La durée du rendez-vous.
+     */
+    public Duration getDuree() { return duree; }
+    
+    /**
+     * Obtient l'observation ou le commentaire associé au rendez-vous.
+     * 
+     * @return L'observation ou le commentaire associé au rendez-vous.
+     */
+    public String getObservation() { return observation; }
+    
+    /**
+     * Modifie l'observation ou le commentaire associé au rendez-vous.
+     * 
+     * @param observation La nouvelle observation ou commentaire.
+     */
+    public void setObservation(String observation) { this.observation = observation; }
+    
+    /**
+     * Calcule l'heure de fin du rendez-vous en ajoutant la durée au moment du rendez-vous.
+     * 
+     * @return L'heure de fin du rendez-vous.
+     */
+    public LocalDateTime calculerHeureFin() {
+        return dateEtHeure.plus(duree);
+    }
 
-	@Override
-	public String getChaine() { return String.format("Le %s à %s, durée: %s, ", dateEtHeure.toLocalDate(), dateEtHeure.toLocalTime(), duree); }
-	
-	public abstract ETypesRendezVous getType();
+    /**
+     * Obtient le type du rendez-vous.
+     * 
+     * @return Le type du rendez-vous.
+     */
+    public abstract ETypesRendezVous getType();
+    
+    /**
+     * Obtient une chaîne représentant les informations du rendez-vous.
+     * 
+     * @return Une chaîne représentant les informations du rendez-vous.
+     */
+    @Override
+    public String getChaine() {
+        return String.format("Le %s à %s, durée: %s, ", dateEtHeure.toLocalDate(), dateEtHeure.toLocalTime(), duree);
+    }
 }
