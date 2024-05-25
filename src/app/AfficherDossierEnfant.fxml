@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.AfficherDossierEnfantController">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="600.0" fitWidth="800.0" opacity="0.3">
+               <image>
+                  <Image url="@../assets/design4.jpg" />
+               </image>
+            </ImageView>
+            <TextArea fx:id="affichageArea" layoutX="401.0" layoutY="181.0" prefHeight="269.0" prefWidth="350.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-border-color: #000000; -fx-border-width: 0px 0px 2px 0px;" />
+            <Text fx:id="numeroDossierText" layoutX="45.0" layoutY="94.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 900; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Dossier n°XXXX">
+               <font>
+                  <Font size="40.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.962085308056872" startY="0.23222748815165878">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.06578947603702545" green="0.06578947603702545" blue="0.06578947603702545" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.5394737124443054" green="0.5344785451889038" blue="0.5344785451889038" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="745.0" layoutY="15.0" onMouseClicked="#handleQuitterButtonAction">
+               <image>
+                  <Image url="@../assets/icon4.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="22.0" layoutY="538.0">
+               <image>
+                  <Image url="@../assets/icon3.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="50.0" layoutY="166.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 900; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Nom :">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.962085308056872" startY="0.23222748815165878">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.06578947603702545" green="0.06578947603702545" blue="0.06578947603702545" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.2631579041481018" green="0.2631579041481018" blue="0.2631579041481018" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <Text layoutX="50.0" layoutY="206.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 900; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Prénom :">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.962085308056872" startY="0.23222748815165878">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.06578947603702545" green="0.06578947603702545" blue="0.06578947603702545" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <Text layoutX="50.0" layoutY="246.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 900; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Date de naissance :">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.962085308056872" startY="0.23222748815165878">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.06578947603702545" green="0.06578947603702545" blue="0.06578947603702545" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.18421052396297455" green="0.18421052396297455" blue="0.18421052396297455" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <Text layoutX="50.0" layoutY="286.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 900; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Lieu de naissance :">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.962085308056872" startY="0.23222748815165878">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.06578947603702545" green="0.06578947603702545" blue="0.06578947603702545" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.34210526943206787" green="0.34210526943206787" blue="0.34210526943206787" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <Text fx:id="nomText" layoutX="107.0" layoutY="166.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Nom" textAlignment="RIGHT" wrappingWidth="252.2578125">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="50.0" layoutY="326.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 900; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Adresse :">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.962085308056872" startY="0.23222748815165878">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.06578947603702545" green="0.06578947603702545" blue="0.06578947603702545" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.34210526943206787" green="0.34210526943206787" blue="0.34210526943206787" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <Text layoutX="50.0" layoutY="366.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 900; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Numéro du papa :">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.962085308056872" startY="0.23222748815165878">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.06578947603702545" green="0.06578947603702545" blue="0.06578947603702545" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.34210526943206787" green="0.34210526943206787" blue="0.34210526943206787" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <Text layoutX="50.0" layoutY="406.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 900; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Numéro de la maman :">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.962085308056872" startY="0.23222748815165878">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.06578947603702545" green="0.06578947603702545" blue="0.06578947603702545" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.34210526943206787" green="0.34210526943206787" blue="0.34210526943206787" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <Text layoutX="50.0" layoutY="446.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 900; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Niveau d'études :">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.962085308056872" startY="0.23222748815165878">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.06578947603702545" green="0.06578947603702545" blue="0.06578947603702545" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.34210526943206787" green="0.34210526943206787" blue="0.34210526943206787" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <Text fx:id="prenomText" layoutX="124.0" layoutY="205.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Prénom" textAlignment="RIGHT" wrappingWidth="234.2578125">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="dateNaissanceText" layoutX="195.0" layoutY="246.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="JJ/MM/AAAA" textAlignment="RIGHT" wrappingWidth="164.2578125">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="lieuNaissanceText" layoutX="192.0" layoutY="286.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Lieu de naissance" textAlignment="RIGHT" wrappingWidth="168.2578125">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="adresseText" layoutX="125.0" layoutY="326.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Adresse" textAlignment="RIGHT" wrappingWidth="235.2578125">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="numeroPapaText" layoutX="226.0" layoutY="366.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="0000000000" textAlignment="RIGHT" wrappingWidth="134.2578125">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="numeroMamanText" layoutX="220.0" layoutY="406.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="0000000000" textAlignment="RIGHT" wrappingWidth="140.2578125">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text fx:id="niveauEtudesText" layoutX="188.0" layoutY="446.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Niveau d'études" textAlignment="RIGHT" wrappingWidth="172.2578125">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <HBox alignment="CENTER" layoutX="414.0" layoutY="147.0" prefHeight="25.0" prefWidth="325.0" spacing="20.0">
+               <children>
+                  <RadioButton fx:id="rendezVousButton" mnemonicParsing="false" onAction="#handleAfficherButtonAction" selected="true" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Rendez-vous">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="Affichage" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="bilansButton" mnemonicParsing="false" onAction="#handleAfficherButtonAction" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Bilans" toggleGroup="$Affichage">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton fx:id="fichesButton" layoutX="120.0" layoutY="13.0" mnemonicParsing="false" onAction="#handleAfficherButtonAction" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Fiches de suivi" toggleGroup="$Affichage">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+            </HBox>
+            <PasswordField fx:id="motDePasseField" layoutX="401.0" layoutY="500.0" prefHeight="40.0" prefWidth="182.0" promptText="Mot de passe" style="-fx-background-color: #E0E0E0; -fx-border-color: #000000; -fx-border-width: 0px 0px 0px 5px; -fx-padding: 0px 0px 0px 10px; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;">
+               <font>
+                  <Font name="Segoe UI Semilight" size="13.0" />
+               </font>
+            </PasswordField>
+            <Button layoutX="595.0" layoutY="500.0" mnemonicParsing="false" onAction="#handleSupprimerDossierButton" prefHeight="40.0" prefWidth="156.0" style="-fx-background-color: #E0E0E0; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Supprimer le dossier" textAlignment="CENTER">
+               <font>
+                  <Font name="Segoe UI Semilight" size="14.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="0.3886255924170616">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.43421053886413574" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.9210526347160339" green="0.10233917832374573" blue="0.10233917832374573" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <Text fx:id="erreurText" layoutX="400.0" layoutY="487.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Mot de passe erroné." textAlignment="RIGHT" wrappingWidth="351.9462890625">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.5526315569877625" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.8421052694320679" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

@@ -22,11 +22,8 @@ public class AgendaController {
     @FXML
     public void initialize() {
     	controlleur = Controlleur.getInstance();
-    	// Transformer l'agenda en liste de chaines
-    	List<String> RendezVousEnTexte = controlleur.AgendaToString();
-    	Iterator<String> iterator = RendezVousEnTexte.iterator();
-    	// Remplir l'agenda
-    	while (iterator.hasNext()) { agendaArea.appendText(iterator.next() + "\n"); }
+    	
+    	afficherAgenda();
     }
 
     @FXML // Aller vers la page profil
@@ -37,9 +34,6 @@ public class AgendaController {
     
     @FXML // Aller vers la pages des tests
     private void goToTests() { Main.changerScene(EScenes.TESTS); }
-    
-    @FXML // Aller vers la page des bilans
-    private void goToBilans() { Main.changerScene(EScenes.BILANS); }
     
     @FXML // Aller vers la page des anamneses
     private void goToAnamneses() { Main.changerScene(EScenes.ANAMNESES); }
@@ -55,4 +49,13 @@ public class AgendaController {
 
     @FXML // Lire un nouvel atelier
     private void goToLireAtelier() { Main.changerScene(EScenes.LIRE_ATELIER); }
+    
+    @FXML // Afficher l'agenda
+    void afficherAgenda() {
+    	// Transformer l'agenda en liste de chaines
+    	List<String> rendezVousEnChaine = controlleur.agendaToString();
+    	Iterator<String> iterator = rendezVousEnChaine.iterator();
+    	// Remplir le TextArea
+    	while (iterator.hasNext()) { agendaArea.appendText(iterator.next() + "\n\n"); }
+    }
 }

@@ -27,11 +27,6 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="20.0" layoutY="250.0" mnemonicParsing="false" onAction="#goToBilans" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Bilans Orthophoniques">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Button>
             <Button layoutX="30.0" layoutY="45.0" mnemonicParsing="false" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-border-color: #000000; -fx-border-width: 0px 0px 0px 5px; -fx-font-weight: bolder;" text="Profil">
                <font>
                   <Font size="17.0" />
@@ -68,7 +63,7 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="20.0" layoutY="300.0" mnemonicParsing="false" onAction="#goToAnamneses" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Anamnèses">
+            <Button layoutX="20.0" layoutY="250.0" mnemonicParsing="false" onAction="#goToAnamneses" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Anamnèses">
                <font>
                   <Font size="15.0" />
                </font>
@@ -314,7 +309,7 @@
                   <Font size="15.0" />
                </font>
             </Text>
-            <Text fx:id="telephoneText" layoutX="226.0" layoutY="289.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Numéro de téléphone" textAlignment="RIGHT" wrappingWidth="279.2578125">
+            <Text fx:id="telephoneText" layoutX="226.0" layoutY="289.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="0000000000" textAlignment="RIGHT" wrappingWidth="279.2578125">
                <font>
                   <Font size="15.0" />
                </font>

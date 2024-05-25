@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.AgendaController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.PatientsController">
    <left>
       <AnchorPane prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: #E4E4E4;" BorderPane.alignment="CENTER">
          <children>
@@ -23,11 +23,6 @@
                </font>
             </Button>
             <Button layoutX="20.0" layoutY="200.0" mnemonicParsing="false" onAction="#goToTests" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Tests">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Button>
-            <Button layoutX="20.0" layoutY="250.0" mnemonicParsing="false" onAction="#goToBilans" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Bilans Orthophoniques">
                <font>
                   <Font size="15.0" />
                </font>
@@ -68,7 +63,7 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="20.0" layoutY="300.0" mnemonicParsing="false" onAction="#goToAnamneses" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Anamnèses">
+            <Button layoutX="20.0" layoutY="250.0" mnemonicParsing="false" onAction="#goToAnamneses" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Anamnèses">
                <font>
                   <Font size="15.0" />
                </font>
@@ -79,7 +74,7 @@
    <right>
       <AnchorPane prefHeight="600.0" prefWidth="550.0" BorderPane.alignment="CENTER">
          <children>
-            <TextArea fx:id="nouveauxPatientsArea" editable="false" layoutX="45.0" layoutY="82.0" prefHeight="160.0" prefWidth="460.0" promptText="Pas de nouveaux patients. les nouveaux patients sont ajoutés lors de la première consultation." style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" wrapText="true" />
+            <TextArea fx:id="nouveauxPatientsArea" editable="false" layoutX="45.0" layoutY="82.0" prefHeight="160.0" prefWidth="460.0" promptText="Pas de nouveaux patients. Les nouveaux patients sont ajoutés lors de la première consultation." style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" wrapText="true" />
             <Text layoutX="45.0" layoutY="68.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 900; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Nouveaux patients">
                <font>
                   <Font size="22.0" />
@@ -123,7 +118,7 @@
                   </LinearGradient>
                </fill>
             </Text>
-            <Button layoutX="355.0" layoutY="255.0" mnemonicParsing="false" onAction="#handleSupprimerPatientButtonAction" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #E0E0E0; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Supprimer un patient" textAlignment="CENTER">
+            <Button layoutX="218.0" layoutY="254.0" mnemonicParsing="false" onAction="#handleSupprimerPatientButtonAction" prefHeight="35.0" prefWidth="155.0" style="-fx-background-color: #E0E0E0; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Supprimer le patient" textAlignment="CENTER">
                <font>
                   <Font name="Segoe UI Semilight" size="14.0" />
                </font>
@@ -149,12 +144,12 @@
                   <Font name="Segoe UI Semilight" size="14.0" />
                </font>
             </Button>
-            <TextField fx:id="nouveauMotDePasseField" layoutX="217.0" layoutY="530.0" prefHeight="35.0" prefWidth="157.0" promptText="Dossier à afficher" style="-fx-background-color: #EDEDED; -fx-border-color: #000000; -fx-border-width: 0px 0px 0px 5px; -fx-padding: 0px 0px 0px 10px; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;">
+            <TextField fx:id="dossierAfficherField" layoutX="217.0" layoutY="530.0" prefHeight="35.0" prefWidth="157.0" promptText="Dossier à afficher" style="-fx-background-color: #EDEDED; -fx-border-color: #000000; -fx-border-width: 0px 0px 0px 5px; -fx-padding: 0px 0px 0px 10px; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;">
                <font>
                   <Font name="Segoe UI Semilight" size="13.0" />
                </font>
             </TextField>
-            <Text fx:id="erreurText1" layoutX="45.0" layoutY="552.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Dossier inexistant." textAlignment="RIGHT" wrappingWidth="157.9462890625">
+            <Text fx:id="erreurText1" layoutX="346.0" layoutY="342.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Dossier inexistant." textAlignment="RIGHT" wrappingWidth="157.9462890625">
                <font>
                   <Font size="13.0" />
                </font>
@@ -175,7 +170,7 @@
                   </LinearGradient>
                </fill>
             </Text>
-            <Text fx:id="erreurText" layoutX="178.0" layoutY="277.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Aucun patient à supprimer." textAlignment="RIGHT" wrappingWidth="159.9462890625">
+            <Text fx:id="erreurText" layoutX="271.0" layoutY="66.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Aucun patient à supprimer." textAlignment="RIGHT" wrappingWidth="231.9462890625">
                <fill>
                   <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
                      <stops>
@@ -196,6 +191,16 @@
                   <Font size="13.0" />
                </font>
             </Text>
+            <Button layoutX="387.0" layoutY="254.0" mnemonicParsing="false" onAction="#handleCreerDossierButtonAction" prefHeight="35.0" prefWidth="118.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Créer dossier" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Semilight" size="14.0" />
+               </font>
+            </Button>
+            <TextField fx:id="indicePatientField" layoutX="45.0" layoutY="254.0" prefHeight="35.0" prefWidth="160.0" promptText="Indice du patient" style="-fx-background-color: #EDEDED; -fx-border-color: #000000; -fx-border-width: 0px 0px 0px 5px; -fx-padding: 0px 0px 0px 10px; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;">
+               <font>
+                  <Font name="Segoe UI Semilight" size="13.0" />
+               </font>
+            </TextField>
          </children>
       </AnchorPane>
    </right>

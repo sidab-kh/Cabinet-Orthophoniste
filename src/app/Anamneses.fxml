@@ -26,12 +26,7 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="20.0" layoutY="250.0" mnemonicParsing="false" onAction="#goToBilans" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Bilans Orthophoniques">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Button>
-            <Button layoutX="30.0" layoutY="295.0" mnemonicParsing="false" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-border-color: #000000; -fx-border-width: 0px 0px 0px 5px; -fx-font-weight: bolder;" text="Anamnèses">
+            <Button layoutX="30.0" layoutY="245.0" mnemonicParsing="false" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-border-color: #000000; -fx-border-width: 0px 0px 0px 5px; -fx-font-weight: bolder;" text="Anamnèses">
                <font>
                   <Font size="17.0" />
                </font>

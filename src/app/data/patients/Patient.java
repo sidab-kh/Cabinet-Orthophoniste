@@ -9,8 +9,10 @@ import app.util.enumerations.ETypesPatients;
 
 @SuppressWarnings("serial")
 public abstract class Patient implements Serializable, Affichable {
+	public static int compteurPatients = 0;
 	private String nom, prenom, lieuNaissance, adresse;
 	private LocalDate dateNaissance;
+	private int indicePatient;
 	
 	// Constructeur
 	public Patient(String nom, String prenom, String lieuNaissance, String adresse, LocalDate dateNaissance) {
@@ -19,9 +21,13 @@ public abstract class Patient implements Serializable, Affichable {
 		this.lieuNaissance = lieuNaissance;
 		this.adresse = adresse;
 		this.dateNaissance = dateNaissance;
+		indicePatient = compteurPatients;
+		compteurPatients++;
 	}
 	
 	// Getters et setters
+	public int getIndicePatient() { return indicePatient; }
+	
 	public String getNom() { return nom; }
 	
 	public void setNom(String nom) { this.nom = nom; }
@@ -41,16 +47,14 @@ public abstract class Patient implements Serializable, Affichable {
 	public LocalDate getDateNaissance() { return dateNaissance; }
 	
 	public void setDateNaissance(LocalDate dateNaissance) { this.dateNaissance = dateNaissance; }
-	
-	// Autres methodes 
+
+	// Autres methodes
+	// Calculer l'age du patient
 	public int getAge() { return Period.between(dateNaissance, LocalDate.now()).getYears(); }
 	
-	public void afficher() {
-		System.out.print(String.format("- %s %s, date et lieu de naissance: %s %s, adresse: %s, ",
-				nom, prenom, dateNaissance, lieuNaissance, adresse));
-	}
+	@Override
+	public String getChaine() { return String.format("%s %s, %s, ", nom, prenom, dateNaissance); }
 	
-	public ETypesPatients getType() {
-		return getAge()<18 ? ETypesPatients.ENFANT : ETypesPatients.ADULTE ;
-	}
+	// Retourner le type du patient
+	public ETypesPatients getType() { return getAge() < 18 ? ETypesPatients.ENFANT : ETypesPatients.ADULTE ; }
 }

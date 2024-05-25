@@ -15,10 +15,12 @@ public class Consultation extends RendezVous {
 		this.patient = patient;
 	}
 	
+	// Getters et setters
+	public Patient getPatient() { return patient; };
+	
 	// Autres methodes
-	public String rdvString() { return "- Consultation / " + super.rdvString() + String.format("Avec %s %s.", patient.getNom(), patient.getPrenom()); }
+	@Override
+	public String getChaine() { return "Consultation / " + super.getChaine() + String.format("avec %s %s.", patient.getNom(), patient.getPrenom()); }
 
 	public ETypesRendezVous getType() { return ETypesRendezVous.CONSULTATION; }
-	
-	public Patient getPatient() { return patient; };
 }

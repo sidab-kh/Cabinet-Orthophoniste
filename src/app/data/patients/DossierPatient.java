@@ -8,13 +8,13 @@ import app.data.rendezvous.RendezVous;
 
 @SuppressWarnings("serial")
 public class DossierPatient implements Serializable, Comparable<DossierPatient> {
-	private static int compteurNumero;
+	public static int compteurNumero;
 	private int numero;
 	private List<RendezVous> listeRendezVous = new ArrayList<RendezVous>();
 	private List<BilanOrthophonique> listeBilansOrthophoniques = new ArrayList<BilanOrthophonique>();
 	
 	// Constructeur
-	public DossierPatient(int numero) { this.numero = numero; }
+	public DossierPatient() { numero = compteurNumero; }
 	
 	// Getters et setters
 	public int getNumero() { return numero; }
@@ -25,10 +25,6 @@ public class DossierPatient implements Serializable, Comparable<DossierPatient> 
 	
 	// Autres methodes
 	@Override public int compareTo(DossierPatient autre) { return Integer.compare(this.numero, autre.numero); }
-	
-	public static int getCompteurNumero() { return compteurNumero; }
-	
-	public static void incrementerCompteurNumero() { compteurNumero++; }
 	
 	public void ajouterRendezVous(RendezVous rendezVous) { listeRendezVous.add(rendezVous); }
 	

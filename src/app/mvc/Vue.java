@@ -195,7 +195,7 @@ public final class Vue {
     public void afficher(String message) { System.out.print(message); }
     
     // Afficher un objet affichable
-    public void afficher(Affichable objet) { objet.afficher(); }
+    public void afficher(Affichable objet) { objet.getChaine(); }
     
     // Saut de caractere
     public void sautCar() { scanner.nextLine(); }

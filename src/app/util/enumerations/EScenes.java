@@ -13,7 +13,9 @@ public enum EScenes {
 	AIDE("Aide", "Aide.fxml"),
 	LIRE_CONSULTATION("Nouvelle consultation", "LireConsultation.fxml"),
 	LIRE_SEANCE_SUIVI("Nouvelle séance de suivi", "LireSeanceSuivi.fxml"),
-	LIRE_ATELIER("Nouvel atelier", "LireAtelier.fxml");
+	LIRE_ATELIER("Nouvel atelier", "LireAtelier.fxml"),
+	AFFICHER_DOSSIER_ADULTE("Affichage dossier", "AfficherDossierAdulte.fxml"),
+	AFFICHER_DOSSIER_ENFANT("Affichage dossier", "AfficherDossierEnfant.fxml");
 	
 	String nom;
 	String nomFichier;

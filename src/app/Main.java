@@ -1,5 +1,6 @@
 package app;
 
+import app.mvc.Controlleur;
 import app.util.enumerations.EScenes;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -18,6 +19,11 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         Main.primaryStage = primaryStage;
         initialiserStage();
+    }
+	
+	@Override
+    public void stop() {
+        Controlleur.getInstance().getServiceOrthophoniste().sauvegarderOrthophoniste();
     }
 	
 	// Methode pour initialiser la premiere scene

@@ -1,4 +1,5 @@
 package app.data.patients;
+
 import java.time.LocalDate;
 
 @SuppressWarnings("serial")
@@ -14,10 +15,20 @@ public class Adulte extends Patient {
 		this.profession = profession;
 	}
 	
+	// Getters et setters
+	public String getNumeroTelephone() { return numeroTelephone; }
+
+	public void setNumeroTelephone(String numeroTelephone) { this.numeroTelephone = numeroTelephone; }
+
+	public String getDiplome() { return diplome; }
+
+	public void setDiplome(String diplome) { this.diplome = diplome; }
+
+	public String getProfession() { return profession; }
+
+	public void setProfession(String profession) { this.profession = profession; }
+	
 	// Autres methodes
-	public void afficher() {
-		super.afficher();
-		System.out.println(String.format("numero de telephone: %s, diplome: %s, profession: %s",
-				numeroTelephone, diplome, profession));
-	}
+	@Override
+	public String getChaine() { return super.getChaine() + String.format("Contact : %s.", numeroTelephone); }
 }

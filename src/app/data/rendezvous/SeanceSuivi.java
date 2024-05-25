@@ -18,15 +18,13 @@ public class SeanceSuivi extends RendezVous {
 	
 	// Getters et setters
 	public int getNumeroDossier() { return numeroDossier; }
-
 	public void setNumeroDossier(int numeroDossier) { this.numeroDossier = numeroDossier; }
-
-	public boolean isPresentiel() { return presentiel; }
-
-	public void setPresentiel(boolean presentiel) { this.presentiel = presentiel; }
+	public void setPresentiel (boolean presentiel) { this.presentiel = presentiel; }
+	public boolean isPresentiel() { return this.presentiel; }
 
 	// Autres methodes
-	public String rdvString() { return "- Séance de suivi / " + super.rdvString() + String.format("Numero dossier: %s, en %s.", numeroDossier, presentiel ? "présentiel" : "ligne"); }
+	@Override
+	public String getChaine() { return "Séance de suivi / " + super.getChaine() + String.format("numéro de dossier: %s, en %s.", numeroDossier, presentiel ? "présentiel" : "ligne"); }
 	
 	public ETypesRendezVous getType() { return ETypesRendezVous.SEANCE_SUIVI; }
 }

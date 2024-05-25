@@ -14,10 +14,20 @@ public class Enfant extends Patient {
 		this.niveauEtudes = niveauEtudes;
 	}
 	
+	// Getters et setters
+	public String getNumeroTelephonePere() { return numeroTelephonePere; }
+
+	public void setNumeroTelephonePere(String numeroTelephonePere) { this.numeroTelephonePere = numeroTelephonePere; }
+
+	public String getNumeroTelephoneMere() { return numeroTelephoneMere; }
+
+	public void setNumeroTelephoneMere(String numeroTelephoneMere) { this.numeroTelephoneMere = numeroTelephoneMere; }
+
+	public String getNiveauEtudes() { return niveauEtudes; }
+
+	public void setNiveauEtudes(String niveauEtudes) { this.niveauEtudes = niveauEtudes; }
+	
 	// Autres methodes
-	public void afficher() {
-		super.afficher();
-		System.out.println(String.format("numero du papa: %s, numero de la maman: %s, niveau d'etudes: %s",
-				numeroTelephonePere, numeroTelephoneMere, niveauEtudes));
-	}
+	@Override
+	public String getChaine() { return super.getChaine() + String.format("Contact : %s, %s.", numeroTelephonePere, numeroTelephoneMere); }
 }

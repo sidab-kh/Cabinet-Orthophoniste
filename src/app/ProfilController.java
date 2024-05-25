@@ -40,13 +40,8 @@ public class ProfilController {
     @FXML // Remplir les informations de l'orthophoniste
     public void initialize() {
     	controlleur = Controlleur.getInstance();
-    	Orthophoniste orthophoniste = controlleur.getServiceOrthophoniste().getOrthophoniste();
-    	erreurText.setVisible(false);
-        nomText.setText(orthophoniste.getNom());
-        prenomText.setText(orthophoniste.getPrenom());
-        adresseText.setText(orthophoniste.getAdresse());
-        telephoneText.setText(orthophoniste.getNumeroTelephone());
-        emailText.setText(orthophoniste.getEmail());
+    	
+    	afficherInformations();
     }
     
     @FXML // Aller vers la page agenda
@@ -58,9 +53,6 @@ public class ProfilController {
     @FXML // Aller vers la pages des tests
     private void goToTests() { Main.changerScene(EScenes.TESTS); }
     
-    @FXML // Aller vers la page des bilans
-    private void goToBilans() { Main.changerScene(EScenes.BILANS); }
-    
     @FXML // Aller vers la page des anamneses
     private void goToAnamneses() { Main.changerScene(EScenes.ANAMNESES); }
     
@@ -71,6 +63,17 @@ public class ProfilController {
     private void seDeconnecter() {
     	controlleur.deconnexion();
     	Main.changerScene(EScenes.CONNEXION);
+    }
+    
+    @FXML // Afficher les informations de l'orthophoniste
+    private void afficherInformations() {
+    	Orthophoniste orthophoniste = controlleur.getServiceOrthophoniste().getOrthophoniste();
+    	erreurText.setVisible(false);
+        nomText.setText(orthophoniste.getNom());
+        prenomText.setText(orthophoniste.getPrenom());
+        adresseText.setText(orthophoniste.getAdresse());
+        telephoneText.setText(orthophoniste.getNumeroTelephone());
+        emailText.setText(orthophoniste.getEmail());
     }
     
     @FXML // Supprimer le compte de l'orthophoniste de la machine

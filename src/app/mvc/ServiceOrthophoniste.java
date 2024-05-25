@@ -4,17 +4,18 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import app.data.bilans.Anamnese;
 import app.data.patients.DossierPatient;
 import app.data.patients.Patient;
 import app.data.rendezvous.Atelier;
+import app.data.rendezvous.Consultation;
 import app.data.rendezvous.RendezVous;
 import app.data.rendezvous.SeanceSuivi;
 import app.data.tests.Test;
 import app.util.CryptageMotDePasse;
-import app.util.exceptions.NumeroDossierExistantException;
 import app.util.persistance.OrthophonisteDAO;
 
 public final class ServiceOrthophoniste {
@@ -31,29 +32,24 @@ public final class ServiceOrthophoniste {
 	// Ajouter un nouveau patient a la liste des nouveaux patients
     public void ajouterNouveauPatient(Patient patient) { if (patient != null) orthophoniste.nouveauxPatients.add(patient); }
     
+    // Supprimer un nouveau patient de la liste des nouveaux patients
+    public void supprimerNouveauPatient(Patient patient) {  if (patient != null) orthophoniste.nouveauxPatients.remove(patient); }
+    
     // Ajouter un dossier au set de dossiers
- 	public void ajouterDossierPatient(DossierPatient dossierPatient) throws NumeroDossierExistantException {
+ 	public void ajouterDossierPatient(DossierPatient dossierPatient) {
  		if (dossierPatient != null) {
- 			if (orthophoniste.dossiersPatients.contains(dossierPatient)) throw new NumeroDossierExistantException();
- 	        orthophoniste.dossiersPatients.add(dossierPatient);
+ 			if (!orthophoniste.dossiersPatients.contains(dossierPatient)) orthophoniste.dossiersPatients.add(dossierPatient);
  		}
     }
  	
  	// Creer un dossier pour un nouveau patient
  	public void creerDossierPatient(Patient patient) {
  		if (patient != null && orthophoniste.nouveauxPatients.contains(patient)) {
- 			int numeroDossier = DossierPatient.getCompteurNumero();
- 			DossierPatient dossier = new DossierPatient(numeroDossier);
- 			
- 			try { ajouterDossierPatient(dossier); }
- 			catch (NumeroDossierExistantException e) {
- 	    		// TODO: Traiter l'exception
- 	    	}
- 			
- 			orthophoniste.patients.put(numeroDossier, patient);
- 	 		orthophoniste.nouveauxPatients.remove(patient); // Supprimer le patient de la liste des nouveaux patients
- 			DossierPatient.incrementerCompteurNumero(); // Incrementer le compteur pour garantir l'unicite
- 		}	
+ 			ajouterDossierPatient(new DossierPatient()); 			
+ 			orthophoniste.patients.put(DossierPatient.compteurNumero, patient);
+ 			DossierPatient.compteurNumero++;
+ 	 		orthophoniste.nouveauxPatients.remove(patient);
+ 		}
  	}
  	
  	// Supprimer le dossier d'un patient (et le patient lui-meme)
@@ -71,22 +67,38 @@ public final class ServiceOrthophoniste {
  		for (DossierPatient dossier : orthophoniste.dossiersPatients) { if (dossier.getNumero() == numeroDossier) return dossier; }
  		return null;
  	}
+ 	
+ 	// Retourner le patient ayant le numero de dossier donne
+ 	public Patient patientDeNumeroDossier(int numeroDossier) { return orthophoniste.patients.get(numeroDossier); }
+ 	
+ 	// Retourner le nouveau patient ayant l'indice donne
+ 	public Patient patientDeIndice(int numero) {
+ 		// Parcourir les nouveaux patients uniquement (les patients reguliers seront indexes par leur numeros de dossiers)
+ 		for (Patient patient : orthophoniste.nouveauxPatients) { if (patient.getIndicePatient() == numero) return patient; }
+ 		return null;
+ 	}
 
  	// Ajouter un rendez-vous a l'agenda
  	public void ajouterRendezVous(RendezVous rendezVous) {
  	    if (rendezVous != null && orthophoniste.agenda.add(rendezVous)) {
+ 	    	if (rendezVous instanceof Consultation) {
+ 	    		// Ajouter le patient a la liste des nouveaux patients
+ 	    		Patient patient = ((Consultation)rendezVous).getPatient();
+ 	    		if (!orthophoniste.nouveauxPatients.contains(patient)) ajouterNouveauPatient(patient);
+ 	    	}
+ 	    	
+ 	    	if (rendezVous instanceof SeanceSuivi) {
+ 	 	        // Ajouter le rendez-vous au dossier du participant
+ 	 	        DossierPatient dossier = dossierDeNumero(((SeanceSuivi) rendezVous).getNumeroDossier());
+ 	 	        if (dossier != null) dossier.ajouterRendezVous(rendezVous);
+ 	 	    }
+ 	    	
  	    	if (rendezVous instanceof Atelier) {
  	 	        // Ajouter le rendez-vous aux dossiers de tous les participants
  	 	        for (int numeroDossier : ((Atelier) rendezVous).getNumerosDossiers()) {
  	 	            DossierPatient dossier = dossierDeNumero(numeroDossier);
  	 	            if (dossier != null) dossier.ajouterRendezVous(rendezVous);
  	 	        }
- 	 	    }
-
- 	 	    if (rendezVous instanceof SeanceSuivi) {
- 	 	        // Ajouter le rendez-vous au dossier du participant
- 	 	        DossierPatient dossier = dossierDeNumero(((SeanceSuivi) rendezVous).getNumeroDossier());
- 	 	        if (dossier != null) dossier.ajouterRendezVous(rendezVous);
  	 	    }
  	    }
  	}
@@ -135,7 +147,7 @@ public final class ServiceOrthophoniste {
     public List<Patient> getNouveauxPatients() { return new ArrayList<>(orthophoniste.nouveauxPatients); }
     
     // Retourner la liste des patients
-    public List<Patient> getPatients() { return new ArrayList<>(orthophoniste.patients.values()); }
+    public Map<Integer, Patient> getPatients() { return orthophoniste.patients; }
     
     // Ajouter une observation pour un rendez-vous
     public void ajouterObservation(RendezVous rendezVous, String observation) { if (rendezVous != null) rendezVous.setObservation(observation); }

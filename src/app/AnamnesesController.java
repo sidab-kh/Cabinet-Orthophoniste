@@ -20,11 +20,6 @@ public class AnamnesesController {
     }
 
     @FXML
-    void goToBilans(ActionEvent event) {
-
-    }
-
-    @FXML
     void goToPatients(ActionEvent event) {
 
     }

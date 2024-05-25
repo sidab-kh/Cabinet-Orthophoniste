@@ -1,13 +1,8 @@
 package app;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-
 import app.mvc.Controlleur;
 import app.mvc.Orthophoniste;
 import app.util.enumerations.EScenes;
-import app.util.fabriques.FabriquePatient;
-import app.util.fabriques.FabriqueRendezVous;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -19,34 +14,22 @@ public class InscriptionController {
 	Controlleur controlleur;
 	
     @FXML
-    private TextField nomField;
-
-    @FXML
-    private TextField prenomField;
-
-    @FXML
-    private TextField adresseField;
-
-    @FXML
-    private TextField emailField;
-
-    @FXML
-    private TextField telephoneField;
+    private TextField nomField, prenomField, adresseField, emailField, telephoneField;
 
     @FXML
     private PasswordField motDePasseField;
 
     @FXML
-    private Button inscriptionButton;
-
-    @FXML
-    private Button connexionButton;
+    private Button inscriptionButton, connexionButton;
     
     @FXML
     private Text erreurText;
     
     @FXML
-    private void initialize() { controlleur = Controlleur.getInstance(); }
+    private void initialize() {
+    	controlleur = Controlleur.getInstance();
+    	erreurText.setVisible(false);
+    }
 
     @FXML // Lire les informations
     private void handleInscriptionButtonAction() {
@@ -73,8 +56,6 @@ public class InscriptionController {
             erreurText.setVisible(true);
         } else {
             controlleur.inscription(new Orthophoniste(nom, prenom, adresse, email, motDePasse,  telephone));
-            // Pour tests
-            Controlleur.getInstance().confirmerRendezVous(FabriqueRendezVous.creerConsultation(LocalDateTime.now(), FabriquePatient.creerAdulte("Amine", "Ali", LocalDate.now(), "Alger", "Alger", "001", "Singe", "Jungle")));
             Main.changerScene(EScenes.AGENDA);
         }
     }

@@ -3,6 +3,7 @@ package app.mvc;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import app.data.patients.DossierPatient;
@@ -47,6 +48,14 @@ public final class Controlleur {
     // Creer un dossier pour un nouveau patient
     public void creerDossierPatient(Patient patient) { serviceOrthophoniste.creerDossierPatient(patient); }
     
+    // Supprimer un dossier
+    public boolean supprimerDossierPatient(String motDePasse, DossierPatient dossier) {
+    	if (CryptageMotDePasse.verifierMotDePasse(motDePasse, getServiceOrthophoniste().getOrthophoniste().getMotDePasseCrypte())) {
+    		serviceOrthophoniste.supprimerDossierPatient(dossier);
+    		return true;
+    	} else return false;
+    }
+    
     // Verifier si un dossier existe
     public boolean dossierExiste(int numeroDossier) {return serviceOrthophoniste.existe(numeroDossier); }    
     
@@ -63,13 +72,32 @@ public final class Controlleur {
     public List<Patient> getNouveauxPatients() { return serviceOrthophoniste.getNouveauxPatients(); }
     
     // Retourner la liste des patients
-    List<Patient> getPatients() { return serviceOrthophoniste.getPatients(); }
+    List<Patient> getPatients() { return new ArrayList<Patient>(serviceOrthophoniste.getPatients().values()); }
     
     // Transformer l'agenda en une liste de chaines
-    public List<String> AgendaToString() {
-    	List<String> RendezVousEnTexte = new ArrayList<String>();
-    	for (RendezVous rdv : serviceOrthophoniste.getAgenda()) { RendezVousEnTexte.add(rdv.rdvString()); }
-    	return RendezVousEnTexte;
+    public List<String> agendaToString() {
+    	List<String> RendezVousEnChaine = new ArrayList<String>();
+    	for (RendezVous rdv : serviceOrthophoniste.getAgenda()) { RendezVousEnChaine.add(rdv.getChaine()); }
+    	return RendezVousEnChaine;
+    }
+    
+    // Transformer la liste des nouveaux patients en une liste de chaines
+    public List<String> nouveauxPatientsToString() {
+    	List<String> nouveauxPatientsEnChaine = new ArrayList<String>();
+    	for (Patient patient : serviceOrthophoniste.getNouveauxPatients()) {
+    		nouveauxPatientsEnChaine.add(patient.getIndicePatient() + " / " + patient.getChaine());
+    	}
+    	return nouveauxPatientsEnChaine;
+    }
+    
+    // Transformer la liste des patients en une liste de chaines
+    public List<String> patientsToString() {
+    	List<String> patientsEnChaine = new ArrayList<String>();
+    	Map<Integer, Patient> patients = serviceOrthophoniste.getPatients();
+    	for (int numeroDossier : patients.keySet()) {
+    		patientsEnChaine.add(numeroDossier + " / " + patients.get(numeroDossier).getChaine());
+    	}
+    	return patientsEnChaine;
     }
     
     // Programmer un nouveau rendez-vous
