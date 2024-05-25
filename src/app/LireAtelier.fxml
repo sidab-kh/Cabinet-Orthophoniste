@@ -52,9 +52,9 @@
                   <Font name="Segoe UI Semilight" size="13.0" />
                </font>
             </TextField>
-            <Text fx:id="erreurTextDossiers" layoutX="30.0" layoutY="413.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Compte inexistant, veuillez vous inscrire" textAlignment="RIGHT" visible="false" wrappingWidth="338.9462890625">
+            <Text fx:id="erreurTextDossiers" layoutX="38.0" layoutY="408.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Tous les champs sont obligatoires." textAlignment="RIGHT" wrappingWidth="324.9462890625">
                <font>
-                  <Font size="14.0" />
+                  <Font size="13.0" />
                </font>
                <fill>
                   <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
@@ -136,9 +136,9 @@
                   </LinearGradient>
                </textFill>
             </Button>
-            <Text fx:id="erreurText" layoutX="32.0" layoutY="408.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Compte inexistant, veuillez vous inscrire" textAlignment="RIGHT" visible="false" wrappingWidth="338.9462890625">
+            <Text fx:id="erreurText" layoutX="40.0" layoutY="408.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Date ou heure invalide." textAlignment="RIGHT" wrappingWidth="325.9462890625">
                <font>
-                  <Font size="14.0" />
+                  <Font size="13.0" />
                </font>
                <fill>
                   <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">

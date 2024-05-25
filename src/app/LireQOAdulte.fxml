@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LireQOAdulteController">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="600.0" fitWidth="800.0" opacity="0.4">
+               <image>
+                  <Image url="@../assets/design4.jpg" />
+               </image>
+            </ImageView>
+            <TextArea fx:id="enonceArea" layoutX="400.0" layoutY="150.0" prefHeight="300.0" prefWidth="350.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-border-color: #000000; -fx-border-width: 0px 0px 2px 0px;" />
+            <Text layoutX="50.0" layoutY="76.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 900; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Question ouverte">
+               <font>
+                  <Font size="30.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.962085308056872" startY="0.23222748815165878">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.06578947603702545" green="0.06578947603702545" blue="0.06578947603702545" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.5394737124443054" green="0.5344785451889038" blue="0.5344785451889038" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <Text layoutX="400.0" layoutY="134.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Enoncé">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <ChoiceBox fx:id="categorieBox" layoutX="50.0" layoutY="153.0" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-border-color: #000000; -fx-border-width: 0px 0px 2px 0px;" />
+            <Text layoutX="50.0" layoutY="133.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Catégorie">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Button layoutX="400.0" layoutY="500.0" mnemonicParsing="false" onAction="#HandleAjouterQuestionButtonAction" prefHeight="40.0" prefWidth="350.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Ajouter la question" textAlignment="CENTER">
+               <font>
+                  <Font name="Segoe UI Semilight" size="14.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="0.3886255924170616">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.9605262875556946" green="0.9605262875556946" blue="0.9605262875556946" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <Text layoutX="309.0" layoutY="75.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Entrez une question ouverte pour adulte">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="745.0" layoutY="15.0" onDragDetected="#HandleQuitterButtonAction">
+               <image>
+                  <Image url="@../assets/icon4.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="22.0" layoutY="538.0">
+               <image>
+                  <Image url="@../assets/icon3.png" />
+               </image>
+            </ImageView>
+            <Text fx:id="erreurText" layoutX="400.0" layoutY="486.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Tous les champs sont obligatoires." textAlignment="RIGHT" wrappingWidth="349.9462890625">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.5526315569877625" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.8421052694320679" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

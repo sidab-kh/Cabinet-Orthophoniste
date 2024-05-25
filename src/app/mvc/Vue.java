@@ -292,7 +292,7 @@ public final class Vue {
                 String categorieStr = lireChaine("Entrez la catégorie de la question "
                 		+ "(histoire_maladie, suivi_medical) :");
                 try {
-                    categorie = ECategoriesQoAdulte.valueOf(categorieStr.toUpperCase());
+                    categorie = ECategoriesQOAdulte.valueOf(categorieStr.toUpperCase());
                 } catch (IllegalArgumentException e) {
                     System.out.println("Catégorie invalide.");
                     continue;
@@ -303,7 +303,7 @@ public final class Vue {
             			+ "conditions_natales, développement_psychomoteur, "
             			+ "développement_langagier, comportement) :");
                 try {
-                    categorie = ECategoriesQoEnfant.valueOf(categorieStr.toUpperCase());
+                    categorie = ECategoriesQOEnfant.valueOf(categorieStr.toUpperCase());
                 } catch (IllegalArgumentException e) {
                     System.out.println("Catégorie invalide.");
                     continue;

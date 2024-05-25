@@ -126,7 +126,7 @@
                   <Image url="@../assets/icon3.png" />
                </image>
             </ImageView>
-            <Button fx:id="inscriptionButton" layoutX="146.0" layoutY="376.0" mnemonicParsing="false" onAction="#handleInscriptionButtonAction" prefHeight="36.0" prefWidth="91.0" style="-fx-background-color: #E0E0E0; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Inscription" textAlignment="CENTER">
+            <Button fx:id="inscriptionButton" layoutX="140.0" layoutY="376.0" mnemonicParsing="false" onAction="#handleInscriptionButtonAction" prefHeight="36.0" prefWidth="97.0" style="-fx-background-color: #E0E0E0; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Inscription" textAlignment="CENTER">
                <font>
                   <Font name="Segoe UI Semilight" size="14.0" />
                </font>
@@ -147,9 +147,9 @@
                   </LinearGradient>
                </textFill>
             </Button>
-            <Text fx:id="erreurText" layoutX="33.0" layoutY="445.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Erreur" textAlignment="RIGHT" visible="false" wrappingWidth="338.9462890625">
+            <Text fx:id="erreurText" layoutX="33.0" layoutY="450.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Tous les champs sont obligatoires." textAlignment="RIGHT" wrappingWidth="338.9462890625">
                <font>
-                  <Font size="14.0" />
+                  <Font size="13.0" />
                </font>
                <fill>
                   <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
@@ -177,11 +177,6 @@
             <ImageView fitHeight="600.0" fitWidth="400.0">
                <image>
                   <Image url="@../assets/design1.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="345.0" layoutY="15.0">
-               <image>
-                  <Image url="@../assets/icon4.png" />
                </image>
             </ImageView>
          </children>

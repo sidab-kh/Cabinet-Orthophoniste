@@ -68,6 +68,11 @@
                   <Font size="15.0" />
                </font>
             </Button>
+            <Button layoutX="20.0" layoutY="300.0" mnemonicParsing="false" onAction="#goToAnamneses" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Anamnèses">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </left>
@@ -95,7 +100,7 @@
                   </LinearGradient>
                </fill>
             </Text>
-            <Button layoutX="357.0" layoutY="530.0" mnemonicParsing="false" onAction="#seDeconnecter" prefHeight="36.0" prefWidth="148.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Se Déconnecter" textAlignment="CENTER">
+            <Button layoutX="357.0" layoutY="530.0" mnemonicParsing="false" onAction="#seDeconnecter" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Se Déconnecter" textAlignment="CENTER">
                <font>
                   <Font name="Segoe UI Semilight" size="14.0" />
                </font>
@@ -116,7 +121,7 @@
                   </LinearGradient>
                </textFill>
             </Button>
-            <Button layoutX="156.0" layoutY="530.0" mnemonicParsing="false" onAction="#supprimerCompte" prefHeight="36.0" prefWidth="181.0" style="-fx-background-color: #E0E0E0; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Supprimer votre compte" textAlignment="CENTER">
+            <Button layoutX="156.0" layoutY="530.0" mnemonicParsing="false" onAction="#supprimerCompte" prefHeight="35.0" prefWidth="181.0" style="-fx-background-color: #E0E0E0; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Supprimer votre compte" textAlignment="CENTER">
                <font>
                   <Font name="Segoe UI Semilight" size="14.0" />
                </font>
@@ -168,9 +173,9 @@
                   </LinearGradient>
                </textFill>
             </Button>
-            <Text fx:id="erreurText" layoutX="168.0" layoutY="468.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Erreur" textAlignment="RIGHT" visible="false" wrappingWidth="338.9462890625">
+            <Text fx:id="erreurText" layoutX="168.0" layoutY="468.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Mot de passe erroné." textAlignment="RIGHT" wrappingWidth="338.9462890625">
                <font>
-                  <Font size="14.0" />
+                  <Font size="13.0" />
                </font>
                <fill>
                   <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">

@@ -1,5 +1,3 @@
 package app.util.enumerations;
 
-public interface ECategoriesQOs {
-
-}
+public interface ECategoriesQOs {}

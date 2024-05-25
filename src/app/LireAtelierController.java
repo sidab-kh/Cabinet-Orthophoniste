@@ -32,7 +32,7 @@ public class LireAtelierController {
     }
 
     @FXML
-    void handleCreerAtelierButtonAction(ActionEvent event) {
+    private void handleCreerAtelierButtonAction(ActionEvent event) {
     	try {
     		LocalDateTime dateEtHeure = LocalDateTime.parse(dateField.getText()+" "+heureField.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
             
@@ -67,7 +67,7 @@ public class LireAtelierController {
     }
 
     @FXML
-    void handleQuitterButtonAction(MouseEvent event) {
+    private void handleQuitterButtonAction(MouseEvent event) {
     	Main.changerScene(EScenes.AGENDA);
     }
 

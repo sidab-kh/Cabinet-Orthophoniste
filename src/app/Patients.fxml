@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,7 +17,7 @@
    <left>
       <AnchorPane prefHeight="600.0" prefWidth="250.0" style="-fx-background-color: #E4E4E4;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="20.0" layoutY="150.0" mnemonicParsing="false" onAction="#goToPatients" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Patients">
+            <Button layoutX="20.0" layoutY="100.0" mnemonicParsing="false" onAction="#goToAgenda" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Agenda">
                <font>
                   <Font size="15.0" />
                </font>
@@ -31,7 +32,7 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button layoutX="30.0" layoutY="95.0" mnemonicParsing="false" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-border-color: #000000; -fx-border-width: 0px 0px 0px 5px; -fx-font-weight: bolder;" text="Agenda">
+            <Button layoutX="30.0" layoutY="145.0" mnemonicParsing="false" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-border-color: #000000; -fx-border-width: 0px 0px 0px 5px; -fx-font-weight: bolder;" text="Patients">
                <font>
                   <Font size="17.0" />
                </font>
@@ -78,10 +79,10 @@
    <right>
       <AnchorPane prefHeight="600.0" prefWidth="550.0" BorderPane.alignment="CENTER">
          <children>
-            <TextArea fx:id="agendaArea" editable="false" layoutX="45.0" layoutY="95.0" prefHeight="400.0" prefWidth="460.0" promptText="Votre agenda est vide. Ajoutez-y des rendez-vous pour le remplir." style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" wrapText="true" />
-            <Text layoutX="45.0" layoutY="75.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 900; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Votre Agenda">
+            <TextArea fx:id="nouveauxPatientsArea" editable="false" layoutX="45.0" layoutY="82.0" prefHeight="160.0" prefWidth="460.0" promptText="Pas de nouveaux patients. les nouveaux patients sont ajoutés lors de la première consultation." style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" wrapText="true" />
+            <Text layoutX="45.0" layoutY="68.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 900; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Nouveaux patients">
                <font>
-                  <Font size="30.0" />
+                  <Font size="22.0" />
                </font>
                <fill>
                   <LinearGradient endX="1.0" endY="1.0" startX="0.962085308056872" startY="0.23222748815165878">
@@ -100,89 +101,100 @@
                   </LinearGradient>
                </fill>
             </Text>
-            <Button layoutX="45.0" layoutY="540.0" mnemonicParsing="false" onAction="#goToLireConsultation" opacity="0.9" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-padding: 0px;" text="Consultation" underline="true">
+            <TextArea fx:id="patientsReguliersArea" editable="false" layoutX="45.0" layoutY="356.0" prefHeight="160.0" prefWidth="460.0" promptText="Aucun patient, ajoutez-en." style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" wrapText="true" />
+            <Text layoutX="45.0" layoutY="342.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 900; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Patients réguliers">
                <font>
-                  <Font size="15.0" />
-               </font>
-               <textFill>
-                  <LinearGradient endX="0.4597156398104265" startY="1.0">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </textFill>
-            </Button>
-            <Button layoutX="164.0" layoutY="540.0" mnemonicParsing="false" onAction="#goToLireSeanceSuivi" opacity="0.9" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-padding: 0px;" text="Séance de suivi" underline="true">
-               <font>
-                  <Font size="15.0" />
-               </font>
-               <textFill>
-                  <LinearGradient endX="0.061611374407582936" endY="1.0" startX="0.0947867298578199">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="0.21052631735801697" green="0.21052631735801697" blue="0.21052631735801697" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </textFill>
-            </Button>
-            <Button layoutX="300.0" layoutY="540.0" mnemonicParsing="false" onAction="#goToLireAtelier" opacity="0.9" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-padding: 0px;" text="Atelier" underline="true">
-               <font>
-                  <Font size="15.0" />
-               </font>
-               <textFill>
-                  <LinearGradient endX="0.9431279620853079" endY="1.0" startX="0.03317535545023696" startY="0.02843601895734597">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="0.3552631437778473" green="0.3552631437778473" blue="0.3552631437778473" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </textFill>
-            </Button>
-            <Text layoutX="45.0" layoutY="530.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 900; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Programmez un nouveau rendez-vous :">
-               <font>
-                  <Font size="15.0" />
+                  <Font size="22.0" />
                </font>
                <fill>
-                  <LinearGradient endX="1.0" endY="1.0" startX="0.8483412322274881" startY="0.23222748815165878">
+                  <LinearGradient endX="0.966824644549763" endY="1.0" startX="0.962085308056872" startY="0.23222748815165878">
                      <stops>
                         <Stop>
                            <color>
-                              <Color />
+                              <Color red="0.06578947603702545" green="0.06578947603702545" blue="0.06578947603702545" />
                            </color>
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color red="0.42105263471603394" green="0.42105263471603394" blue="0.42105263471603394" />
+                              <Color red="0.5" green="0.49768519401550293" blue="0.49768519401550293" />
                            </color>
                         </Stop>
                      </stops>
                   </LinearGradient>
                </fill>
+            </Text>
+            <Button layoutX="355.0" layoutY="255.0" mnemonicParsing="false" onAction="#handleSupprimerPatientButtonAction" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #E0E0E0; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Supprimer un patient" textAlignment="CENTER">
+               <font>
+                  <Font name="Segoe UI Semilight" size="14.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="0.3886255924170616">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.2631579041481018" green="0.2631579041481018" blue="0.2631579041481018" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.14473684132099152" green="0.14473684132099152" blue="0.14473684132099152" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <Button layoutX="387.0" layoutY="530.0" mnemonicParsing="false" onAction="#handleAfficherDossierButtonAction" prefHeight="35.0" prefWidth="118.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Afficher dossier" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Semilight" size="14.0" />
+               </font>
+            </Button>
+            <TextField fx:id="nouveauMotDePasseField" layoutX="217.0" layoutY="530.0" prefHeight="35.0" prefWidth="157.0" promptText="Dossier à afficher" style="-fx-background-color: #EDEDED; -fx-border-color: #000000; -fx-border-width: 0px 0px 0px 5px; -fx-padding: 0px 0px 0px 10px; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;">
+               <font>
+                  <Font name="Segoe UI Semilight" size="13.0" />
+               </font>
+            </TextField>
+            <Text fx:id="erreurText1" layoutX="45.0" layoutY="552.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Dossier inexistant." textAlignment="RIGHT" wrappingWidth="157.9462890625">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.5526315569877625" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.8421052694320679" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <Text fx:id="erreurText" layoutX="178.0" layoutY="277.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Aucun patient à supprimer." textAlignment="RIGHT" wrappingWidth="159.9462890625">
+               <fill>
+                  <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.5526315569877625" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.8421052694320679" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+               <font>
+                  <Font size="13.0" />
+               </font>
             </Text>
          </children>
       </AnchorPane>

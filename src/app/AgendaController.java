@@ -41,6 +41,9 @@ public class AgendaController {
     @FXML // Aller vers la page des bilans
     private void goToBilans() { Main.changerScene(EScenes.BILANS); }
     
+    @FXML // Aller vers la page des anamneses
+    private void goToAnamneses() { Main.changerScene(EScenes.ANAMNESES); }
+    
     @FXML // Aller vers la page d'aide
     private void goToAide() { Main.changerScene(EScenes.AIDE); }
 

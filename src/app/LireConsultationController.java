@@ -59,7 +59,7 @@ public class LireConsultationController {
     }
     
     @FXML
-    void handleCreerConsultationButtonAction(ActionEvent event) {
+    private void handleCreerConsultationButtonAction(ActionEvent event) {
     	boolean dateParsed = false;
     	Patient nouveauPatient;
     	
@@ -106,7 +106,7 @@ public class LireConsultationController {
     }
     
     @FXML
-    void handleTypePatientButtonAction(ActionEvent event) {
+    private void handleTypePatientButtonAction(ActionEvent event) {
     	if (enfantButton.isSelected()) {
     		numeroField.setPromptText("Numéro du père");
     		numeroMere_diplomeField.setPromptText("Numéro de la mère");
@@ -126,7 +126,7 @@ public class LireConsultationController {
 
     
     @FXML
-    void handleQuitterButtonAction(MouseEvent event) {
+    private void handleQuitterButtonAction(MouseEvent event) {
     	Main.changerScene(EScenes.AGENDA);
     }
 }
