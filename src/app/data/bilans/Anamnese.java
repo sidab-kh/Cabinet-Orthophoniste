@@ -4,10 +4,11 @@ import java.io.Serializable;
 import java.util.List;
 
 import app.data.questions.QO;
+import app.util.Affichable;
 import app.util.enumerations.ETypesPatients;
 
 @SuppressWarnings("serial")
-public class Anamnese implements Serializable {
+public class Anamnese implements Serializable, Affichable {
 	String nomAnamnese;
 	List<QO> questions;
 	ETypesPatients typeAnamnese;
@@ -40,7 +41,5 @@ public class Anamnese implements Serializable {
 		return questions;
 	}
 
-	public String getChaine() {
-		return String.format("%s , type : %s", nomAnamnese, typeAnamnese.name().toLowerCase());
-	}
+	public String getChaine() { return String.format("- %s , type : %s", nomAnamnese, typeAnamnese.name().toLowerCase()); }
 }

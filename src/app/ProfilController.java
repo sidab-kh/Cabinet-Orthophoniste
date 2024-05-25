@@ -14,19 +14,7 @@ public class ProfilController {
 	Controlleur controlleur;
 	
     @FXML
-    private Text nomText;
-    
-    @FXML
-    private Text prenomText;
-    
-    @FXML
-    private Text adresseText;
-    
-    @FXML
-    private Text telephoneText;
-    
-    @FXML
-    private Text emailText;
+    private Text nomText, prenomText, adresseText, telephoneText,  emailText;
     
     @FXML
     private PasswordField ancienMotDePasseField;

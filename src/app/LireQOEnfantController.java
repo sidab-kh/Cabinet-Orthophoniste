@@ -2,7 +2,6 @@ package app;
 
 import app.data.questions.QO;
 import app.mvc.Controlleur;
-import app.mvc.SceneData;
 import app.util.enumerations.ECategoriesQOEnfant;
 import app.util.enumerations.EScenes;
 import javafx.event.ActionEvent;
@@ -15,7 +14,7 @@ import javafx.scene.text.Text;
 public class LireQOEnfantController {
 
 	Controlleur controlleur;
-	SceneData donneesScene;
+	Contexte contexte;
 	private String[] CategoriesEnfant = ECategoriesQOEnfant.getAllStrings();
 	
     @FXML
@@ -32,7 +31,7 @@ public class LireQOEnfantController {
     	controlleur = Controlleur.getInstance();
     	categorieBox.getItems().addAll(CategoriesEnfant);
     	erreurText.setVisible(false);
-    	donneesScene = controlleur.getSceneData();
+    	contexte = Contexte.getInstance();
     }
 
     @FXML
@@ -48,7 +47,7 @@ public class LireQOEnfantController {
 
         ECategoriesQOEnfant categorie = ECategoriesQOEnfant.getCategorieFromString(categorieStr);
         QO question = new QO(enonce, categorie);
-        donneesScene.addQuestion(question);
+        contexte.addQuestion(question);
 
         // Retourner vers creation anamnese
         Main.changerScene(EScenes.LIRE_ANAMNESE);

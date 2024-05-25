@@ -32,10 +32,7 @@ public class LireSeanceSuiviController {
     private Text erreurText;
 
     @FXML
-    private TextField heureField;
-
-    @FXML
-    private TextField numeroDossierField;
+    private TextField heureField, numeroDossierField;
 
     @FXML
     private ToggleGroup typeSeance;

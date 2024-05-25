@@ -20,7 +20,6 @@ public final class Controlleur {
     private static final Controlleur instance = new Controlleur();
     private ServiceOrthophoniste serviceOrthophoniste;
 	private Vue vue;
-	private SceneData donneesScenes;
 	
     // Constructeur prive
     private Controlleur() {
@@ -200,17 +199,5 @@ public final class Controlleur {
     	}
     	serviceOrthophoniste.ajouterTest(test);
     	vue.afficher("Test ajouté avec succès.");
-    }
-    
-    public SceneData addSceneData(boolean adulteButton, String intituleField) {
-    	return donneesScenes = new SceneData(adulteButton, intituleField);
-    }
-
-    public SceneData getSceneData() {
-        return donneesScenes;
-    }
-
-    public void clearSceneData() {
-        donneesScenes = null;
     }
 }

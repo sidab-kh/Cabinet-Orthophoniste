@@ -4,7 +4,6 @@ import java.util.List;
 import app.data.bilans.Anamnese;
 import app.data.questions.QO;
 import app.mvc.Controlleur;
-import app.mvc.SceneData;
 import app.util.enumerations.EScenes;
 import app.util.enumerations.ETypesPatients;
 import javafx.event.ActionEvent;
@@ -19,16 +18,13 @@ import javafx.scene.text.Text;
 public class LireAnamneseController {
 
 	Controlleur controlleur;
-	SceneData donneesScene;
+	Contexte contexte;
 	
     @FXML
     private ToggleGroup Patient;
 
     @FXML
-    private RadioButton adulteButton;
-
-    @FXML
-    private RadioButton enfantButton;
+    private RadioButton adulteButton, enfantButton;
 
     @FXML
     private Text erreurText;
@@ -42,33 +38,29 @@ public class LireAnamneseController {
     @FXML
     private void initialize() {
     	controlleur = Controlleur.getInstance();
+    	contexte = Contexte.getInstance();
+    	intituleField.setText(contexte.getIntituleField());
+    	adulteButton.setSelected(contexte.isAdulteButton());
     	erreurText.setVisible(false);
-    	if ( (donneesScene = controlleur.getSceneData()) == null ) {
-    		donneesScene = controlleur.addSceneData(false, null);
-    	} else {
-    		intituleField.setText(donneesScene.getIntituleField());
-    		if (donneesScene.isAdulteButton())
-    			adulteButton.setSelected(true);
-    	}
     	updateQuestionsArea();
     }
     
     @FXML
-    void handleAjouterQuestionButtonAction() {
-    	donneesScene.setIntituleField(intituleField.getText());
+    private void handleAjouterQuestionButtonAction() {
+    	contexte.setIntituleField(intituleField.getText());
     	if (adulteButton.isSelected()) {
-    		donneesScene.setAdulteButton(true);
+    		contexte.setAdulteButton(true);
             Main.changerScene(EScenes.LIRE_QO_ADULTE);
         } else if (enfantButton.isSelected()) {
-        	donneesScene.setAdulteButton(false);
+        	contexte.setAdulteButton(false);
             Main.changerScene(EScenes.LIRE_QO_ENFANT);
         }
     }
 
     @FXML
-    void handleCreerAnamneseButtonAction(ActionEvent event) {
+    private void handleCreerAnamneseButtonAction(ActionEvent event) {
         String nomAnamnese = intituleField.getText();
-        List<QO> questions = donneesScene.getQuestions();
+        List<QO> questions = contexte.getQuestions();
         ETypesPatients typeAnamnese = adulteButton.isSelected() ? ETypesPatients.ADULTE : ETypesPatients.ENFANT;
 
         // Vérifer si le nom de l'anamnese est vide
@@ -90,24 +82,24 @@ public class LireAnamneseController {
         controlleur.getServiceOrthophoniste().ajouterAnamnese(anamnese);
 
         // Effacer les questions et redirection vers le menu anamnese
-        donneesScene.clearQuestions();
-        controlleur.clearSceneData();
+        contexte.clearQuestions();
+        contexte.setIntituleField(null);
+        contexte.setAdulteButton(false);
         Main.changerScene(EScenes.ANAMNESES);
     }
 
+    @FXML
+    private void handleQuitterButtonAction(MouseEvent event) { Main.changerScene(EScenes.ANAMNESES); }
 
     @FXML
-    void handleQuitterButtonAction(MouseEvent event) { Main.changerScene(EScenes.ANAMNESES); }
-
-    @FXML
-    void handleTypePatientButtonAction(ActionEvent event) {
+    private void handleTypePatientButtonAction(ActionEvent event) {
     	intituleField.clear();
     	questionsArea.clear();
-    	donneesScene.clearQuestions();
+    	contexte.clearQuestions();
     }
     
     private void updateQuestionsArea() {
-        List<QO> questions = donneesScene.getQuestions();
+        List<QO> questions = contexte.getQuestions();
         StringBuilder questionsText = new StringBuilder();
         for (QO question : questions) {
             questionsText.append("- " + question.getEnonce() + " ?").append("\n");

@@ -8,7 +8,6 @@ public enum EScenes {
 	PROFIL("Profil", "Profil.fxml"),
 	PATIENTS("Patients", "Patients.fxml"),
 	TESTS("Tests", "Tests.fxml"),
-	BILANS("Bilans orthophoniques", "Bilans.fxml"),
 	ANAMNESES("Anamnèses", "Anamneses.fxml"),
 	LIRE_ANAMNESE("Nouvelle anamnèse", "LireAnamnese.fxml"),
 	LIRE_QO_ADULTE("Nouvelle question ouverte pour adulte", "LireQOAdulte.fxml"),

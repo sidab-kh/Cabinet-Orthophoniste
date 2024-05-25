@@ -41,10 +41,10 @@ public class Main extends Application {
 	        // Afficher le stage principal
 	        primaryStage.show();
 
-	        // Attendre 5 secondes (simuler un chargement)
+	        // Attendre 1 secondes (simuler un chargement)
 	        new Thread(() -> {
 	            try {
-	                Thread.sleep(1);
+	                Thread.sleep(1000);
 	                Platform.runLater(() -> changerScene(EScenes.CONNEXION));
 	            } catch (InterruptedException e) { e.printStackTrace(); }
 	        }).start();

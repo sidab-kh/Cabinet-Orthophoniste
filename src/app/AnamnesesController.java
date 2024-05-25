@@ -27,7 +27,7 @@ public class AnamnesesController {
     }
     
     @FXML
-    void handleAjouterAnamneseButtonAction(ActionEvent event) {
+    private void handleAjouterAnamneseButtonAction(ActionEvent event) {
     	Main.changerScene(EScenes.LIRE_ANAMNESE);
     }
     
