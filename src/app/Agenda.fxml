@@ -184,7 +184,7 @@
                   <Image url="@../assets/TalkTrack.png" />
                </image>
             </ImageView>
-            <Button layoutX="387.0" layoutY="58.0" mnemonicParsing="false" onAction="#goToTalkTrack" opacity="0.9" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-padding: 0px;" text="TalkTrack">
+            <Button layoutX="382.0" layoutY="58.0" mnemonicParsing="false" onAction="#goToTalkTrack" opacity="0.9" prefHeight="21.0" prefWidth="78.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-padding: 0px;" text="TalkTrack">
                <font>
                   <Font size="15.0" />
                </font>
