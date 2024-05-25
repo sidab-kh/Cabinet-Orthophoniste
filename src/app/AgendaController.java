@@ -47,11 +47,16 @@ public class AgendaController {
     private void goToLireAtelier() { Main.changerScene(EScenes.LIRE_ATELIER); }
     
     @FXML // Afficher l'agenda
-    void afficherAgenda() {
+    private void afficherAgenda() {
     	// Transformer l'agenda en liste de chaines
     	List<String> rendezVousEnChaine = controlleur.agendaToString();
     	Iterator<String> iterator = rendezVousEnChaine.iterator();
     	// Remplir le TextArea
     	while (iterator.hasNext()) { agendaArea.appendText(iterator.next() + "\n"); }
+    }
+    
+    @FXML
+    private void goToTalkTrack() {
+    	
     }
 }
