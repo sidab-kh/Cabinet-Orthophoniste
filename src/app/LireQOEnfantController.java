@@ -35,7 +35,7 @@ public class LireQOEnfantController {
     }
 
     @FXML
-    private void HandleAjouterQuestionButtonAction(ActionEvent event) {
+    private void handleAjouterQuestionButtonAction(ActionEvent event) {
     	String enonce = enonceArea.getText();
         String categorieStr = categorieBox.getValue();
 
@@ -54,7 +54,5 @@ public class LireQOEnfantController {
     }
 
     @FXML
-    private void HandleQuitterButtonAction(MouseEvent event) {
-    	Main.changerScene(EScenes.LIRE_ANAMNESE);
-    }
+    private void handleQuitterButtonAction(MouseEvent event) { Main.changerScene(EScenes.LIRE_ANAMNESE); }
 }

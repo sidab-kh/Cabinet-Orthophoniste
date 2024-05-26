@@ -55,7 +55,7 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <Button layoutX="400.0" layoutY="500.0" mnemonicParsing="false" onAction="#HandleAjouterQuestionButtonAction" prefHeight="40.0" prefWidth="350.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Ajouter la question" textAlignment="CENTER">
+            <Button layoutX="400.0" layoutY="500.0" mnemonicParsing="false" onAction="#handleAjouterQuestionButtonAction" prefHeight="40.0" prefWidth="350.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Ajouter la question" textAlignment="CENTER">
                <font>
                   <Font name="Segoe UI Semilight" size="14.0" />
                </font>
@@ -81,7 +81,7 @@
                   <Font size="14.0" />
                </font>
             </Text>
-            <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="745.0" layoutY="15.0" onDragDetected="#HandleQuitterButtonAction">
+            <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="745.0" layoutY="15.0" onMouseClicked="#handleQuitterButtonAction">
                <image>
                   <Image url="@../assets/icon4.png" />
                </image>
