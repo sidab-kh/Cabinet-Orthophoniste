@@ -253,8 +253,6 @@ public final class Vue {
     		creerEpreuvesCliniques(choisirTests(tests), bo);
     		deroulerEpreuvesCliniques(bo.getEpreuvesCliniques());
     		bo.ajouterDiagnostic(etablirDiagnostic());
-    		// Dossier du patient si confirmation
-    		// Si Dossier ajouter on rajoute projet therapeutique
     		bo.ajouterProjetTherapeutique(lireProjetTherapeutique());
 		} catch (IndexOutOfBoundsException e) {
 			 afficherErreur("Le code de l'anamnese n'existe pas");

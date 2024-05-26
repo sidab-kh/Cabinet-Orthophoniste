@@ -1,6 +1,5 @@
 package app;
 
-import app.data.rendezvous.Consultation;
 import app.data.rendezvous.RendezVous;
 import app.mvc.Controlleur;
 import app.util.enumerations.EScenes;

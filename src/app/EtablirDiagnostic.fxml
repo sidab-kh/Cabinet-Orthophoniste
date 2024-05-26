@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.TalkTrackController">
+   <center>
+      <AnchorPane prefHeight="600.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="600.0" fitWidth="800.0" opacity="0.3">
+               <image>
+                  <Image url="@../assets/design1.jpg" />
+               </image>
+            </ImageView>
+            <Text layoutX="38.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Diagnostic">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.5657894611358643" green="0.5657894611358643" blue="0.5657894611358643" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <Button layoutX="63.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleCommencerSeanceButtonAction" prefHeight="36.0" prefWidth="325.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Ajouter trouble" textAlignment="CENTER">
+               <font>
+                  <Font name="Segoe UI Semilight" size="14.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="0.3886255924170616">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.8289473652839661" green="0.8289473652839661" blue="0.8289473652839661" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="745.0" layoutY="15.0" onMouseClicked="#handleQuitterButtonAction">
+               <image>
+                  <Image url="@../assets/icon4.png" />
+               </image>
+            </ImageView>
+            <TextArea fx:id="agendaArea1" editable="false" layoutX="440.0" layoutY="123.0" prefHeight="362.0" prefWidth="321.0" promptText="Votre agenda est vide. Ajoutez-y des rendez-vous pour le remplir." style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Liste des troubles" wrapText="true" />
+            <Button layoutX="437.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleCommencerSeanceButtonAction" prefHeight="36.0" prefWidth="325.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Terminé diagnostic" textAlignment="CENTER">
+               <font>
+                  <Font name="Segoe UI Semilight" size="14.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="0.3886255924170616">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.8289473652839661" green="0.8289473652839661" blue="0.8289473652839661" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <TextField layoutX="67.0" layoutY="312.0" prefHeight="152.0" prefWidth="318.0" promptText="entrez le trouble" />
+            <ChoiceBox fx:id="categorieBox" layoutX="64.0" layoutY="200.0" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-border-color: #000000; -fx-border-width: 0px 0px 2px 0px;" />
+            <Text layoutX="64.0" layoutY="180.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Catégorie">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
