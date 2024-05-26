@@ -14,16 +14,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.TalkTrackController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.EtablirDiagnosticController">
    <center>
       <AnchorPane prefHeight="600.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="600.0" fitWidth="800.0" opacity="0.3">
+            <ImageView fitHeight="600.0" fitWidth="800.0" opacity="0.1">
                <image>
-                  <Image url="@../assets/design1.jpg" />
+                  <Image url="@../assets/design2.jpg" />
                </image>
             </ImageView>
-            <Text layoutX="38.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Diagnostic">
+            <Text layoutX="36.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="3- Diagnostic">
                <font>
                   <Font size="25.0" />
                </font>
@@ -37,14 +37,14 @@
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color red="0.5657894611358643" green="0.5657894611358643" blue="0.5657894611358643" />
+                              <Color red="0.42105263471603394" green="0.42105263471603394" blue="0.42105263471603394" />
                            </color>
                         </Stop>
                      </stops>
                   </LinearGradient>
                </fill>
             </Text>
-            <Button layoutX="63.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleCommencerSeanceButtonAction" prefHeight="36.0" prefWidth="325.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Ajouter trouble" textAlignment="CENTER">
+            <Button layoutX="49.0" layoutY="392.0" mnemonicParsing="false" onAction="#handleAjouterTroubleButtonAction" prefHeight="36.0" prefWidth="302.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Ajouter le trouble" textAlignment="CENTER">
                <font>
                   <Font name="Segoe UI Semilight" size="14.0" />
                </font>
@@ -70,8 +70,8 @@
                   <Image url="@../assets/icon4.png" />
                </image>
             </ImageView>
-            <TextArea fx:id="agendaArea1" editable="false" layoutX="440.0" layoutY="123.0" prefHeight="362.0" prefWidth="321.0" promptText="Votre agenda est vide. Ajoutez-y des rendez-vous pour le remplir." style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Liste des troubles" wrapText="true" />
-            <Button layoutX="437.0" layoutY="516.0" mnemonicParsing="false" onAction="#handleCommencerSeanceButtonAction" prefHeight="36.0" prefWidth="325.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Terminé diagnostic" textAlignment="CENTER">
+            <TextArea fx:id="troublesArea" editable="false" layoutX="437.0" layoutY="209.0" prefHeight="221.0" prefWidth="313.0" promptText="Aucun" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" wrapText="true" />
+            <Button layoutX="578.0" layoutY="490.0" mnemonicParsing="false" onAction="#handleTerminerDiagnosticButtonAction" prefHeight="36.0" prefWidth="172.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Terminer le diagnostic" textAlignment="CENTER">
                <font>
                   <Font name="Segoe UI Semilight" size="14.0" />
                </font>
@@ -92,11 +92,56 @@
                   </LinearGradient>
                </textFill>
             </Button>
-            <TextField layoutX="67.0" layoutY="312.0" prefHeight="152.0" prefWidth="318.0" promptText="entrez le trouble" />
-            <ChoiceBox fx:id="categorieBox" layoutX="64.0" layoutY="200.0" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-border-color: #000000; -fx-border-width: 0px 0px 2px 0px;" />
-            <Text layoutX="64.0" layoutY="180.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Catégorie">
+            <ChoiceBox fx:id="categorieBox" layoutX="49.0" layoutY="309.0" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: transparent; -fx-border-color: #000000; -fx-border-width: 0px 0px 2px 0px;" />
+            <Text layoutX="50.0" layoutY="304.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Catégorie du trouble">
                <font>
                   <Font size="18.0" />
+               </font>
+            </Text>
+            <TextField fx:id="troubleField" layoutX="50.0" layoutY="210.0" prefHeight="40.0" prefWidth="298.0" promptText="Trouble" style="-fx-background-color: #EDEDED; -fx-border-color: #000000; -fx-border-width: 0px 0px 0px 5px; -fx-padding: 0px 0px 0px 10px; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;">
+               <font>
+                  <Font name="Segoe UI Semilight" size="13.0" />
+               </font>
+            </TextField>
+            <Text layoutX="50.0" layoutY="194.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Nom du trouble">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text layoutX="437.0" layoutY="193.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Troubles identifés">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="erreurText" layoutX="53.0" layoutY="458.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Veuillez indiquer la catégorie du trouble." textAlignment="RIGHT" wrappingWidth="298.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.5526315569877625" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.8421052694320679" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="17.0" layoutY="536.0">
+               <image>
+                  <Image url="@../assets/TalkTrack.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="38.0" layoutY="124.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Ajoutez les troubles détectés pendant les épreuves.">
+               <font>
+                  <Font size="16.0" />
                </font>
             </Text>
          </children>

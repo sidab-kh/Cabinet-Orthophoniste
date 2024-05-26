@@ -36,7 +36,13 @@ public enum EScenes {
 	DEROULER_ATELIER("Déroulement d'une séance atelier", "DeroulerAtelier.fxml"),
 	DEROULER_ANAMNESE("Déroulement de l'anamnèse", "DeroulerAnamnese.fxml"),
 	CREER_EPREUVES_CLINIQUES("Création des épreuves cliniques", "CreerEpreuvesCliniques.fxml"),
-	DEROULER_EPREUVES_CLINIQUES("Déroulement des épreuves cliniques", "DeroulerEpreuveClinique.fxml");
+	DEROULER_EPREUVES_CLINIQUES("Déroulement des épreuves cliniques", "DeroulerEpreuvesCliniques.fxml"),
+	DEROULER_TEST_QUESTIONNAIRE("Déroulement d'un test questionnaire", "DeroulerTestQuestionnaire.fxml"),
+	DEROULER_TEST_EXERCICES("Déroulement d'un test exercices", "DeroulerTestExercices.fxml"),
+	FIN_EPREUVES_CLINIQUES("Fin des épreuves cliniques", "FinEpreuvesCliniques.fxml"),
+	ETABLIR_DIAGNOSTIC("Diagnostic", "EtablirDiagnostic.fxml"),
+	LIRE_PROJET_THERAPEUTIQUE("Projet thérapeutique", "LireProjetTherapeutique.fxml"),
+	FIN_RENDEZ_VOUS("Fin du rendez-vous", "FinRendezVous.fxml");
 	
     private final String nom;
     private final String nomFichier;

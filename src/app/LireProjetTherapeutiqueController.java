@@ -6,16 +6,16 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
-public class DeroulerEpreuvesCliniquesController {
+public class LireProjetTherapeutiqueController {
 
     @FXML
-    private Text epreuveText, intituleTestText, typeTestText;
-    
-    @FXML
-    private TextArea testsArea;
+    private Text erreurText;
 
     @FXML
-    private void handleCommencerTestButtonAction(ActionEvent event) {
+    private TextArea projetTherapeutiqueArea;
+
+    @FXML
+    private void handleAjouterProjetTherapeutiqueButtonAction(ActionEvent event) {
 
     }
 

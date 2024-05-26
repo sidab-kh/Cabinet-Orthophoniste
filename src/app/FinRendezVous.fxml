@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,16 +11,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.TalkTrackController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.FinRendezVousController">
    <center>
       <AnchorPane prefHeight="600.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="600.0" fitWidth="800.0" opacity="0.3">
+            <ImageView fitHeight="600.0" fitWidth="800.0" opacity="0.6">
                <image>
-                  <Image url="@../assets/design1.jpg" />
+                  <Image url="@../assets/design3.jpg" />
                </image>
             </ImageView>
-            <Text layoutX="38.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="FIN du rdv">
+            <Text layoutX="280.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Fin du rendez-vous !" textAlignment="CENTER">
                <font>
                   <Font size="25.0" />
                </font>
@@ -35,16 +34,16 @@
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color red="0.5657894611358643" green="0.5657894611358643" blue="0.5657894611358643" />
+                              <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
                            </color>
                         </Stop>
                      </stops>
                   </LinearGradient>
                </fill>
             </Text>
-            <Button layoutX="229.0" layoutY="282.0" mnemonicParsing="false" onAction="#handleCommencerSeanceButtonAction" prefHeight="36.0" prefWidth="325.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Terminer la seance (go to agenda)" textAlignment="CENTER">
+            <Button layoutX="300.0" layoutY="447.0" mnemonicParsing="false" onAction="#goToPatients" prefHeight="39.0" prefWidth="201.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Aller vers Patients" textAlignment="CENTER">
                <font>
-                  <Font name="Segoe UI Semilight" size="14.0" />
+                  <Font name="Segoe UI Semilight" size="16.0" />
                </font>
                <textFill>
                   <LinearGradient endX="1.0" endY="0.3886255924170616">
@@ -68,7 +67,58 @@
                   <Image url="@../assets/icon4.png" />
                </image>
             </ImageView>
-            <TextArea fx:id="agendaArea1" editable="false" layoutX="202.0" layoutY="125.0" prefHeight="114.0" prefWidth="379.0" promptText="Votre agenda est vide. Ajoutez-y des rendez-vous pour le remplir." style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Si consultation affichage : &quot;Veuillez vous rendre a la section Patients pour créer le dossier du patient&quot;" wrapText="true" />
+            <ImageView fitHeight="175.0" fitWidth="175.0" layoutX="496.0" layoutY="75.0">
+               <image>
+                  <Image url="@../assets/TalkTrack2.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="129.0" layoutY="98.0" mnemonicParsing="false" opacity="0.9" prefHeight="146.0" prefWidth="369.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-padding: 0px;" text="TalkTrack">
+               <font>
+                  <Font size="82.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.9431279620853079" endY="1.0" startX="0.03317535545023696" startY="0.02843601895734597">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.764132559299469" green="0.02923976629972458" blue="0.7894737124443054" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.004629629664123058" green="0.386188268661499" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <Text fx:id="incationText" layoutX="120.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Si vous désirez créer un dossier pour [Patient], dirigez-vous au menu Patients.">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.2631579041481018" green="0.2631579041481018" blue="0.2631579041481018" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="22.0" layoutY="538.0">
+               <image>
+                  <Image url="@../assets/icon3.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </center>

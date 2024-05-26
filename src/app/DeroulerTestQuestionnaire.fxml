@@ -19,10 +19,10 @@
          <children>
             <ImageView fitHeight="600.0" fitWidth="800.0" opacity="0.3">
                <image>
-                  <Image url="@../assets/design1.jpg" />
+                  <Image url="@../assets/design4.jpg" />
                </image>
             </ImageView>
-            <Text layoutX="38.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Déoulement d'un test questionnaire">
+            <Text fx:id="nomTestField" layoutX="36.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Test questionnaire : [nom test]" wrappingWidth="536.53466796875">
                <font>
                   <Font size="25.0" />
                </font>
@@ -36,14 +36,14 @@
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color red="0.5657894611358643" green="0.5657894611358643" blue="0.5657894611358643" />
+                              <Color red="0.31578946113586426" green="0.31578946113586426" blue="0.31578946113586426" />
                            </color>
                         </Stop>
                      </stops>
                   </LinearGradient>
                </fill>
             </Text>
-            <Button layoutX="250.0" layoutY="515.0" mnemonicParsing="false" onAction="#handleCommencerSeanceButtonAction" prefHeight="36.0" prefWidth="325.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Répondre (affichage de la prochaine question) + a la derniere terminer le test et afficher le score total" textAlignment="CENTER">
+            <Button layoutX="218.0" layoutY="481.0" mnemonicParsing="false" onAction="#handleEnregistrerReponseButtonAction" prefHeight="36.0" prefWidth="365.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Enregistrer la réponse" textAlignment="CENTER">
                <font>
                   <Font name="Segoe UI Semilight" size="14.0" />
                </font>
@@ -64,7 +64,7 @@
                   </LinearGradient>
                </textFill>
             </Button>
-            <Text fx:id="erreurText" layoutX="245.0" layoutY="572.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="eRREUR reponse / code proposition" textAlignment="CENTER" wrappingWidth="325.0">
+            <Text fx:id="erreurText" layoutX="238.0" layoutY="542.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Veuillez insérer une réponse." textAlignment="CENTER" wrappingWidth="325.0">
                <font>
                   <Font size="13.0" />
                </font>
@@ -90,9 +90,16 @@
                   <Image url="@../assets/icon4.png" />
                </image>
             </ImageView>
-            <Text layoutX="175.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Deroulement du test : test.getNom();" wrappingWidth="450.89601135253906">
+            <TextArea fx:id="enonceArea" editable="false" layoutX="218.0" layoutY="168.0" prefHeight="173.0" prefWidth="365.0" promptText="Enoncé" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-border-color: #000000; -fx-border-width: 0px 0px 5px 0px;" wrapText="true" />
+            <TextField fx:id="noteField" layoutX="36.0" layoutY="418.0" prefHeight="47.0" prefWidth="157.0" promptText="Attribuez une note" style="-fx-border-color: #000000; -fx-border-width: 0px 0px 5px 0px; -fx-padding: 0px 0px 0px 10px; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: #ffffff;">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Segoe UI Semilight" size="13.0" />
+               </font>
+            </TextField>
+            <TextArea fx:id="scoresArea" editable="false" layoutX="36.0" layoutY="208.0" prefHeight="184.0" prefWidth="157.0" promptText="Scores" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-border-color: #000000; -fx-border-width: 0px 0px 5px 0px;" wrapText="true" />
+            <Text fx:id="numeroQuestionText" layoutX="38.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Question 1/10" wrappingWidth="325.89601135253906">
+               <font>
+                  <Font size="18.0" />
                </font>
                <fill>
                   <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
@@ -111,19 +118,97 @@
                   </LinearGradient>
                </fill>
             </Text>
-            <TextArea fx:id="agendaArea" editable="false" layoutX="249.0" layoutY="179.0" prefHeight="286.0" prefWidth="365.0" promptText="Votre agenda est vide. Ajoutez-y des rendez-vous pour le remplir." style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Affichage de l'enoncé de la question + les propositions si qcm ou qcu" wrapText="true" />
-            <TextField fx:id="intituleField" layoutX="252.0" layoutY="471.0" prefHeight="40.0" prefWidth="325.0" promptText="Intitulé" style="-fx-background-color: #EDEDED; -fx-border-color: #000000; -fx-border-width: 0px 0px 0px 5px; -fx-padding: 0px 0px 0px 10px; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Reponse ou code proposition">
+            <TextArea fx:id="reponseArea" editable="false" layoutX="218.0" layoutY="388.0" prefHeight="77.0" prefWidth="365.0" promptText="Réponse" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-border-color: #000000; -fx-border-width: 0px 0px 5px 0px;" wrapText="true" />
+            <TextArea fx:id="observationArea" editable="false" layoutX="607.0" layoutY="208.0" prefHeight="184.0" prefWidth="157.0" promptText="Observation" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-border-color: #000000; -fx-border-width: 0px 0px 5px 0px;" wrapText="true" />
+            <Text layoutX="614.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Observation du test" textAlignment="CENTER" wrappingWidth="142.89601135253906">
+               <fill>
+                  <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.25" green="0.25" blue="0.25" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
                <font>
-                  <Font name="Segoe UI Semilight" size="13.0" />
+                  <Font size="14.0" />
                </font>
-            </TextField>
-            <TextField fx:id="intituleField1" layoutX="27.0" layoutY="471.0" prefHeight="40.0" prefWidth="157.0" promptText="Intitulé" style="-fx-background-color: #EDEDED; -fx-border-color: #000000; -fx-border-width: 0px 0px 0px 5px; -fx-padding: 0px 0px 0px 10px; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Score si QO">
+            </Text>
+            <Text layoutX="43.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Scores précédents" textAlignment="CENTER" wrappingWidth="142.89601135253906">
+               <fill>
+                  <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.25" green="0.25" blue="0.25" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
                <font>
-                  <Font name="Segoe UI Semilight" size="13.0" />
+                  <Font size="14.0" />
                </font>
-            </TextField>
-            <TextArea fx:id="agendaArea1" editable="false" layoutX="30.0" layoutY="179.0" prefHeight="286.0" prefWidth="152.0" promptText="Votre agenda est vide. Ajoutez-y des rendez-vous pour le remplir." style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Liste des scores de tous &#10;les exos precedants" wrapText="true" />
-            <TextArea fx:id="agendaArea2" editable="false" layoutX="14.0" layoutY="513.0" prefHeight="33.0" prefWidth="221.0" promptText="Votre agenda est vide. Ajoutez-y des rendez-vous pour le remplir." style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Introduisez vos observations sur cette epreuve (uniquement a la derniere question)" wrapText="true" />
+            </Text>
+            <Text layoutX="321.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Enoncé de la question" textAlignment="CENTER" wrappingWidth="158.89601135253906">
+               <fill>
+                  <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.25" green="0.25" blue="0.25" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="329.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Réponse du patient" textAlignment="CENTER" wrappingWidth="142.89601135253906">
+               <fill>
+                  <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.25" green="0.25" blue="0.25" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="17.0" layoutY="536.0">
+               <image>
+                  <Image url="@../assets/TalkTrack.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </center>

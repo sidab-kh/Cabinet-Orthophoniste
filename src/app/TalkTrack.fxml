@@ -88,7 +88,7 @@
                   <Image url="@../assets/icon4.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="175.0" fitWidth="175.0" layoutX="496.0" layoutY="75.0" onMouseClicked="#goToTalkTrack">
+            <ImageView fitHeight="175.0" fitWidth="175.0" layoutX="496.0" layoutY="75.0">
                <image>
                   <Image url="@../assets/TalkTrack2.png" />
                </image>

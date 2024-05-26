@@ -13,16 +13,26 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.DeroulerTestQuestionnaireController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.DeroulerTestExercicesController">
    <center>
       <AnchorPane prefHeight="600.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="600.0" fitWidth="800.0" opacity="0.3">
                <image>
-                  <Image url="@../assets/design1.jpg" />
+                  <Image url="@../assets/design4.jpg" />
                </image>
             </ImageView>
-            <Text layoutX="38.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Déoulement d'un test exercice">
+            <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="745.0" layoutY="15.0" onMouseClicked="#handleQuitterButtonAction">
+               <image>
+                  <Image url="@../assets/icon4.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="scoreField" layoutX="218.0" layoutY="427.0" prefHeight="40.0" prefWidth="365.0" promptText="Score" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-width: 0px 0px 5px 0px; -fx-padding: 0px 0px 0px 10px; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;">
+               <font>
+                  <Font name="Segoe UI Semilight" size="13.0" />
+               </font>
+            </TextField>
+            <Text fx:id="nomTestText" layoutX="36.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Test exercices : [nom test]" wrappingWidth="531.4443359375">
                <font>
                   <Font size="25.0" />
                </font>
@@ -36,14 +46,14 @@
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color red="0.5657894611358643" green="0.5657894611358643" blue="0.5657894611358643" />
+                              <Color red="0.31578946113586426" green="0.31578946113586426" blue="0.31578946113586426" />
                            </color>
                         </Stop>
                      </stops>
                   </LinearGradient>
                </fill>
             </Text>
-            <Button layoutX="230.0" layoutY="515.0" mnemonicParsing="false" onAction="#handleCommencerSeanceButtonAction" prefHeight="36.0" prefWidth="325.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Prochain exo + au dernier afficher terminer le test puis le score total" textAlignment="CENTER">
+            <Button layoutX="218.0" layoutY="481.0" mnemonicParsing="false" onAction="#handleProchainExerciceButtonAction" prefHeight="36.0" prefWidth="365.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Prochain exercice" textAlignment="CENTER">
                <font>
                   <Font name="Segoe UI Semilight" size="14.0" />
                </font>
@@ -64,7 +74,7 @@
                   </LinearGradient>
                </textFill>
             </Button>
-            <Text fx:id="erreurText" layoutX="245.0" layoutY="572.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="eRREUR score" textAlignment="CENTER" wrappingWidth="325.0">
+            <Text fx:id="erreurText" layoutX="238.0" layoutY="542.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Veuillez insérer un score." textAlignment="CENTER" wrappingWidth="325.0">
                <font>
                   <Font size="13.0" />
                </font>
@@ -85,14 +95,11 @@
                   </LinearGradient>
                </fill>
             </Text>
-            <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="745.0" layoutY="15.0" onMouseClicked="#handleQuitterButtonAction">
-               <image>
-                  <Image url="@../assets/icon4.png" />
-               </image>
-            </ImageView>
-            <Text layoutX="175.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Deroulement du test : test.getNom();" wrappingWidth="450.89601135253906">
+            <TextArea fx:id="enonceArea" editable="false" layoutX="218.0" layoutY="195.0" prefHeight="184.0" prefWidth="365.0" promptText="Enoncé" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-border-color: #000000; -fx-border-width: 0px 0px 5px 0px;" wrapText="true" />
+            <TextArea fx:id="scoresArea" editable="false" layoutX="36.0" layoutY="195.0" prefHeight="184.0" prefWidth="157.0" promptText="Scores" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-border-color: #000000; -fx-border-width: 0px 0px 5px 0px;" wrapText="true" />
+            <Text fx:id="numeroExerciceText" layoutX="38.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Exercice 1/10" wrappingWidth="325.89601135253906">
                <font>
-                  <Font size="15.0" />
+                  <Font size="18.0" />
                </font>
                <fill>
                   <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
@@ -111,14 +118,96 @@
                   </LinearGradient>
                </fill>
             </Text>
-            <TextArea fx:id="agendaArea" editable="false" layoutX="228.0" layoutY="179.0" prefHeight="286.0" prefWidth="365.0" promptText="Votre agenda est vide. Ajoutez-y des rendez-vous pour le remplir." style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Affichage de l'enoncé de l'exercice + les materiaux" wrapText="true" />
-            <TextField fx:id="intituleField" layoutX="231.0" layoutY="471.0" prefHeight="40.0" prefWidth="325.0" promptText="Intitulé" style="-fx-background-color: #EDEDED; -fx-border-color: #000000; -fx-border-width: 0px 0px 0px 5px; -fx-padding: 0px 0px 0px 10px; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Score exo">
+            <TextArea fx:id="observationArea" editable="false" layoutX="607.0" layoutY="195.0" prefHeight="184.0" prefWidth="157.0" promptText="Observation" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-border-color: #000000; -fx-border-width: 0px 0px 5px 0px;" wrapText="true" />
+            <Text layoutX="614.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Observation du test" textAlignment="CENTER" wrappingWidth="142.89601135253906">
+               <fill>
+                  <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.5657894611358643" green="0.5657894611358643" blue="0.5657894611358643" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
                <font>
-                  <Font name="Segoe UI Semilight" size="13.0" />
+                  <Font size="14.0" />
                </font>
-            </TextField>
-            <TextArea fx:id="agendaArea1" editable="false" layoutX="44.0" layoutY="179.0" prefHeight="286.0" prefWidth="152.0" promptText="Votre agenda est vide. Ajoutez-y des rendez-vous pour le remplir." style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Liste des scores de tous &#10;les exos precedants" wrapText="true" />
-            <TextArea fx:id="agendaArea2" editable="false" layoutX="6.0" layoutY="495.0" prefHeight="33.0" prefWidth="221.0" promptText="Votre agenda est vide. Ajoutez-y des rendez-vous pour le remplir." style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Introduisez vos observations sur cette epreuve (uniquement au dernier exo)" wrapText="true" />
+            </Text>
+            <Text layoutX="43.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Scores précédents" textAlignment="CENTER" wrappingWidth="142.89601135253906">
+               <fill>
+                  <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.5657894611358643" green="0.5657894611358643" blue="0.5657894611358643" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="321.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Enoncé de l'exercice" textAlignment="CENTER" wrappingWidth="158.89601135253906">
+               <fill>
+                  <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.5657894611358643" green="0.5657894611358643" blue="0.5657894611358643" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="17.0" layoutY="536.0">
+               <image>
+                  <Image url="@../assets/TalkTrack.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="321.0" layoutY="416.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Score attribué" textAlignment="CENTER" wrappingWidth="158.89601135253906">
+               <fill>
+                  <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.5657894611358643" green="0.5657894611358643" blue="0.5657894611358643" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
    </center>
