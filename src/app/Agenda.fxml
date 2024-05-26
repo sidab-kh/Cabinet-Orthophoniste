@@ -179,7 +179,7 @@
                   </LinearGradient>
                </fill>
             </Text>
-            <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="459.0" layoutY="45.0" onMouseClicked="#goToTalkTrack">
+            <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="459.0" layoutY="44.0" onMouseClicked="#goToTalkTrack">
                <image>
                   <Image url="@../assets/TalkTrack.png" />
                </image>

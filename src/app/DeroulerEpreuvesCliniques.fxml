@@ -11,16 +11,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.TalkTrackController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.DeroulerEpreuvesCliniquesController">
    <center>
       <AnchorPane prefHeight="600.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="600.0" fitWidth="800.0" opacity="0.3">
+            <ImageView fitHeight="600.0" fitWidth="800.0" opacity="0.1">
                <image>
-                  <Image url="@../assets/design1.jpg" />
+                  <Image url="@../assets/design2.jpg" />
                </image>
             </ImageView>
-            <Text layoutX="38.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Déoulement des eprv cliniques">
+            <Text layoutX="36.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Déroulement des épreuves cliniques">
                <font>
                   <Font size="25.0" />
                </font>
@@ -41,7 +41,7 @@
                   </LinearGradient>
                </fill>
             </Text>
-            <Button layoutX="245.0" layoutY="282.0" mnemonicParsing="false" onAction="#handleCommencerSeanceButtonAction" prefHeight="36.0" prefWidth="325.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Commencer le test" textAlignment="CENTER">
+            <Button layoutX="39.0" layoutY="300.0" mnemonicParsing="false" onAction="#handleCommencerTestButtonAction" prefHeight="36.0" prefWidth="189.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Commencer le test" textAlignment="CENTER">
                <font>
                   <Font name="Segoe UI Semilight" size="14.0" />
                </font>
@@ -67,9 +67,14 @@
                   <Image url="@../assets/icon4.png" />
                </image>
             </ImageView>
-            <Text layoutX="175.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Déroulement de l'épreuve clinique N*i : &quot; + test.getNom()" wrappingWidth="450.89601135253906">
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="17.0" layoutY="536.0">
+               <image>
+                  <Image url="@../assets/TalkTrack.png" />
+               </image>
+            </ImageView>
+            <Text fx:id="intituleTestText" layoutX="38.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="[Intitulé du test]" wrappingWidth="613.8960113525391">
                <font>
-                  <Font size="15.0" />
+                  <Font size="18.0" />
                </font>
                <fill>
                   <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
@@ -88,9 +93,30 @@
                   </LinearGradient>
                </fill>
             </Text>
-            <Text layoutX="190.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="//Selon le type du test : goto deroulerTestQuestionnaire OU deroulerTestExercices" wrappingWidth="450.89601135253906">
+            <Text fx:id="epreuveText" layoutX="39.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Épreuve 1/10">
                <font>
-                  <Font size="15.0" />
+                  <Font size="23.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.3552631437778473" green="0.3552631437778473" blue="0.3552631437778473" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <Text fx:id="typeTestText" layoutX="38.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Type : Questionnaire/Exercices" wrappingWidth="325.89601135253906">
+               <font>
+                  <Font size="18.0" />
                </font>
                <fill>
                   <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">

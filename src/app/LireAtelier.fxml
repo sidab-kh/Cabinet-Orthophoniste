@@ -79,7 +79,7 @@
    <left>
       <AnchorPane prefHeight="600.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="600.0" fitWidth="400.0" opacity="0.3">
+            <ImageView fitHeight="600.0" fitWidth="400.0" opacity="0.5">
                <image>
                   <Image url="@../assets/design1.jpg" />
                </image>

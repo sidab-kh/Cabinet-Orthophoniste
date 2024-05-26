@@ -15,12 +15,12 @@
    <center>
       <AnchorPane prefHeight="600.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="600.0" fitWidth="800.0" opacity="0.3">
+            <ImageView fitHeight="600.0" fitWidth="800.0" opacity="0.6">
                <image>
-                  <Image url="@../assets/design1.jpg" />
+                  <Image url="@../assets/design3.jpg" />
                </image>
             </ImageView>
-            <Text layoutX="38.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Déoulement d'un rendez-vous">
+            <Text layoutX="119.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Suivez vos séances d'orthophonie en temps réel">
                <font>
                   <Font size="25.0" />
                </font>
@@ -34,16 +34,16 @@
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color red="0.5657894611358643" green="0.5657894611358643" blue="0.5657894611358643" />
+                              <Color red="0.2763157784938812" green="0.2763157784938812" blue="0.2763157784938812" />
                            </color>
                         </Stop>
                      </stops>
                   </LinearGradient>
                </fill>
             </Text>
-            <Button layoutX="240.0" layoutY="280.0" mnemonicParsing="false" onAction="#handleCommencerSeanceButtonAction" prefHeight="36.0" prefWidth="325.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Commencer la séance" textAlignment="CENTER">
+            <Button layoutX="280.0" layoutY="442.0" mnemonicParsing="false" onAction="#handleCommencerSeanceButtonAction" prefHeight="39.0" prefWidth="239.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Commencer la séance" textAlignment="CENTER">
                <font>
-                  <Font name="Segoe UI Semilight" size="14.0" />
+                  <Font name="Segoe UI Semilight" size="16.0" />
                </font>
                <textFill>
                   <LinearGradient endX="1.0" endY="0.3886255924170616">
@@ -62,7 +62,7 @@
                   </LinearGradient>
                </textFill>
             </Button>
-            <Text fx:id="erreurText" layoutX="240.0" layoutY="360.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Vous n'avez pas de séance en cours." textAlignment="CENTER" wrappingWidth="325.0">
+            <Text fx:id="erreurText" layoutX="211.0" layoutY="512.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Aucune séance ne se déroule en ce moment, veuillez attendre la prochaine séance." textAlignment="CENTER" wrappingWidth="378.0">
                <font>
                   <Font size="13.0" />
                </font>
@@ -86,6 +86,79 @@
             <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="745.0" layoutY="15.0" onMouseClicked="#handleQuitterButtonAction">
                <image>
                   <Image url="@../assets/icon4.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="175.0" fitWidth="175.0" layoutX="496.0" layoutY="75.0" onMouseClicked="#goToTalkTrack">
+               <image>
+                  <Image url="@../assets/TalkTrack2.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="129.0" layoutY="98.0" mnemonicParsing="false" opacity="0.9" prefHeight="146.0" prefWidth="369.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-padding: 0px;" text="TalkTrack">
+               <font>
+                  <Font size="82.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="0.9431279620853079" endY="1.0" startX="0.03317535545023696" startY="0.02843601895734597">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.764132559299469" green="0.02923976629972458" blue="0.7894737124443054" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.004629629664123058" green="0.386188268661499" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <Text layoutX="206.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Écrivez les réponses de votre patient en temps réel et">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.2631579041481018" green="0.2631579041481018" blue="0.2631579041481018" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <Text layoutX="160.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="notez-les pour un suivi précis et efficace des séances d'orthophonie.">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.18421052396297455" green="0.18421052396297455" blue="0.18421052396297455" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="22.0" layoutY="538.0">
+               <image>
+                  <Image url="@../assets/icon3.png" />
                </image>
             </ImageView>
          </children>

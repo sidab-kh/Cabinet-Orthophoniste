@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,16 +12,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.TalkTrackController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.DeroulerAnamneseController">
    <center>
       <AnchorPane prefHeight="600.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="600.0" fitWidth="800.0" opacity="0.3">
+            <ImageView fitHeight="600.0" fitWidth="800.0" opacity="0.1">
                <image>
-                  <Image url="@../assets/design1.jpg" />
+                  <Image url="@../assets/design2.jpg" />
                </image>
             </ImageView>
-            <Text layoutX="38.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Déoulement d'UNE anamnese">
+            <Text layoutX="36.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Déroulement de l'anamnèse">
                <font>
                   <Font size="25.0" />
                </font>
@@ -36,14 +35,14 @@
                         </Stop>
                         <Stop offset="1.0">
                            <color>
-                              <Color red="0.5657894611358643" green="0.5657894611358643" blue="0.5657894611358643" />
+                              <Color red="0.25" green="0.25" blue="0.25" />
                            </color>
                         </Stop>
                      </stops>
                   </LinearGradient>
                </fill>
             </Text>
-            <Button layoutX="227.0" layoutY="515.0" mnemonicParsing="false" onAction="#handleCommencerSeanceButtonAction" prefHeight="36.0" prefWidth="431.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Prochaine question + a la derniere question terminé anamnese" textAlignment="CENTER">
+            <Button layoutX="424.0" layoutY="436.0" mnemonicParsing="false" onAction="#handleProchaineQuestionButtonAction" prefHeight="36.0" prefWidth="335.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Prochaine question" textAlignment="CENTER">
                <font>
                   <Font name="Segoe UI Semilight" size="14.0" />
                </font>
@@ -64,7 +63,7 @@
                   </LinearGradient>
                </textFill>
             </Button>
-            <Text fx:id="erreurText" layoutX="245.0" layoutY="572.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="eRREUR reponse  vide" textAlignment="CENTER" wrappingWidth="325.0">
+            <Text fx:id="erreurText" layoutX="425.0" layoutY="503.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Veuillez entrer la réponse du patient." textAlignment="RIGHT" wrappingWidth="334.0">
                <font>
                   <Font size="13.0" />
                </font>
@@ -90,9 +89,10 @@
                   <Image url="@../assets/icon4.png" />
                </image>
             </ImageView>
-            <Text layoutX="175.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Déroulement de l'anamnèse : &quot; + anamnese.getNomAnamnese" wrappingWidth="450.89601135253906">
+            <TextArea fx:id="enonceArea" editable="false" layoutX="41.0" layoutY="186.0" prefHeight="286.0" prefWidth="335.0" promptText="Enoncé vide." style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" wrapText="true" />
+            <Text fx:id="intituleAnamneseText" layoutX="38.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="[Intitulé de l'anamnèse]" wrappingWidth="325.89601135253906">
                <font>
-                  <Font size="15.0" />
+                  <Font size="18.0" />
                </font>
                <fill>
                   <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
@@ -111,12 +111,75 @@
                   </LinearGradient>
                </fill>
             </Text>
-            <TextArea fx:id="agendaArea" editable="false" layoutX="205.0" layoutY="179.0" prefHeight="286.0" prefWidth="365.0" promptText="Votre agenda est vide. Ajoutez-y des rendez-vous pour le remplir." style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" text="Question sur &quot;+ question.getCategorie() + &quot; : &quot; + question.getEnonce" wrapText="true" />
-            <TextField fx:id="intituleField" layoutX="220.0" layoutY="471.0" prefHeight="40.0" prefWidth="325.0" promptText="Intitulé" style="-fx-background-color: #EDEDED; -fx-border-color: #000000; -fx-border-width: 0px 0px 0px 5px; -fx-padding: 0px 0px 0px 10px; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="La réponse du patient">
+            <Text fx:id="questionText" layoutX="39.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Question 1/10">
                <font>
-                  <Font name="Segoe UI Semilight" size="13.0" />
+                  <Font size="23.0" />
                </font>
-            </TextField>
+               <fill>
+                  <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.3552631437778473" green="0.3552631437778473" blue="0.3552631437778473" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <Text fx:id="categorieText" layoutX="41.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Catégorie :">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.17105263471603394" green="0.17105263471603394" blue="0.17105263471603394" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <TextArea fx:id="reponseArea" editable="false" layoutX="424.0" layoutY="186.0" prefHeight="230.0" prefWidth="335.0" promptText="Réponse vide." style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" wrapText="true" />
+            <Text layoutX="424.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Réponse du patient">
+               <font>
+                  <Font size="23.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.3552631437778473" green="0.3552631437778473" blue="0.3552631437778473" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="17.0" layoutY="536.0">
+               <image>
+                  <Image url="@../assets/TalkTrack.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </center>

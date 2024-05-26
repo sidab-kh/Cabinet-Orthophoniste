@@ -29,6 +29,7 @@ public class LireAtelierController {
     private void initialize() {
     	controlleur = Controlleur.getInstance();
     	erreurText.setVisible(false);
+    	erreurTextDossiers.setVisible(false);
     }
 
     @FXML
@@ -67,8 +68,5 @@ public class LireAtelierController {
     }
 
     @FXML
-    private void handleQuitterButtonAction(MouseEvent event) {
-    	Main.changerScene(EScenes.AGENDA);
-    }
-
+    private void handleQuitterButtonAction(MouseEvent event) { Main.changerScene(EScenes.AGENDA); }
 }

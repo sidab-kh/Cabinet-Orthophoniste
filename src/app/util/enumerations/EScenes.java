@@ -4,27 +4,40 @@ package app.util.enumerations;
  * Cette énumération représente les différentes scènes de l'application et associe chaque scène à son nom et au nom de son fichier FXML correspondant.
  */
 public enum EScenes {
+	// Connexion/Insription
     CHARGEMENT("Veuillez patienter...", "Chargement.fxml"),
     INSCRIPTION("Inscription", "Inscription.fxml"),
     CONNEXION("Connexion", "Connexion.fxml"),
-    AGENDA("Agenda", "Agenda.fxml"),
+    
+    // Menu prinicipal
     PROFIL("Profil", "Profil.fxml"),
+    AGENDA("Agenda", "Agenda.fxml"),
     PATIENTS("Patients", "Patients.fxml"),
     TESTS("Tests", "Tests.fxml"),
     ANAMNESES("Anamnèses", "Anamneses.fxml"),
+    AIDE("Aide", "Aide.fxml"),
+    
+    // Lecture des donnees
     LIRE_ANAMNESE("Nouvelle anamnèse", "LireAnamnese.fxml"),
     LIRE_QO_ADULTE("Nouvelle question ouverte pour adulte", "LireQOAdulte.fxml"),
     LIRE_QO_ENFANT("Nouvelle question ouverte pour enfant", "LireQOEnfant.fxml"),
-    AIDE("Aide", "Aide.fxml"),
     LIRE_CONSULTATION("Nouvelle consultation", "LireConsultation.fxml"),
     LIRE_SEANCE_SUIVI("Nouvelle séance de suivi", "LireSeanceSuivi.fxml"),
     LIRE_ATELIER("Nouvel atelier", "LireAtelier.fxml"),
+    
+    // Affichage des dossiers
     AFFICHER_DOSSIER_ADULTE("Affichage dossier", "AfficherDossierAdulte.fxml"),
     AFFICHER_DOSSIER_ENFANT("Affichage dossier", "AfficherDossierEnfant.fxml"),
+    
+    // TalkTrack
+    TALKTRACK("TalkTrack", "TalkTrack.fxml"),
     DEROULER_CONSULTATION("Déroulement d'une consultation", "DeroulerConsultation.fxml"),
 	DEROULER_SEANCE_SUIVI("Déroulement d'une séance de suivi", "DeroulerSeanceSuivi.fxml"),
-	DEROULER_ATELIER("Déroulement d'une séance atelier", "DeroulerAtelier.fxml");
-
+	DEROULER_ATELIER("Déroulement d'une séance atelier", "DeroulerAtelier.fxml"),
+	DEROULER_ANAMNESE("Déroulement de l'anamnèse", "DeroulerAnamnese.fxml"),
+	CREER_EPREUVES_CLINIQUES("Création des épreuves cliniques", "CreerEpreuvesCliniques.fxml"),
+	DEROULER_EPREUVES_CLINIQUES("Déroulement des épreuves cliniques", "DeroulerEpreuveClinique.fxml");
+	
     private final String nom;
     private final String nomFichier;
 
@@ -42,15 +55,11 @@ public enum EScenes {
      * Retourne le nom de la scène.
      * @return Le nom de la scène.
      */
-    public String getNom() {
-        return nom;
-    }
+    public String getNom() { return nom; }
 
     /**
      * Retourne le nom du fichier FXML correspondant à la scène.
      * @return Le nom du fichier FXML.
      */
-    public String getNomFichier() {
-        return nomFichier;
-    }
+    public String getNomFichier() { return nomFichier; }
 }
