@@ -301,4 +301,14 @@ public final class Controlleur {
     	serviceOrthophoniste.ajouterTest(test);
     	vue.afficher("Test ajouté avec succès.");
     }
+    
+    public RendezVous getRendezVousActuel() {
+    	LocalDateTime dateEtHeure = LocalDateTime.now();
+        for (RendezVous rdv : serviceOrthophoniste.getAgenda()) {
+            if (rdv.getDateEtHeure().equals(dateEtHeure) || (dateEtHeure.isAfter(rdv.getDateEtHeure()) &&
+            		dateEtHeure.isBefore(rdv.calculerHeureFin())))
+            	return rdv;
+        }
+        return null; 
+    }
 }

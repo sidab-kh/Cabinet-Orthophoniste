@@ -5,6 +5,7 @@ import java.util.List;
 
 import app.data.patients.DossierPatient;
 import app.data.questions.QO;
+import app.data.rendezvous.RendezVous;
 
 /**
  * Classe représentant le contexte de l'application, implémentée selon le modèle Singleton.
@@ -30,6 +31,7 @@ public class Contexte {
     private List<QO> questions = new ArrayList<>();
 	private boolean adulteButton;
 	private String intituleField;
+	private RendezVous rendezVous;
 
     /**
      * Retourne le dossier en cours de traitement.
@@ -83,4 +85,12 @@ public class Contexte {
      * @param intituleField L'intitulé à définir dans le champ du contexte.
      */
 	public void setIntituleField(String intituleField) { this.intituleField = intituleField; }
+
+	public RendezVous getRendezVous() {
+		return this.rendezVous;
+	}
+	
+	public void setRendezVous(RendezVous rdv) {
+		this.rendezVous = rdv;
+	}
 }

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.TalkTrackController">
+   <center>
+      <AnchorPane prefHeight="600.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="600.0" fitWidth="800.0" opacity="0.3">
+               <image>
+                  <Image url="@../assets/design1.jpg" />
+               </image>
+            </ImageView>
+            <Text layoutX="38.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Déoulement d'un rendez-vous">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.5657894611358643" green="0.5657894611358643" blue="0.5657894611358643" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <Button layoutX="240.0" layoutY="280.0" mnemonicParsing="false" onAction="#handleCommencerSeanceButtonAction" prefHeight="36.0" prefWidth="325.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Commencer la séance" textAlignment="CENTER">
+               <font>
+                  <Font name="Segoe UI Semilight" size="14.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="0.3886255924170616">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.8289473652839661" green="0.8289473652839661" blue="0.8289473652839661" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <Text fx:id="erreurText" layoutX="240.0" layoutY="360.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Vous n'avez pas de séance en cours." textAlignment="CENTER" wrappingWidth="325.0">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <fill>
+                  <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.5526315569877625" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.8421052694320679" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Text>
+            <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="745.0" layoutY="15.0" onMouseClicked="#handleQuitterButtonAction">
+               <image>
+                  <Image url="@../assets/icon4.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

@@ -20,7 +20,10 @@ public enum EScenes {
     LIRE_SEANCE_SUIVI("Nouvelle séance de suivi", "LireSeanceSuivi.fxml"),
     LIRE_ATELIER("Nouvel atelier", "LireAtelier.fxml"),
     AFFICHER_DOSSIER_ADULTE("Affichage dossier", "AfficherDossierAdulte.fxml"),
-    AFFICHER_DOSSIER_ENFANT("Affichage dossier", "AfficherDossierEnfant.fxml");
+    AFFICHER_DOSSIER_ENFANT("Affichage dossier", "AfficherDossierEnfant.fxml"),
+    DEROULER_CONSULTATION("Déroulement d'une consultation", "DeroulerConsultation.fxml"),
+	DEROULER_SEANCE_SUIVI("Déroulement d'une séance de suivi", "DeroulerSeanceSuivi.fxml"),
+	DEROULER_ATELIER("Déroulement d'une séance atelier", "DeroulerAtelier.fxml");
 
     private final String nom;
     private final String nomFichier;
