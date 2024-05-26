@@ -119,16 +119,12 @@ public final class Orthophoniste implements Serializable {
      * 
      * @param motDePasse Le mot de passe à crypter.
      */
-    void setMotDePasseCrypte(String motDePasse) {
-        this.motDePasseCrypte = CryptageMotDePasse.crypter(motDePasse);
-    }
+    void setMotDePasseCrypte(String motDePasse) { this.motDePasseCrypte = CryptageMotDePasse.crypter(motDePasse); }
 
     /**
      * Retourne le numéro de téléphone de l'orthophoniste.
      * 
      * @return Le numéro de téléphone de l'orthophoniste.
      */
-    public String getNumeroTelephone() {
-        return this.numeroTelephone;
-    }
+    public String getNumeroTelephone() { return this.numeroTelephone; }
 }

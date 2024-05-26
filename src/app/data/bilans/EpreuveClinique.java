@@ -21,9 +21,7 @@ public class EpreuveClinique implements Serializable {
      * 
      * @param test Le test associé à l'épreuve clinique.
      */
-    public EpreuveClinique(Test test) {
-        this.test = test;
-    }
+    public EpreuveClinique(Test test) { this.test = test; }
 
     /**
      * Obtient l'observation clinique associée à l'épreuve clinique.

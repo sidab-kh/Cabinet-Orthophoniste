@@ -26,9 +26,7 @@ public class BilanOrthophonique implements Serializable {
      * Constructeur pour créer un bilan orthophonique sans anamnèse ni diagnostic.
      * Ce constructeur est utilisé lorsque ce bilan orthophonique n'est pas le premier pour le patient.
      */
-    public BilanOrthophonique() {
-        this(null);
-    }
+    public BilanOrthophonique() { this(null); }
     
     /**
      * Constructeur pour créer un premier bilan orthophonique avec une anamnèse spécifiée.
@@ -47,43 +45,33 @@ public class BilanOrthophonique implements Serializable {
      * 
      * @param anamnese L'anamnèse à ajouter.
      */
-    public void ajouterAnamnese(Anamnese anamnese) {
-        this.anamnese = anamnese;
-    }
+    public void ajouterAnamnese(Anamnese anamnese) { this.anamnese = anamnese; }
     
     /**
      * Ajoute une épreuve clinique à la liste des épreuves cliniques du bilan orthophonique.
      * 
      * @param epreuveClinique L'épreuve clinique à ajouter.
      */
-    public void ajouterEpreuveClinique(EpreuveClinique epreuveClinique) {
-        this.epreuvesCliniques.add(epreuveClinique);
-    }
+    public void ajouterEpreuveClinique(EpreuveClinique epreuveClinique) { this.epreuvesCliniques.add(epreuveClinique); }
     
     /**
      * Définit le diagnostic du bilan orthophonique.
      * 
      * @param diagnostic Le diagnostic établi.
      */
-    public void ajouterDiagnostic(Diagnostic diagnostic) {
-        this.diagnostic = diagnostic;
-    }
+    public void ajouterDiagnostic(Diagnostic diagnostic) { this.diagnostic = diagnostic; }
     
     /**
      * Définit le projet thérapeutique recommandé à partir du bilan orthophonique.
      * 
      * @param projetTherapeutique Le projet thérapeutique recommandé.
      */
-    public void ajouterProjetTherapeutique(String projetTherapeutique) {
-        this.projetTherapeutique = projetTherapeutique;
-    }
+    public void ajouterProjetTherapeutique(String projetTherapeutique) { this.projetTherapeutique = projetTherapeutique; }
     
     /**
      * Obtient la liste des épreuves cliniques réalisées dans le cadre du bilan orthophonique.
      * 
      * @return La liste des épreuves cliniques.
      */
-    public List<EpreuveClinique> getEpreuvesCliniques() {
-        return epreuvesCliniques;
-    }
+    public List<EpreuveClinique> getEpreuvesCliniques() { return epreuvesCliniques; }
 }

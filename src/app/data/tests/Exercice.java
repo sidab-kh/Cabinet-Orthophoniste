@@ -80,7 +80,5 @@ public class Exercice implements Serializable {
      * @return Le code de hachage de la consigne de l'exercice.
      */
     @Override
-    public int hashCode() {
-        return consigne.hashCode();
-    }
+    public int hashCode() { return consigne.hashCode(); }
 }

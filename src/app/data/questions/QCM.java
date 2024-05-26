@@ -18,9 +18,7 @@ public class QCM extends QuestionAvecPropositions {
      * @param enonce L'énoncé de la question à choix multiple.
      * @param propositions La liste des propositions disponibles pour cette question.
      */
-    public QCM(String enonce, List<Proposition> propositions) {
-        super(enonce, propositions);
-    }
+    public QCM(String enonce, List<Proposition> propositions) { super(enonce, propositions); }
     
     /**
      * Permet à l'utilisateur de répondre à la question en sélectionnant une ou plusieurs propositions.

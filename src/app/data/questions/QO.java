@@ -19,9 +19,7 @@ public class QO extends Question {
      * 
      * @param enonce L'énoncé de la question ouverte.
      */
-    public QO(String enonce) {
-        this(enonce, null);
-    }
+    public QO(String enonce) { this(enonce, null); }
     
     /**
      * Constructeur pour créer une question ouverte avec une catégorie spécifiée.

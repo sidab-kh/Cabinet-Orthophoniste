@@ -73,9 +73,7 @@ public abstract class RendezVous implements Serializable, Affichable {
      * 
      * @return L'heure de fin du rendez-vous.
      */
-    public LocalDateTime calculerHeureFin() {
-        return dateEtHeure.plus(duree);
-    }
+    public LocalDateTime calculerHeureFin() { return dateEtHeure.plus(duree); }
 
     /**
      * Obtient le type du rendez-vous.

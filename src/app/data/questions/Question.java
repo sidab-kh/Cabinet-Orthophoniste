@@ -16,9 +16,7 @@ abstract public class Question implements Serializable {
      * 
      * @param enonce L'énoncé de la question.
      */
-    public Question(String enonce) {
-        this.enonce = enonce;
-    }
+    public Question(String enonce) { this.enonce = enonce; }
 
     /**
      * Obtient l'énoncé de la question.
@@ -33,7 +31,5 @@ abstract public class Question implements Serializable {
      * @return Le code de hachage de la question.
      */
     @Override
-    public int hashCode() {
-        return enonce.hashCode();
-    }
+    public int hashCode() { return enonce.hashCode(); }
 }

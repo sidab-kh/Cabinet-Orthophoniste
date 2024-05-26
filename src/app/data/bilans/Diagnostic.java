@@ -17,7 +17,5 @@ public class Diagnostic implements Serializable {
      * 
      * @param troubles La liste des troubles identifiés lors du bilan orthophonique.
      */
-    public Diagnostic(List<Trouble> troubles) {
-        this.troubles = troubles;
-    }
+    public Diagnostic(List<Trouble> troubles) { this.troubles = troubles; }
 }

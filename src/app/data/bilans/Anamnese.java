@@ -40,36 +40,28 @@ public class Anamnese implements Serializable, Affichable {
      * 
      * @param anamnese L'anamnèse à copier.
      */
-    public Anamnese(Anamnese anamnese) {
-        this(anamnese.nomAnamnese, anamnese.questions, anamnese.typeAnamnese);
-    }
+    public Anamnese(Anamnese anamnese) { this(anamnese.nomAnamnese, anamnese.questions, anamnese.typeAnamnese); }
 
     /**
      * Obtient le type de patient auquel cette anamnèse est associée.
      * 
      * @return Le type de patient.
      */
-    public ETypesPatients getTypeAnamnese() {
-        return typeAnamnese;
-    }
+    public ETypesPatients getTypeAnamnese() { return typeAnamnese; }
     
     /**
      * Obtient le nom de l'anamnèse.
      * 
      * @return Le nom de l'anamnèse.
      */
-    public String getNomAnamnese() {
-        return nomAnamnese;
-    }
+    public String getNomAnamnese() { return nomAnamnese; }
     
     /**
      * Obtient la liste des questions ouvertes (QO) associées à cette anamnèse.
      * 
      * @return La liste des questions ouvertes.
      */
-    public List<QO> getQuestions() {
-        return questions;
-    }
+    public List<QO> getQuestions() { return questions; }
 
     /**
      * Calcule le code de hachage de l'anamnèse basé sur son nom.
@@ -77,16 +69,12 @@ public class Anamnese implements Serializable, Affichable {
      * @return Le code de hachage de l'anamnèse.
      */
     @Override
-    public int hashCode() {
-        return nomAnamnese.hashCode();
-    }
+    public int hashCode() { return nomAnamnese.hashCode(); }
 
     /**
      * Obtient une représentation textuelle de l'anamnèse.
      * 
      * @return Une chaîne de caractères représentant l'anamnèse.
      */
-    public String getChaine() { 
-        return String.format("- %s , type : %s", nomAnamnese, typeAnamnese.name().toLowerCase()); 
-    }
+    public String getChaine() { return String.format("- %s , type : %s", nomAnamnese, typeAnamnese.name().toLowerCase());  }
 }

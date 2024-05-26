@@ -19,7 +19,8 @@ import app.util.CryptageMotDePasse;
 import app.util.persistance.OrthophonisteDAO;
 
 /**
- * Ce service gère les opérations liées à l'orthophoniste, telles que la gestion des patients et des rendez-vous.
+ * Cette classe suit le patron de conception "Service Layer" et gère les opérations liées à l'orthophoniste, 
+ * telles que la gestion des patients et des rendez-vous.
  */
 public final class ServiceOrthophoniste {
 	
@@ -107,9 +108,7 @@ public final class ServiceOrthophoniste {
  	 * @param numeroDossier le numéro de dossier du patient à rechercher
  	 * @return le patient correspondant au numéro de dossier donné, null si non trouvé
  	 */
- 	public Patient patientDeNumeroDossier(int numeroDossier) {
- 	    return orthophoniste.patients.get(numeroDossier);
- 	}
+ 	public Patient patientDeNumeroDossier(int numeroDossier) { return orthophoniste.patients.get(numeroDossier); }
 
  	/**
  	 * Retourne le nouveau patient ayant l'indice donné.
@@ -259,27 +258,21 @@ public final class ServiceOrthophoniste {
  	 *
  	 * @return true si la sauvegarde a réussi, sinon false
  	 */
- 	public boolean sauvegarderOrthophoniste() {
- 	    return orthophonisteDAO.sauvegarder(orthophoniste);
- 	}
+ 	public boolean sauvegarderOrthophoniste() { return orthophonisteDAO.sauvegarder(orthophoniste); }
 
  	/**
  	 * Charge et retourne l'orthophoniste sauvegardé.
  	 *
  	 * @return l'orthophoniste sauvegardé, ou null s'il n'existe pas
  	 */
- 	public Orthophoniste chargerOrthophoniste() {
- 	    return orthophonisteDAO.charger();
- 	}
+ 	public Orthophoniste chargerOrthophoniste() { return orthophonisteDAO.charger(); }
 
  	/**
  	 * Supprime l'orthophoniste.
  	 *
  	 * @return true si la suppression a réussi, sinon false
  	 */
- 	public boolean supprimerOrthophoniste() {
- 	    return orthophonisteDAO.supprimer();
- 	}
+ 	public boolean supprimerOrthophoniste() { return orthophonisteDAO.supprimer(); }
 
  	/**
  	 * Modifie le mot de passe de l'orthophoniste.
@@ -306,16 +299,12 @@ public final class ServiceOrthophoniste {
  	 *
  	 * @param anamnese l'anamnèse à ajouter
  	 */
- 	public void ajouterAnamnese(Anamnese anamnese) {
- 	    orthophoniste.anamneses.add(anamnese);
- 	}
+ 	public void ajouterAnamnese(Anamnese anamnese) { orthophoniste.anamneses.add(anamnese); }
 
  	/**
  	 * Ajoute un test à la liste des tests de l'orthophoniste.
  	 *
  	 * @param test le test à ajouter
  	 */
- 	public void ajouterTest(Test test) {
- 	    orthophoniste.tests.add(test);
- 	}
+ 	public void ajouterTest(Test test) { orthophoniste.tests.add(test); }
 }

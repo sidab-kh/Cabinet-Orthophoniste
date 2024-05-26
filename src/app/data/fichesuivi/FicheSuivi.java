@@ -18,45 +18,35 @@ public class FicheSuivi implements Serializable {
      * Constructeur de la classe FicheSuivi.
      * Initialise une nouvelle fiche de suivi avec une liste vide d'objectifs.
      */
-    public FicheSuivi() {
-        this.objectifs = new ArrayList<Objectif>();
-    }
+    public FicheSuivi() { this.objectifs = new ArrayList<Objectif>(); }
 
     /**
      * Retourne la liste des objectifs de la fiche de suivi.
      * 
      * @return la liste des objectifs.
      */
-    public List<Objectif> getObjectifs() {
-        return objectifs;
-    }
+    public List<Objectif> getObjectifs() { return objectifs; }
 
     /**
      * Indique si cette fiche de suivi est une ancienne version.
      * 
      * @return true si c'est une ancienne version, false sinon.
      */
-    public boolean isOldVersion() {
-        return isOldVersion;
-    }
+    public boolean isOldVersion() { return isOldVersion; }
 
     /**
      * Définit si cette fiche de suivi est une ancienne version.
      * 
      * @param isOldVersion true pour marquer cette fiche comme ancienne version, false sinon.
      */
-    public void setOldVersion(boolean isOldVersion) {
-        this.isOldVersion = isOldVersion;
-    }
+    public void setOldVersion(boolean isOldVersion) { this.isOldVersion = isOldVersion; }
 
     /**
      * Ajoute un nouvel objectif à la fiche de suivi.
      * 
      * @param objectif l'objectif à ajouter.
      */
-    public void ajouterObjectif(Objectif objectif) {
-        this.objectifs.add(objectif);
-    }
+    public void ajouterObjectif(Objectif objectif) { this.objectifs.add(objectif); }
 
     /**
      * Évalue un objectif existant dans la fiche de suivi en lui attribuant une note.

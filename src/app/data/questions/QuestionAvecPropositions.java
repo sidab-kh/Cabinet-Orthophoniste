@@ -27,9 +27,7 @@ public abstract class QuestionAvecPropositions extends Question {
      * 
      * @return La liste des propositions de réponses.
      */
-    public List<Proposition> getPropositions() {
-        return propositions;
-    }
+    public List<Proposition> getPropositions() { return propositions; }
     
     /**
      * Calcule le score de la réponse à la question.
