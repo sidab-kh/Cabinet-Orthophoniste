@@ -129,10 +129,18 @@ public class DossierPatient implements Serializable, Comparable<DossierPatient> 
      * @return Une liste de chaînes représentant les rendez-vous du patient.
      */
     public List<String> listeRendezVousToString() {
-    	List<String> RendezVousEnChaine = new ArrayList<String>();
+    	List<String> rendezVousEnChaine = new ArrayList<String>();
     	for (RendezVous rdv : listeRendezVous) {
-    		RendezVousEnChaine.add(rdv.getType().getNom() + " / " + rdv.getDateEtHeure() + " / Observation : " + rdv.getObservation());
+    		rendezVousEnChaine.add(rdv.getType().getNom() + " / " + rdv.getDateEtHeure() + " / Observation : " + rdv.getObservation());
     	}
-    	return RendezVousEnChaine;
+    	return rendezVousEnChaine;
+    }
+    
+    public List<String> listeBilansOrthophoniquesToString() {
+    	List<String> bilansEnChaine = new ArrayList<String>();
+    	for (BilanOrthophonique bilan : listeBilansOrthophoniques) {
+    		bilansEnChaine.add("Bilan orthophonique :\n" + bilan.getChaine());
+    	}
+    	return bilansEnChaine;
     }
 }

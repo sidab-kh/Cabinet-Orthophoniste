@@ -4,12 +4,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import app.util.Affichable;
+
 /**
  * La classe BilanOrthophonique représente un bilan orthophonique effectué pour un patient.
  * Elle contient une anamnèse, une liste d'épreuves cliniques, un diagnostic et un projet thérapeutique.
  */
 @SuppressWarnings("serial")
-public class BilanOrthophonique implements Serializable {
+public class BilanOrthophonique implements Serializable, Affichable {
     /** L'anamnèse associée au bilan orthophonique. */
     Anamnese anamnese;
     
@@ -74,4 +76,12 @@ public class BilanOrthophonique implements Serializable {
      * @return La liste des épreuves cliniques.
      */
     public List<EpreuveClinique> getEpreuvesCliniques() { return epreuvesCliniques; }
+    
+    @Override
+    public String getChaine() {
+    	String epreuvesCliniquesEnChaine = "";
+    	for (EpreuveClinique epreuve : epreuvesCliniques) { epreuvesCliniquesEnChaine += epreuve.getChaine() + "\n"; }
+    	return "Anamnèse : " + anamnese.getChaine() + "\nEpreuves cliniques : " + epreuvesCliniquesEnChaine + "\nDiagnostic : " +
+    	diagnostic.getChaine() + "\nProjet thérapeutique : " + projetTherapeutique;
+    }
 }

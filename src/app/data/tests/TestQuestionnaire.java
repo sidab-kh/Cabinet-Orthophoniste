@@ -58,4 +58,7 @@ public class TestQuestionnaire extends Test {
         }
         return scoreTotal;
     }
+    
+    @Override
+    public String getChaine() { return super.getChaine() + "Type : Questionnaire"; }
 }

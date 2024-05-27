@@ -3,13 +3,14 @@ package app.data.bilans;
 import java.io.Serializable;
 
 import app.data.tests.Test;
+import app.util.Affichable;
 
 /**
  * La classe EpreuveClinique représente une épreuve clinique réalisée dans le cadre d'un bilan orthophonique.
  * Chaque épreuve clinique est caractérisée par une observation clinique et un test associé.
  */
 @SuppressWarnings("serial")
-public class EpreuveClinique implements Serializable {
+public class EpreuveClinique implements Serializable, Affichable {
     /** L'observation clinique associée à l'épreuve clinique. */
     private String observationClinique;
     
@@ -50,4 +51,7 @@ public class EpreuveClinique implements Serializable {
      * @param test Le nouveau test associé à l'épreuve clinique.
      */
     public void setTest(Test test) { this.test = test; }
+    
+    @Override
+    public String getChaine() { return test.getChaine() + " / Observation : " + observationClinique; }
 }
