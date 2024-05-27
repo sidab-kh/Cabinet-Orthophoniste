@@ -74,4 +74,6 @@ public class BilanOrthophonique implements Serializable {
      * @return La liste des épreuves cliniques.
      */
     public List<EpreuveClinique> getEpreuvesCliniques() { return epreuvesCliniques; }
+    
+    public Anamnese getAnamnese() { return anamnese; }
 }

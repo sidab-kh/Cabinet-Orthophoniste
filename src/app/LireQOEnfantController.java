@@ -39,13 +39,18 @@ public class LireQOEnfantController {
     	String enonce = enonceArea.getText();
         String categorieStr = categorieBox.getValue();
 
-        if (enonce == null || enonce.isEmpty() || categorieStr == null) {
+        if (enonce == null || enonce.isEmpty() || categorieStr == null || categorieStr.isEmpty()) {
             erreurText.setText("Tous les champs sont obligatoires.");
             erreurText.setVisible(true);
             return;
         }
 
         ECategoriesQOEnfant categorie = ECategoriesQOEnfant.getCategorieFromString(categorieStr);
+        if (categorie == null) {
+        	erreurText.setText("Erreur catégorie.");
+            erreurText.setVisible(true);
+            return;
+        }
         QO question = new QO(enonce, categorie);
         contexte.addQuestion(question);
 

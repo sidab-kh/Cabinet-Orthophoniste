@@ -29,6 +29,7 @@ public class TalkTrackController {
     	if (rdv == null) {
     		erreurText.setText("Vous n'avez pas de consultation en ce moment");
     		erreurText.setVisible(true);
+    		return;
     	}
     	contexte.setRendezVous(rdv);
 		switch (rdv.getType()) {

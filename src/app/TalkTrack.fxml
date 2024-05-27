@@ -93,7 +93,7 @@
                   <Image url="@../assets/TalkTrack2.png" />
                </image>
             </ImageView>
-            <Button layoutX="129.0" layoutY="98.0" mnemonicParsing="false" opacity="0.9" prefHeight="146.0" prefWidth="369.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-padding: 0px;" text="TalkTrack">
+            <Button accessibleRole="TEXT" layoutX="129.0" layoutY="98.0" mnemonicParsing="false" opacity="0.9" prefHeight="146.0" prefWidth="369.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-padding: 0px;" text="TalkTrack">
                <font>
                   <Font size="82.0" />
                </font>

@@ -82,9 +82,7 @@ public class LireAnamneseController {
         controlleur.getServiceOrthophoniste().ajouterAnamnese(anamnese);
 
         // Effacer les questions et redirection vers le menu anamnese
-        contexte.clearQuestions();
-        contexte.setIntituleField(null);
-        contexte.setAdulteButton(false);
+        contexte.clear();
         Main.changerScene(EScenes.ANAMNESES);
     }
 
@@ -100,6 +98,7 @@ public class LireAnamneseController {
     
     private void updateQuestionsArea() {
         List<QO> questions = contexte.getQuestions();
+        if (questions == null) return;
         StringBuilder questionsText = new StringBuilder();
         for (QO question : questions) {
             questionsText.append("- " + question.getEnonce() + " ?").append("\n");

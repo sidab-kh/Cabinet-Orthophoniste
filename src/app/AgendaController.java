@@ -56,6 +56,6 @@ public class AgendaController {
     
     @FXML
     private void goToTalkTrack() {
-    	
+    	Main.changerScene(EScenes.TALKTRACK);
     }
 }

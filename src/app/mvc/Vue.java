@@ -499,7 +499,7 @@ public final class Vue {
 	    for (Test test : testsChoisis) {
 	        bo.ajouterEpreuveClinique(new EpreuveClinique(test));
 	    }
-	}
+	}	
 	
 	// Derouler les epreuves cliniques d'un BO lors de l'evaluation
 	private void deroulerEpreuvesCliniques(List<EpreuveClinique> epreuvesCliniques) {

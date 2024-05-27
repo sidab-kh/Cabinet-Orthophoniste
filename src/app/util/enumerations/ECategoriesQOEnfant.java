@@ -49,9 +49,9 @@ public enum ECategoriesQOEnfant implements ECategoriesQOs {
      * @return La catégorie correspondant à la représentation textuelle spécifiée, ou null si aucune correspondance n'est trouvée.
      */
     public static ECategoriesQOEnfant getCategorieFromString(String categorieStr) {
-        for (ECategoriesQOEnfant categoriesQOEnfant : ECategoriesQOEnfant.values()) {
-            if (categoriesQOEnfant.toString().equals(categorieStr))
-                return categoriesQOEnfant;
+        for (ECategoriesQOEnfant categorie : ECategoriesQOEnfant.values()) {
+            if (categorie.getString().equals(categorieStr))
+                return categorie;
         }
         return null;
     }

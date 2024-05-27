@@ -13,6 +13,8 @@ import app.data.rendezvous.RendezVous;
 import app.util.CryptageMotDePasse;
 import app.util.enumerations.ETypesRendezVous;
 import app.data.bilans.Anamnese;
+import app.data.bilans.BilanOrthophonique;
+import app.data.bilans.EpreuveClinique;
 import app.data.tests.Test;
 
 /**
@@ -311,4 +313,11 @@ public final class Controlleur {
         }
         return null; 
     }
+    
+    public void creerEpreuvesCliniques(List<Integer> indicesTests, BilanOrthophonique bo) {
+		List<Test> tests = serviceOrthophoniste.getTests();
+		for (int indice : indicesTests) {
+	        bo.ajouterEpreuveClinique(new EpreuveClinique(tests.get(indice)));
+	    }
+	}
 }

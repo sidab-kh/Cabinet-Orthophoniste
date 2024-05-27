@@ -3,6 +3,8 @@ package app;
 import java.util.ArrayList;
 import java.util.List;
 
+import app.data.bilans.Anamnese;
+import app.data.bilans.BilanOrthophonique;
 import app.data.patients.DossierPatient;
 import app.data.questions.QO;
 import app.data.rendezvous.RendezVous;
@@ -32,7 +34,9 @@ public class Contexte {
 	private boolean adulteButton;
 	private String intituleField;
 	private RendezVous rendezVous;
-
+	private BilanOrthophonique bo;
+	private int indiceEpreuve;
+	
     /**
      * Retourne le dossier en cours de traitement.
      * @return Le dossier en cours de traitement.
@@ -92,5 +96,31 @@ public class Contexte {
 	
 	public void setRendezVous(RendezVous rdv) {
 		this.rendezVous = rdv;
+	}
+
+	public void setBo(BilanOrthophonique bo) {
+		this.bo = bo;
+	}
+	
+	public BilanOrthophonique getBo() {
+		return bo;
+	}
+	
+	public void setIndiceEpreuve(int i) {
+		this.indiceEpreuve = i;
+	}
+	
+	public int getIndiceEpreuve() {
+		return indiceEpreuve;
+	}
+	
+	public void clear() {
+		dossierEnCoursDeTraitement = null;
+		questions = null;
+		adulteButton = false;
+		intituleField = null;
+		rendezVous = null;
+		bo = null;
+		indiceEpreuve = 0;
 	}
 }
