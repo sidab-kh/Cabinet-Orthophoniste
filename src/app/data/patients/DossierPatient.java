@@ -123,4 +123,16 @@ public class DossierPatient implements Serializable, Comparable<DossierPatient> 
      * @param ficheSuivi La fiche de suivi à supprimer.
      */
     public void supprimerFicheSuivi(FicheSuivi ficheSuivi) { listeFichesSuivi.remove(ficheSuivi); }
+    
+    /**
+     * Convertit la liste des rendez-vous en une liste de chaînes de caractères.
+     * @return Une liste de chaînes représentant les rendez-vous du patient.
+     */
+    public List<String> listeRendezVousToString() {
+    	List<String> RendezVousEnChaine = new ArrayList<String>();
+    	for (RendezVous rdv : listeRendezVous) {
+    		RendezVousEnChaine.add(rdv.getType().getNom() + " / " + rdv.getDateEtHeure() + " / Observation : " + rdv.getObservation());
+    	}
+    	return RendezVousEnChaine;
+    }
 }

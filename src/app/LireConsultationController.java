@@ -21,33 +21,13 @@ import javafx.scene.text.Text;
 public class LireConsultationController {
 	
 	Controlleur controlleur;
-	
-    @FXML
-    private TextField adresseField;
 
     @FXML
     private RadioButton adulteButton, enfantButton;
 
     @FXML
-    private TextField dateField;
-
-    @FXML
-    private TextField dateNaissanceField;
-
-    @FXML
-    private TextField heureField;
-
-    @FXML
-    private TextField lieuNaissanceField;
-
-    @FXML
-    private TextField nomField;
-
-    @FXML
-    private TextField numeroField, numeroMere_diplomeField, niveauEtudes_professionField;
-
-    @FXML
-    private TextField prenomField;
+    private TextField adresseField, dateField, dateNaissanceField, heureField, lieuNaissanceField,
+    nomField, numeroField, numeroMere_diplomeField, niveauEtudes_professionField, prenomField;
 
     @FXML
     private Text erreurText, erreurText1;
@@ -64,7 +44,7 @@ public class LireConsultationController {
     	Patient nouveauPatient;
     	
     	try {
-    		LocalDateTime dateEtHeure = LocalDateTime.parse(dateField.getText()+" "+heureField.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
+    		LocalDateTime dateEtHeure = LocalDateTime.parse(dateField.getText() + " " + heureField.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
     		dateParsed = true;
     		
     		if (controlleur.orthophonisteDisponible(dateEtHeure)) {
@@ -123,7 +103,5 @@ public class LireConsultationController {
 
     
     @FXML
-    private void handleQuitterButtonAction(MouseEvent event) {
-    	Main.changerScene(EScenes.AGENDA);
-    }
+    private void handleQuitterButtonAction(MouseEvent event) { Main.changerScene(EScenes.AGENDA); }
 }

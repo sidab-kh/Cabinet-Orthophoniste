@@ -18,21 +18,15 @@ import javafx.scene.text.Text;
 public class LireSeanceSuiviController {
 
 	Controlleur controlleur;
-	
-    @FXML
-    private TextField dateField;
 
     @FXML
-    private RadioButton enLigne;
-
-    @FXML
-    private RadioButton enPresentiel;
+    private RadioButton enLigne, enPresentiel;
 
     @FXML
     private Text erreurText;
 
     @FXML
-    private TextField heureField, numeroDossierField;
+    private TextField dateField, heureField, numeroDossierField;
 
     @FXML
     private ToggleGroup typeSeance;
@@ -46,7 +40,7 @@ public class LireSeanceSuiviController {
     @FXML
     void handleCreerSeanceButtonAction(ActionEvent event) {
     	try {
-    		LocalDateTime dateEtHeure = LocalDateTime.parse(dateField.getText()+" "+heureField.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
+    		LocalDateTime dateEtHeure = LocalDateTime.parse(dateField.getText() + " " + heureField.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
     		
     		if (controlleur.orthophonisteDisponible(dateEtHeure)) {
     			int numeroDossier = Integer.parseInt(numeroDossierField.getText());

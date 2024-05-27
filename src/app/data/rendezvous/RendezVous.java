@@ -55,11 +55,14 @@ public abstract class RendezVous implements Serializable, Affichable {
     public Duration getDuree() { return duree; }
     
     /**
-     * Obtient l'observation ou le commentaire associé au rendez-vous.
+     * Obtient l'observation associée au rendez-vous.
      * 
-     * @return L'observation ou le commentaire associé au rendez-vous.
+     * @return L'observation associée au rendez-vous si non vide, "Aucune" sinon.
      */
-    public String getObservation() { return observation; }
+    public String getObservation() { 
+    	if (observation.isEmpty()) return "Aucune";
+    	return observation;
+    }
     
     /**
      * Modifie l'observation ou le commentaire associé au rendez-vous.

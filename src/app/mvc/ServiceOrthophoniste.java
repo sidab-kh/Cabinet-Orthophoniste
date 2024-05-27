@@ -3,6 +3,7 @@ package app.mvc;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -49,8 +50,19 @@ public final class ServiceOrthophoniste {
 	 * Supprime un patient de la liste des nouveaux patients.
 	 * @param patient Le patient à supprimer.
 	 */
-    public void supprimerNouveauPatient(Patient patient) {  if (patient != null) orthophoniste.nouveauxPatients.remove(patient); }
-    
+    public void supprimerNouveauPatient(Patient patient) {
+        if (patient != null) {
+            orthophoniste.nouveauxPatients.remove(patient);
+            Iterator<RendezVous> iterator = orthophoniste.agenda.iterator();
+            while (iterator.hasNext()) {
+                RendezVous rdv = iterator.next();
+                if (rdv instanceof Consultation && ((Consultation)rdv).getPatient().equals(patient)) {
+                    iterator.remove();
+                }
+            }
+        }
+    }
+
     /**
      * Ajoute un dossier patient au set de dossiers patients.
      * @param dossierPatient Le dossier patient à ajouter.
@@ -67,7 +79,7 @@ public final class ServiceOrthophoniste {
  	 */
  	public void creerDossierPatient(Patient patient) {
  		if (patient != null && orthophoniste.nouveauxPatients.contains(patient)) {
- 			ajouterDossierPatient(new DossierPatient()); 			
+ 			ajouterDossierPatient(new DossierPatient());
  			orthophoniste.patients.put(DossierPatient.compteurNumero, patient);
  			DossierPatient.compteurNumero++;
  	 		orthophoniste.nouveauxPatients.remove(patient);
@@ -83,6 +95,17 @@ public final class ServiceOrthophoniste {
  	public boolean supprimerDossierPatient(DossierPatient dossier) {
  	    if (dossier != null && orthophoniste.dossiersPatients.contains(dossier)) {
  	        orthophoniste.dossiersPatients.remove(dossier);
+ 	        Iterator<RendezVous> iterator = orthophoniste.agenda.iterator();
+ 	        while (iterator.hasNext()) {
+ 	            RendezVous rdv = iterator.next();
+ 	            if (rdv instanceof Consultation && ((Consultation)rdv).getPatient().equals(patientDeNumeroDossier(dossier.getNumero()))) {
+ 	                iterator.remove();
+ 	            } else if (rdv instanceof SeanceSuivi && ((SeanceSuivi)rdv).getNumeroDossier() == dossier.getNumero()) {
+ 	                iterator.remove();
+ 	            } else if (rdv instanceof Atelier && ((Atelier)rdv).getNumerosDossiers().contains(dossier.getNumero())) {
+ 	                iterator.remove();
+ 	            }
+ 	        }
  	        orthophoniste.patients.remove(dossier.getNumero());
  	        return true;
  	    }
