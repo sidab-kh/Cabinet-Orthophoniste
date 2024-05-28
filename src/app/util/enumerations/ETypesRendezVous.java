@@ -5,7 +5,7 @@ package app.util.enumerations;
  */
 public enum ETypesRendezVous {
     CONSULTATION("Consultation"), // Rendez-vous de type consultation.
-    SEANCE_SUIVI("Seance de suivi"), // Rendez-vous de type séance de suivi.
+    SEANCE_SUIVI("Séance de suivi"), // Rendez-vous de type séance de suivi.
     ATELIER("Atelier"); // Rendez-vous de type atelier.
     
     String nom;

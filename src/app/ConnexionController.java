@@ -31,7 +31,6 @@ public class ConnexionController {
     private void initialize() {
     	controlleur = Controlleur.getInstance();
     	erreurText.setVisible(false);
-    	handleConnexionButtonAction();
     }
     
     @FXML 
