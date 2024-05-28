@@ -117,8 +117,8 @@ public class InscriptionController {
             exercicesList2.add(exercice5);
             
             // TESTS EXERCICES
-            TestExercices testExercices1 = FabriqueTest.creerTestExercices("Test exercices pour enfant", "La prononciation", exercicesList1);
-            TestExercices testExercices2 = FabriqueTest.creerTestExercices("Test exercices pour adulte", "La pensée", exercicesList2);
+            TestExercices testExercices1 = FabriqueTest.creerTestExercices("Test exercices 1", "La prononciation", exercicesList1);
+            TestExercices testExercices2 = FabriqueTest.creerTestExercices("Test exercices 2", "La pensée", exercicesList2);
 
             // QCM 1
             Proposition prop1 = new Proposition("Pizza", true);

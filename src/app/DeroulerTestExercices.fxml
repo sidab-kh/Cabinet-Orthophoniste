@@ -53,7 +53,7 @@
                   </LinearGradient>
                </fill>
             </Text>
-            <Button layoutX="218.0" layoutY="481.0" mnemonicParsing="false" onAction="#handleProchainExerciceButtonAction" prefHeight="36.0" prefWidth="365.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Prochain exercice" textAlignment="CENTER">
+            <Button fx:id="nextButton" layoutX="218.0" layoutY="481.0" mnemonicParsing="false" onAction="#handleProchainExerciceButtonAction" prefHeight="36.0" prefWidth="365.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Prochain exercice" textAlignment="CENTER">
                <font>
                   <Font name="Segoe UI Semilight" size="14.0" />
                </font>
@@ -118,7 +118,7 @@
                   </LinearGradient>
                </fill>
             </Text>
-            <TextArea fx:id="observationArea" editable="false" layoutX="607.0" layoutY="195.0" prefHeight="184.0" prefWidth="157.0" promptText="Observation" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-border-color: #000000; -fx-border-width: 0px 0px 5px 0px;" wrapText="true" />
+            <TextArea fx:id="observationArea" layoutX="607.0" layoutY="195.0" prefHeight="184.0" prefWidth="157.0" promptText="Observation" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-border-color: #000000; -fx-border-width: 0px 0px 5px 0px;" wrapText="true" />
             <Text layoutX="614.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Observation du test" textAlignment="CENTER" wrappingWidth="142.89601135253906">
                <fill>
                   <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">

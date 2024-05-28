@@ -67,6 +67,7 @@ public class TestExercices extends Test {
         for (Map.Entry<Integer, Float> entry : compteRendu.entrySet()) {
             scoreTotal += entry.getValue();
         }
+        super.setScoreTotal(scoreTotal);
         return scoreTotal;
     }
 }

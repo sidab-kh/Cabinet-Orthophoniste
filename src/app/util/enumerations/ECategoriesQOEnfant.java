@@ -12,21 +12,21 @@ public enum ECategoriesQOEnfant implements ECategoriesQOs {
     DEVELOPPEMENT_LANGAGIER("Développement langagier"),
     COMPORTEMENT("Comportement");
 
-    private final String toString;
+    private final String nom;
 
     /**
      * Constructeur de l'énumération ECategoriesQOEnfant.
      * 
      * @param toString La représentation textuelle de la catégorie.
      */
-    ECategoriesQOEnfant(String toString) { this.toString = toString; }
+    ECategoriesQOEnfant(String toString) { this.nom = toString; }
 
     /**
      * Retourne la représentation textuelle de la catégorie.
      * 
      * @return La représentation textuelle de la catégorie.
      */
-    public String getString() { return this.toString; }
+    public String getString() { return this.nom; }
     
     /**
      * Retourne un tableau de chaînes de caractères contenant toutes les représentations textuelles des catégories.

@@ -14,7 +14,7 @@ import app.data.questions.Question;
 @SuppressWarnings("serial")
 public class TestQuestionnaire extends Test {
     /** Le questionnaire du test, sans doublons pour les questions. */
-    Set<Question> questionnaire = new HashSet<Question>();
+    Set<Question> questionnaire;
     
     /** Le compte rendu des réponses à chaque question du questionnaire. */
     Map<Question, Integer> compteRendu = new HashMap<Question, Integer>();
@@ -56,6 +56,7 @@ public class TestQuestionnaire extends Test {
         for (Map.Entry<Question, Integer> entry : compteRendu.entrySet()) {
             scoreTotal += entry.getValue();           
         }
+        super.setScoreTotal(scoreTotal);
         return scoreTotal;
     }
 }

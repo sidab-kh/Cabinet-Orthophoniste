@@ -1,8 +1,6 @@
 package app;
 
 import java.util.ArrayList;
-import java.util.List;
-
 import app.data.bilans.Anamnese;
 import app.data.bilans.BilanOrthophonique;
 import app.mvc.Controlleur;
@@ -55,7 +53,7 @@ public class DeroulerConsultationController {
             	erreurText.setVisible(true);
             	return;
             }
-            Anamnese copyAnamnese = new Anamnese(anamneses.get(codeAnamneseInt));
+            Anamnese copyAnamnese = controlleur.copierAnamnese(anamneses.get(codeAnamneseInt));
     		BilanOrthophonique bo = new BilanOrthophonique(copyAnamnese);
         	contexte.setBo(bo);
             Main.changerScene(EScenes.DEROULER_ANAMNESE);
@@ -67,9 +65,11 @@ public class DeroulerConsultationController {
     
     @FXML // Afficher les anamneses
     private void afficherAnamneses() {
+    	ETypesPatients typePatient = ((app.data.rendezvous.Consultation)contexte.getRendezVous()).getPatient().getType();
     	for (int i = 0; i < anamneses.size(); i++) {
     		Anamnese anamnese = anamneses.get(i);
-			anamnesesArea.appendText(i + anamnese.getChaine() + "\n"); 
+    		if (anamnese.getTypeAnamnese().equals(typePatient))
+    			anamnesesArea.appendText(i + anamnese.getChaine() + "\n");
 		}
     }
     

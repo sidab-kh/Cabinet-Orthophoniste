@@ -1,7 +1,6 @@
 package app;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import app.data.bilans.BilanOrthophonique;
 import app.data.questions.QO;
@@ -38,10 +37,10 @@ public class DeroulerAnamneseController {
     	erreurText.setVisible(false);
     	bo = contexte.getBo();
     	questions = (ArrayList<QO>) bo.getAnamnese().getQuestions();   	
-    	intituleAnamneseText.setText(bo.getAnamnese().getNomAnamnese());
+    	intituleAnamneseText.setText("Nom de l'anamnèse : " + bo.getAnamnese().getNomAnamnese());
     	setQuestionText(0);
     	enonceArea.setText(questions.get(0).getEnonce());
-    	categorieText.setText(questions.get(0).getCategorie().toString());
+    	categorieText.setText(questions.get(0).getCategorie().getString());
     }
 
 	@FXML
@@ -57,15 +56,16 @@ public class DeroulerAnamneseController {
 		// Fin des questions
 		if (indiceQuestion == questions.size()) {
 			Main.changerScene(EScenes.CREER_EPREUVES_CLINIQUES);
+			return;
 		}
 		// La derniere question
 		if (indiceQuestion == questions.size()-1) {
 			nextButton.setText("Terminer l'anamnèse");
 		}
-		// Mise a jour des fields pour la prochaine question
+		// Mise a jour des champs pour la prochaine question
 		setQuestionText(indiceQuestion);
     	enonceArea.setText(questions.get(indiceQuestion).getEnonce());
-    	categorieText.setText(questions.get(indiceQuestion).getCategorie().toString());
+    	categorieText.setText(questions.get(indiceQuestion).getCategorie().getString());
     	reponseArea.clear();
     	erreurText.setVisible(false);
 	}

@@ -54,6 +54,7 @@ public class DeroulerEpreuvesCliniquesController {
 	}
     
     private void afficherTestsScores() {
+    	testsArea.clear();
     	for (int i = 0; i < epreuves.size(); i++) {
 			Test test = epreuves.get(i).getTest();
 			int baremeTotal;

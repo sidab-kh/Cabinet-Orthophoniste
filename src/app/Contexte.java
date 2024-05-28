@@ -3,7 +3,6 @@ package app;
 import java.util.ArrayList;
 import java.util.List;
 
-import app.data.bilans.Anamnese;
 import app.data.bilans.BilanOrthophonique;
 import app.data.patients.DossierPatient;
 import app.data.questions.QO;
