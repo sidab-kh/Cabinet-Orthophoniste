@@ -81,7 +81,7 @@ public class LireAnamneseController {
         Anamnese anamnese = new Anamnese(nomAnamnese, questions, typeAnamnese);
         controlleur.getServiceOrthophoniste().ajouterAnamnese(anamnese);
 
-        // Effacer les questions et redirection vers le menu anamnese
+        // Effacement du contexte et redirection vers le menu anamnese
         contexte.clear();
         Main.changerScene(EScenes.ANAMNESES);
     }

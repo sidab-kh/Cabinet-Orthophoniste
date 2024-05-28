@@ -115,7 +115,7 @@ public class Contexte {
 	
 	public void clear() {
 		dossierEnCoursDeTraitement = null;
-		questions = null;
+		questions = new ArrayList<QO>();
 		adulteButton = false;
 		intituleField = null;
 		rendezVous = null;

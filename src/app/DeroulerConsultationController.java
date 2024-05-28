@@ -69,7 +69,7 @@ public class DeroulerConsultationController {
     	for (int i = 0; i < anamneses.size(); i++) {
     		Anamnese anamnese = anamneses.get(i);
     		if (anamnese.getTypeAnamnese().equals(typePatient))
-    			anamnesesArea.appendText(i + anamnese.getChaine() + "\n");
+    			anamnesesArea.appendText(i + " " + anamnese.getChaine() + "\n");
 		}
     }
     
