@@ -90,11 +90,11 @@ public class DeroulerTestExercicesController {
 				Main.changerScene(EScenes.DEROULER_EPREUVES_CLINIQUES);
 				return;
 			}
-			// La derniere exercices
+			// Le dernier exercice
 			if (indiceExercice == exercices.size()-1) {
 				nextButton.setText("Terminer le test");
 			}
-			// Mise a jour des champs pour le prochaine exercice
+			// Mise a jour des champs pour le prochain exercice
 			exercice = exercices.get(indiceExercice);
 			setnumeroExerciceText(indiceExercice);
 	    	afficherScoresPrecedants();

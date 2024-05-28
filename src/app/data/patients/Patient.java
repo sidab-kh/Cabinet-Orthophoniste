@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 
+import app.data.bilans.BilanOrthophonique;
 import app.util.Affichable;
 import app.util.enumerations.ETypesPatients;
 
@@ -34,6 +35,9 @@ public abstract class Patient implements Serializable, Affichable {
     
     /** L'indice du patient. */
     private int indicePatient;
+    
+    /** Premier bilan orthophonique. */
+    private BilanOrthophonique premierBo;
     
     /**
      * Constructeur pour créer un objet Patient avec les informations de base.
@@ -152,4 +156,12 @@ public abstract class Patient implements Serializable, Affichable {
      * @return Le type du patient : ENFANT si l'âge est inférieur à 18 ans, sinon ADULTE.
      */
     public ETypesPatients getType() { return getAge() < 18 ? ETypesPatients.ENFANT : ETypesPatients.ADULTE ; }
+
+	public BilanOrthophonique getPremierBo() {
+		return premierBo;
+	}
+
+	public void setPremierBo(BilanOrthophonique premierBo) {
+		this.premierBo = premierBo;
+	}
 }

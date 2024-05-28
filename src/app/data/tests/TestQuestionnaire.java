@@ -38,6 +38,12 @@ public class TestQuestionnaire extends Test {
      */
     public Set<Question> getQuestions() { return questionnaire; }
 
+    
+    //JAVA DOC
+    
+    public Map<Question, Integer> getCompteRendu() { return compteRendu; }
+    
+    
     /**
      * Définit le compte rendu des réponses à chaque question du test questionnaire.
      * 

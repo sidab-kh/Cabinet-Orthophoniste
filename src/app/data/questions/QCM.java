@@ -9,9 +9,7 @@ import java.util.Set;
  */
 @SuppressWarnings("serial")
 public class QCM extends QuestionAvecPropositions {
-    /** La liste des propositions disponibles pour cette question à choix multiple. */
-    List<Proposition> propositions;
-    
+	
     /**
      * Constructeur pour créer un objet QCM avec un énoncé et une liste de propositions.
      * 

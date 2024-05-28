@@ -41,6 +41,9 @@ public class DeroulerAnamneseController {
     	setQuestionText(0);
     	enonceArea.setText(questions.get(0).getEnonce());
     	categorieText.setText(questions.get(0).getCategorie().getString());
+    	if (1 == questions.size()) {
+			nextButton.setText("Terminer l'anamnèse");
+		}
     }
 
 	@FXML

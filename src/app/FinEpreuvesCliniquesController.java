@@ -41,7 +41,7 @@ public class FinEpreuvesCliniquesController {
 	}
 	@FXML
     private void handleProchaineEtapeButtonAction(ActionEvent event) {
-		
+		Main.changerScene(EScenes.ETABLIR_DIAGNOSTIC);
     }
 
     @FXML

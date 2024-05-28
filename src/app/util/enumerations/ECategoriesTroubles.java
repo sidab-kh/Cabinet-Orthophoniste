@@ -22,7 +22,7 @@ public enum ECategoriesTroubles {
 
     public static ECategoriesTroubles getCategorieFromString(String categorieStr) {
         for (ECategoriesTroubles categoriesTroubles : ECategoriesTroubles.values()) {
-            if (categoriesTroubles.toString().equals(categorieStr))
+            if (categoriesTroubles.getString().equals(categorieStr))
                 return categoriesTroubles;
         }
         return null;

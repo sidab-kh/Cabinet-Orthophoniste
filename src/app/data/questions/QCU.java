@@ -8,8 +8,6 @@ import java.util.List;
  */
 @SuppressWarnings("serial")
 public class QCU extends QuestionAvecPropositions {
-    /** La liste des propositions disponibles pour cette question à choix unique. */
-    List<Proposition> propositions;
     
     /**
      * Constructeur pour créer un objet QCU avec un énoncé et une liste de propositions.

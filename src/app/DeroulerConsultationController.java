@@ -3,6 +3,7 @@ package app;
 import java.util.ArrayList;
 import app.data.bilans.Anamnese;
 import app.data.bilans.BilanOrthophonique;
+import app.data.rendezvous.Consultation;
 import app.mvc.Controlleur;
 import app.util.enumerations.EScenes;
 import app.util.enumerations.ETypesPatients;
@@ -42,7 +43,7 @@ public class DeroulerConsultationController {
     	String codeAnamnese = codeAnamneseArea.getText();
         if (codeAnamnese.isEmpty() || codeAnamnese == null) {
         	// Champ vide
-            erreurText.setText("Entrez un dossier.");
+            erreurText.setText("Entrez un numéro d'une anamnèse.");
             erreurText.setVisible(true);
             return;
         }
@@ -53,7 +54,14 @@ public class DeroulerConsultationController {
             	erreurText.setVisible(true);
             	return;
             }
-            Anamnese copyAnamnese = controlleur.copierAnamnese(anamneses.get(codeAnamneseInt));
+            Anamnese anamnese = anamneses.get(codeAnamneseInt);
+            if (! anamnese.getTypeAnamnese().equals( ((Consultation)contexte.getRendezVous()).getPatient().getType() )) {
+            	erreurText.setText("Anamnèse inexistante.");
+            	erreurText.setVisible(true);
+            	return;
+            }
+            	
+            Anamnese copyAnamnese = controlleur.copierAnamnese(anamnese);
     		BilanOrthophonique bo = new BilanOrthophonique(copyAnamnese);
         	contexte.setBo(bo);
             Main.changerScene(EScenes.DEROULER_ANAMNESE);
@@ -65,7 +73,7 @@ public class DeroulerConsultationController {
     
     @FXML // Afficher les anamneses
     private void afficherAnamneses() {
-    	ETypesPatients typePatient = ((app.data.rendezvous.Consultation)contexte.getRendezVous()).getPatient().getType();
+    	ETypesPatients typePatient = ((Consultation)contexte.getRendezVous()).getPatient().getType();
     	for (int i = 0; i < anamneses.size(); i++) {
     		Anamnese anamnese = anamneses.get(i);
     		if (anamnese.getTypeAnamnese().equals(typePatient))
