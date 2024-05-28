@@ -70,4 +70,7 @@ public class TestExercices extends Test {
         super.setScoreTotal(scoreTotal);
         return scoreTotal;
     }
+    
+    @Override
+    public String getChaine() { return super.getChaine() + "Type : Exercices"; }
 }

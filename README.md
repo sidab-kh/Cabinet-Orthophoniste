@@ -1,3 +1,3 @@
 README
 
-JAVADOC  : Contexte, Controller
+JAVADOC  : Contexte, Controller, ECategoriesTroubles, DossierPatient, ETypesRendesVous, Trouble

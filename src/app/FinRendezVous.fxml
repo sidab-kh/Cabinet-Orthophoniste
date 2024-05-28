@@ -20,7 +20,7 @@
                   <Image url="@../assets/design3.jpg" />
                </image>
             </ImageView>
-            <Text layoutX="280.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Fin du rendez-vous !" textAlignment="CENTER">
+            <Text layoutX="280.0" layoutY="310.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Fin du rendez-vous !" textAlignment="CENTER">
                <font>
                   <Font size="25.0" />
                </font>
@@ -41,7 +41,7 @@
                   </LinearGradient>
                </fill>
             </Text>
-            <Button layoutX="300.0" layoutY="447.0" mnemonicParsing="false" onAction="#goToPatients" prefHeight="39.0" prefWidth="201.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Aller vers Patients" textAlignment="CENTER">
+            <Button fx:id="retourMenuButton" layoutX="300.0" layoutY="446.0" mnemonicParsing="false" onAction="#handleRetourAuMenuButtonAction" prefHeight="39.0" prefWidth="201.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Aller vers Patients" textAlignment="CENTER">
                <font>
                   <Font name="Segoe UI Semilight" size="16.0" />
                </font>
@@ -62,11 +62,6 @@
                   </LinearGradient>
                </textFill>
             </Button>
-            <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="745.0" layoutY="15.0" onMouseClicked="#handleQuitterButtonAction">
-               <image>
-                  <Image url="@../assets/icon4.png" />
-               </image>
-            </ImageView>
             <ImageView fitHeight="175.0" fitWidth="175.0" layoutX="496.0" layoutY="75.0">
                <image>
                   <Image url="@../assets/TalkTrack2.png" />
