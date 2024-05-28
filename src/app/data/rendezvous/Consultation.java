@@ -41,7 +41,7 @@ public class Consultation extends RendezVous {
      */
     @Override
     public String getChaine() { 
-        return "Consultation / " + super.getChaine() + String.format("avec %s %s.", patient.getNom(), patient.getPrenom()); 
+        return "Consultation : " + super.getChaine() + String.format("avec %s %s.", patient.getNom(), patient.getPrenom()); 
     }
 
     /**

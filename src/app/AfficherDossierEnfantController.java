@@ -1,5 +1,8 @@
 package app;
 
+import java.util.Iterator;
+import java.util.List;
+
 import app.data.patients.Enfant;
 import app.mvc.Controlleur;
 import app.util.enumerations.EScenes;
@@ -35,13 +38,29 @@ public class AfficherDossierEnfantController {
     	erreurText.setVisible(false);
     	
     	afficherInformations();
+    	handleAfficherButtonAction(null);
     }
 
     @FXML // Aller vers la page des patients
     private void handleQuitterButtonAction(MouseEvent event) { Main.changerScene(EScenes.PATIENTS); }
 
-    @FXML
-    private void handleAfficherButtonAction(ActionEvent event) {}
+    @FXML // Afficher les rendez-vous, bilans ou fiches de suivi du patient
+    private void handleAfficherButtonAction(ActionEvent event) {
+    	affichageArea.clear();
+    	if (rendezVousButton.isSelected()) {
+    		// Convertir la liste des rendez-vous du patient en une liste de chaines
+    		List<String> rendezVousEnChaine = contexte.getDossierEnCoursDeTraitement().listeRendezVousToString();
+    		Iterator<String> iterator = rendezVousEnChaine.iterator();
+        	// Remplir le TextArea
+        	while (iterator.hasNext()) { affichageArea.appendText(iterator.next() + "\n"); }
+    	} else if (bilansButton.isSelected()) {
+    		// Convertir la liste des bilans orthophoniques du patient en une liste de chaines
+    		List<String> bilansEnChaine = contexte.getDossierEnCoursDeTraitement().listeBilansOrthophoniquesToString();
+    		Iterator<String> iterator = bilansEnChaine.iterator();
+        	// Remplir le TextArea
+        	while (iterator.hasNext()) { affichageArea.appendText(iterator.next() + "\n\n"); }
+    	}
+    }
 
     @FXML // Supprimer le dossier
     private void handleSupprimerDossierButton(ActionEvent event) {

@@ -69,7 +69,7 @@ public class Atelier extends RendezVous {
     public String getChaine() {
         String numeros = "";
         for (int numeroDossier : numerosDossiers) { numeros += numeroDossier + " "; }
-        return "Atelier / " + super.getChaine() + "thématique: " + thematique + ", numéros de dossiers : " + numeros;
+        return "Atelier : " + super.getChaine() + "thématique: " + thematique + ", numéros de dossiers : " + numeros;
     }
     
     /**

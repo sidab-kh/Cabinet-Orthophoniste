@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -42,6 +43,9 @@
                      </stops>
                   </LinearGradient>
                </textFill>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Text fx:id="erreurText" layoutX="444.0" layoutY="532.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Veuillez choisir une anamnèse." textAlignment="RIGHT" wrappingWidth="315.0">
                <font>
@@ -68,6 +72,9 @@
                <image>
                   <Image url="@../assets/icon4.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
             <Text layoutX="37.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Consultation avec" wrappingWidth="292.89601135253906">
                <font>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
@@ -62,6 +63,9 @@
                      </stops>
                   </LinearGradient>
                </textFill>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Text fx:id="erreurText" layoutX="425.0" layoutY="503.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Veuillez entrer la réponse du patient." textAlignment="RIGHT" wrappingWidth="334.0">
                <font>
@@ -88,9 +92,12 @@
                <image>
                   <Image url="@../assets/icon4.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
             <TextArea fx:id="enonceArea" editable="false" layoutX="41.0" layoutY="186.0" prefHeight="286.0" prefWidth="335.0" promptText="Enoncé vide." style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" wrapText="true" />
-            <Text fx:id="intituleAnamneseText" layoutX="38.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="[Intitulé de l'anamnèse]" wrappingWidth="325.89601135253906">
+            <Text fx:id="intituleAnamneseText" layoutX="38.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="[Intitulé de l'anamnèse]" wrappingWidth="712.8960113525391">
                <font>
                   <Font size="18.0" />
                </font>
@@ -132,7 +139,7 @@
                   </LinearGradient>
                </fill>
             </Text>
-            <Text fx:id="categorieText" layoutX="41.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Catégorie :">
+            <Text fx:id="categorieText" layoutX="41.0" layoutY="503.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Catégorie :">
                <font>
                   <Font size="18.0" />
                </font>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
@@ -21,9 +22,9 @@
                   <Image url="@../assets/design1.jpg" />
                </image>
             </ImageView>
-            <Text layoutX="303.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Fin des épreuves" textAlignment="CENTER">
+            <Text layoutX="283.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Fin des épreuves" textAlignment="CENTER">
                <font>
-                  <Font size="25.0" />
+                  <Font size="30.0" />
                </font>
                <fill>
                   <LinearGradient endX="0.8767772511848342" endY="0.12322274881516593" startX="0.3364928909952607" startY="1.0">
@@ -62,11 +63,17 @@
                      </stops>
                   </LinearGradient>
                </textFill>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="745.0" layoutY="15.0" onMouseClicked="#handleQuitterButtonAction">
                <image>
                   <Image url="@../assets/icon4.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
             <TextArea fx:id="scoresArea" editable="false" layoutX="225.0" layoutY="186.0" prefHeight="273.0" prefWidth="350.0" promptText="Scores" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" wrapText="true" />
             <Text layoutX="327.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Scores du patients" textAlignment="CENTER">

@@ -37,10 +37,10 @@ public class DeroulerAnamneseController {
     	erreurText.setVisible(false);
     	bo = contexte.getBo();
     	questions = (ArrayList<QO>) bo.getAnamnese().getQuestions();   	
-    	intituleAnamneseText.setText("Nom de l'anamnèse : " + bo.getAnamnese().getNomAnamnese());
+    	intituleAnamneseText.setText("Intitulé de l'anamnèse : " + bo.getAnamnese().getNomAnamnese());
     	setQuestionText(0);
     	enonceArea.setText(questions.get(0).getEnonce());
-    	categorieText.setText(questions.get(0).getCategorie().getString());
+    	categorieText.setText("Catégorie : " + questions.get(0).getCategorie().getString());
     	if (1 == questions.size()) {
 			nextButton.setText("Terminer l'anamnèse");
 		}

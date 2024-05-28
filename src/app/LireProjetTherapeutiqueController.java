@@ -1,9 +1,6 @@
 package app;
 
-
-import app.data.bilans.Diagnostic;
 import app.data.rendezvous.Consultation;
-import app.mvc.Controlleur;
 import app.util.enumerations.EScenes;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -49,6 +46,6 @@ public class LireProjetTherapeutiqueController {
     @FXML // Quitter la consultation
     private void handleQuitterButtonAction(MouseEvent event) { 
     	contexte.clear();
-    	Main.changerScene(EScenes.TALKTRACK);
+    	Main.changerScene(EScenes.FIN_RENDEZ_VOUS);
     }
 }

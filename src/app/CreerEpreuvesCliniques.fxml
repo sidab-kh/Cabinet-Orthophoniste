@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -47,6 +48,9 @@
                <image>
                   <Image url="@../assets/icon4.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
             <TextArea fx:id="testsArea" editable="false" layoutX="443.0" layoutY="139.0" prefHeight="264.0" prefWidth="317.0" promptText="Aucun test, créez-en d'abord." style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" wrapText="true" />
             <Text layoutX="37.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Épreuves cliniques" wrappingWidth="292.89601135253906">
@@ -137,6 +141,9 @@
                      </stops>
                   </LinearGradient>
                </textFill>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="17.0" layoutY="536.0">
                <image>

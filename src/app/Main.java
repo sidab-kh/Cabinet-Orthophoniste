@@ -23,7 +23,8 @@ public class Main extends Application {
 	
 	@Override
     public void stop() {
-        Controlleur.getInstance().getServiceOrthophoniste().sauvegarderOrthophoniste();
+		if (Controlleur.getInstance().getServiceOrthophoniste().getOrthophoniste() != null)
+        { Controlleur.getInstance().getServiceOrthophoniste().sauvegarderOrthophoniste(); }
     }
 	
 	// Methode pour initialiser la premiere scene

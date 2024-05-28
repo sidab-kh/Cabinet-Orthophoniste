@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -46,6 +47,9 @@
                <image>
                   <Image url="@../assets/icon4.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
             <TextField fx:id="numerosDossiersField" layoutX="38.0" layoutY="332.0" prefHeight="40.0" prefWidth="325.0" promptText="Numéros de dossiers (séparés par des espaces)" style="-fx-background-color: #EDEDED; -fx-border-color: #000000; -fx-border-width: 0px 0px 5px 0px; -fx-padding: 0px 0px 0px 10px; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;">
                <font>
@@ -135,6 +139,9 @@
                      </stops>
                   </LinearGradient>
                </textFill>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Text fx:id="erreurText" layoutX="40.0" layoutY="408.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Date ou heure invalide." textAlignment="RIGHT" wrappingWidth="325.9462890625">
                <font>

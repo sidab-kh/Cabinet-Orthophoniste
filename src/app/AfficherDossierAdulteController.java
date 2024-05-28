@@ -52,7 +52,7 @@ public class AfficherDossierAdulteController {
     		List<String> rendezVousEnChaine = contexte.getDossierEnCoursDeTraitement().listeRendezVousToString();
     		Iterator<String> iterator = rendezVousEnChaine.iterator();
         	// Remplir le TextArea
-        	while (iterator.hasNext()) { affichageArea.appendText(iterator.next() + "\n\n"); }
+        	while (iterator.hasNext()) { affichageArea.appendText(iterator.next() + "\n"); }
     	} else if (bilansButton.isSelected()) {
     		// Convertir la liste des bilans orthophoniques du patient en une liste de chaines
     		List<String> bilansEnChaine = contexte.getDossierEnCoursDeTraitement().listeBilansOrthophoniquesToString();

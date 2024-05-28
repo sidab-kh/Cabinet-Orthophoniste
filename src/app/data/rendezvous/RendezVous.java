@@ -91,5 +91,5 @@ public abstract class RendezVous implements Serializable, Affichable {
      * @return Une chaîne représentant les informations du rendez-vous.
      */
     @Override
-    public String getChaine() { return String.format("Le %s à %s, durée: %s, ", dateEtHeure.toLocalDate(), dateEtHeure.toLocalTime(), duree); }
+    public String getChaine() { return String.format("Le %s à %s, durée : %s, ", dateEtHeure.toLocalDate(), dateEtHeure.toLocalTime(), duree); }
 }

@@ -1,5 +1,6 @@
 package app.mvc;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -79,8 +80,18 @@ public final class ServiceOrthophoniste {
  	 */
  	public void creerDossierPatient(Patient patient) {
  		if (patient != null && orthophoniste.nouveauxPatients.contains(patient)) {
- 			ajouterDossierPatient(new DossierPatient());
- 			orthophoniste.patients.put(DossierPatient.compteurNumero, patient);
+ 			DossierPatient dossier = new DossierPatient();
+ 			// Obtenir l'année de naissance sous forme de chaîne
+ 	        String anneeNaissance = Integer.toString(LocalDate.now().getYear());
+ 	        // Extraire les deux premiers caractères de l'année de naissance
+ 	        String deuxPremiersCaracteres = anneeNaissance.substring(2, 4);
+ 	        // Formatage du compteur de numéro de dossier en tant que nombre à quatre chiffres
+ 	        String compteurFormatte = String.format("%04d", DossierPatient.compteurNumero);
+ 	        // Concaténation des deux premiers caractères de l'année de naissance avec le compteur formaté
+ 	        int numero = Integer.parseInt(deuxPremiersCaracteres + compteurFormatte);
+ 	        dossier.setNumero(numero);
+ 			ajouterDossierPatient(dossier);
+ 			orthophoniste.patients.put(numero, patient);
  			DossierPatient.compteurNumero++;
  	 		orthophoniste.nouveauxPatients.remove(patient);
  		}

@@ -66,7 +66,7 @@ public class SeanceSuivi extends RendezVous {
      */
     @Override
     public String getChaine() { 
-        return "Séance de suivi / " + super.getChaine() + String.format("numéro de dossier: %s, en %s.", numeroDossier, presentiel ? "présentiel" : "ligne"); 
+        return "Séance de suivi : " + super.getChaine() + String.format("numéro de dossier: %s, en %s.", numeroDossier, presentiel ? "présentiel" : "ligne"); 
     }
     
     /**

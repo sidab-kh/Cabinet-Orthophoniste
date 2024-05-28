@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -63,6 +64,9 @@
                      </stops>
                   </LinearGradient>
                </textFill>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Text fx:id="erreurText" layoutX="238.0" layoutY="542.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Veuillez insérer une réponse." textAlignment="CENTER" wrappingWidth="325.0">
                <font>
@@ -89,6 +93,9 @@
                <image>
                   <Image url="@../assets/icon4.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
             <TextArea fx:id="enonceArea" editable="false" layoutX="218.0" layoutY="168.0" prefHeight="173.0" prefWidth="365.0" promptText="Enoncé" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-border-color: #000000; -fx-border-width: 0px 0px 5px 0px;" wrapText="true" />
             <TextField fx:id="noteField" layoutX="36.0" layoutY="418.0" prefHeight="47.0" prefWidth="157.0" promptText="Attribuez une note (QO)" style="-fx-border-color: #000000; -fx-border-width: 0px 0px 5px 0px; -fx-padding: 0px 0px 0px 10px; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: #ffffff;">

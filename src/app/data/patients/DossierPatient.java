@@ -41,9 +41,9 @@ public class DossierPatient implements Serializable, Comparable<DossierPatient> 
     private List<FicheSuivi> listeFichesSuivi = new ArrayList<FicheSuivi>();
     
     /**
-     * Constructeur par défaut qui initialise le numéro de dossier.
+     * Constructeur par défaut.
      */
-    public DossierPatient() { numero = compteurNumero; }
+    public DossierPatient() {}
     
     /**
      * Retourne le numéro de dossier de ce patient.
@@ -51,6 +51,8 @@ public class DossierPatient implements Serializable, Comparable<DossierPatient> 
      * @return Le numéro de dossier.
      */
     public int getNumero() { return numero; }
+    
+    public void setNumero(int numero) { this.numero = numero; }
     
     /**
      * Retourne la liste des rendez-vous associés à ce dossier patient.
@@ -131,7 +133,7 @@ public class DossierPatient implements Serializable, Comparable<DossierPatient> 
     public List<String> listeRendezVousToString() {
     	List<String> rendezVousEnChaine = new ArrayList<String>();
     	for (RendezVous rdv : listeRendezVous) {
-    		rendezVousEnChaine.add(rdv.getType().getNom() + " / " + rdv.getDateEtHeure() + " / Observation : " + rdv.getObservation());
+    		rendezVousEnChaine.add("- " + rdv.getType().getNom() + " : " + rdv.getDateEtHeure() + ", Observation : " + rdv.getObservation());
     	}
     	return rendezVousEnChaine;
     }

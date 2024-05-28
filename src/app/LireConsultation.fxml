@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
@@ -79,11 +80,17 @@
                      <toggleGroup>
                         <ToggleGroup fx:id="Patient" />
                      </toggleGroup>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </RadioButton>
                   <RadioButton fx:id="adulteButton" mnemonicParsing="false" onAction="#handleTypePatientButtonAction" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Adulte" toggleGroup="$Patient">
                      <font>
                         <Font size="13.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </RadioButton>
                </children>
             </HBox>
@@ -91,6 +98,9 @@
                <image>
                   <Image url="@../assets/icon4.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
             <TextField fx:id="lieuNaissanceField" layoutX="39.0" layoutY="319.0" prefHeight="40.0" prefWidth="150.0" promptText="Lieu de naissance" style="-fx-background-color: #EDEDED; -fx-border-color: #000000; -fx-border-width: 0px 0px 0px 5px; -fx-padding: 0px 0px 0px 10px; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;">
                <font>
@@ -185,6 +195,9 @@
                      </stops>
                   </LinearGradient>
                </textFill>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Text fx:id="erreurText1" layoutX="39.0" layoutY="408.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Compte inexistant, veuillez vous inscrire" textAlignment="RIGHT" visible="false" wrappingWidth="325.0">
                <font>

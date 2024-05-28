@@ -51,7 +51,7 @@ public class AgendaController {
     	List<String> rendezVousEnChaine = controlleur.agendaToString();
     	Iterator<String> iterator = rendezVousEnChaine.iterator();
     	// Remplir le TextArea
-    	while (iterator.hasNext()) { agendaArea.appendText(iterator.next() + "\n"); }
+    	while (iterator.hasNext()) { agendaArea.appendText("- " + iterator.next() + "\n"); }
     }
     
     @FXML

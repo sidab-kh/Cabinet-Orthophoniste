@@ -32,7 +32,6 @@ public class DeroulerTestQuestionnaireController {
 	private Map<Question, Integer> compteRendu;
 	int indiceQuestion = 0;
 	
-	
     @FXML
     private Text erreurText, nomTestField, reponsetext, numeroQuestionText;
 

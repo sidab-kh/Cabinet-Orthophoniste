@@ -76,5 +76,5 @@ public class Anamnese implements Serializable, Affichable {
      * 
      * @return Une chaîne de caractères représentant l'anamnèse.
      */
-    public String getChaine() { return String.format("- %s , type : %s", nomAnamnese, typeAnamnese.name().toLowerCase());  }
+    public String getChaine() { return String.format("- %s, type : %s", nomAnamnese, typeAnamnese.name().toLowerCase());  }
 }

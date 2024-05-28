@@ -101,7 +101,7 @@ public class LireAnamneseController {
         if (questions == null) return;
         StringBuilder questionsText = new StringBuilder();
         for (QO question : questions) {
-            questionsText.append("- " + question.getEnonce() + " ?").append("\n");
+            questionsText.append("- " + question.getEnonce()).append("\n");
         }
         questionsArea.setText(questionsText.toString());
     }

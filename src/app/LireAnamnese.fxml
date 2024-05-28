@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
@@ -25,6 +26,9 @@
                <image>
                   <Image url="@../assets/icon4.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
             <TextArea fx:id="questionsArea" editable="false" layoutX="51.0" layoutY="115.0" prefHeight="370.0" prefWidth="300.0" promptText="Aucune question pour l'instant, ajoutez-en." style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent;" wrapText="true" />
             <Button layoutX="51.0" layoutY="511.0" mnemonicParsing="false" onAction="#handleAjouterQuestionButtonAction" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #000000; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Ajouter une question" textAlignment="CENTER">
@@ -47,6 +51,9 @@
                      </stops>
                   </LinearGradient>
                </textFill>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Text layoutX="51.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-font-weight: bolder;" text="Questions">
                <font>
@@ -126,6 +133,9 @@
                      </stops>
                   </LinearGradient>
                </textFill>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Text fx:id="erreurText" layoutX="38.0" layoutY="417.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Tous les champs sont obligatoires." textAlignment="RIGHT" wrappingWidth="325.0">
                <font>
@@ -162,11 +172,17 @@
                      <toggleGroup>
                         <ToggleGroup fx:id="Patient" />
                      </toggleGroup>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </RadioButton>
                   <RadioButton fx:id="adulteButton" mnemonicParsing="false" onAction="#handleTypePatientButtonAction" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Adulte" toggleGroup="$Patient">
                      <font>
                         <Font size="13.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </RadioButton>
                </children>
             </HBox>
