@@ -52,6 +52,11 @@ public class EpreuveClinique implements Serializable, Affichable {
      */
     public void setTest(Test test) { this.test = test; }
     
+    /**
+     * Retourne une chaîne de caractères représentant les informations de l'épreuve clinique.
+     * 
+     * @return Une chaîne de caractères représentant les informations de l'épreuve clinique.
+     */
     @Override
     public String getChaine() { return test.getChaine() + " / Observation : " + observationClinique; }
 }

@@ -1,5 +1,6 @@
-package app;
+package app.controllers;
 
+import app.Main;
 import app.mvc.Controlleur;
 import app.mvc.Orthophoniste;
 import app.util.enumerations.EScenes;

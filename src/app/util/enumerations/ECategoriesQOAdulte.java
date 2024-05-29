@@ -7,6 +7,7 @@ public enum ECategoriesQOAdulte implements ECategoriesQOs {
     HISTOIRE_MALADIE("Histoire de la maladie"),
     SUIVI_MEDICAL("Suivi médical");
 
+	/** La représentation textuelle de la catégorie. */
     private final String nom;
 
     /**
@@ -14,14 +15,18 @@ public enum ECategoriesQOAdulte implements ECategoriesQOs {
      * 
      * @param toString La représentation textuelle de la catégorie.
      */
-    ECategoriesQOAdulte(String toString) { this.nom = toString; }
+    ECategoriesQOAdulte(String toString) { 
+        this.nom = toString; 
+    }
 
     /**
      * Retourne la représentation textuelle de la catégorie.
      * 
      * @return La représentation textuelle de la catégorie.
      */
-    public String getString() { return this.nom; }
+    public String getString() { 
+        return this.nom; 
+    }
     
     /**
      * Retourne un tableau de chaînes de caractères contenant toutes les représentations textuelles des catégories.
@@ -45,8 +50,9 @@ public enum ECategoriesQOAdulte implements ECategoriesQOs {
      */
     public static ECategoriesQOAdulte getCategorieFromString(String categorieStr) {
         for (ECategoriesQOAdulte categorie : ECategoriesQOAdulte.values()) {
-            if (categorie.getString().equals(categorieStr))
+            if (categorie.getString().equals(categorieStr)) {
                 return categorie;
+            }
         }
         return null;
     }

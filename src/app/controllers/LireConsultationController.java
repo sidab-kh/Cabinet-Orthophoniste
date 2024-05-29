@@ -1,4 +1,4 @@
-package app;
+package app.controllers;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -6,6 +6,7 @@ import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+import app.Main;
 import app.data.patients.Patient;
 import app.mvc.Controlleur;
 import app.util.enumerations.EScenes;

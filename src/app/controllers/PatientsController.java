@@ -1,8 +1,10 @@
-package app;
+package app.controllers;
 
 import java.util.Iterator;
 import java.util.List;
 
+import app.Contexte;
+import app.Main;
 import app.data.patients.Patient;
 import app.mvc.Controlleur;
 import app.util.enumerations.EScenes;

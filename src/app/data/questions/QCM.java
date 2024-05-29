@@ -41,10 +41,12 @@ public class QCM extends QuestionAvecPropositions {
      */
     @Override
     public int calculerScore() {
+        // Initialisation des variables
         int totalCorrectes = 0;
         int correctesChoisies = 0;
         int incorrectesChoisies = 0;
 
+        // Parcours des propositions pour compter les réponses correctes et incorrectes choisies par l'utilisateur
         for (Proposition proposition : propositions) {
             if (proposition.EstVrai()) {
                 totalCorrectes++;

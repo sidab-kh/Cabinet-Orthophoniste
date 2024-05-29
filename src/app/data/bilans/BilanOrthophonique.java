@@ -77,13 +77,25 @@ public class BilanOrthophonique implements Serializable, Affichable {
      */
     public List<EpreuveClinique> getEpreuvesCliniques() { return epreuvesCliniques; }
     
+    /**
+     * Obtient l'anamnèse associée au bilan orthophonique.
+     * 
+     * @return L'anamnèse associée au bilan orthophonique.
+     */
     public Anamnese getAnamnese() { return anamnese; }
 
+    /**
+     * Retourne une chaîne de caractères représentant les informations du bilan orthophonique.
+     * 
+     * @return Une chaîne de caractères représentant les informations du bilan orthophonique.
+     */
     @Override
     public String getChaine() {
-    	String epreuvesCliniquesEnChaine = "";
-    	for (EpreuveClinique epreuve : epreuvesCliniques) { epreuvesCliniquesEnChaine += epreuve.getChaine() + "\n"; }
-    	return "Anamnèse : " + anamnese.getChaine() + "\nEpreuves cliniques : " + epreuvesCliniquesEnChaine + "\nDiagnostic : " +
-    	diagnostic.getChaine() + "\nProjet thérapeutique : " + projetTherapeutique;
+        String epreuvesCliniquesEnChaine = "";
+        for (EpreuveClinique epreuve : epreuvesCliniques) { 
+            epreuvesCliniquesEnChaine += epreuve.getChaine() + "\n"; 
+        }
+        return "Anamnèse : " + anamnese.getChaine() + "\nEpreuves cliniques : " + epreuvesCliniquesEnChaine + "\nDiagnostic : " +
+        diagnostic.getChaine() + "\nProjet thérapeutique : " + projetTherapeutique;
     }
 }

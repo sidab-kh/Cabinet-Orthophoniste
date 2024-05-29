@@ -1,6 +1,9 @@
-package app;
+package app.controllers;
 
 import java.util.List;
+
+import app.Contexte;
+import app.Main;
 import app.data.bilans.Anamnese;
 import app.data.questions.QO;
 import app.mvc.Controlleur;

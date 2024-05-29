@@ -1,5 +1,7 @@
-package app;
+package app.controllers;
 
+import app.Contexte;
+import app.Main;
 import app.data.rendezvous.Consultation;
 import app.util.enumerations.EScenes;
 import javafx.event.ActionEvent;

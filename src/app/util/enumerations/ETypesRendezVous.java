@@ -8,9 +8,24 @@ public enum ETypesRendezVous {
     SEANCE_SUIVI("Séance de suivi"), // Rendez-vous de type séance de suivi.
     ATELIER("Atelier"); // Rendez-vous de type atelier.
     
-    String nom;
+    /** Le nom du type de rendez-vous. */
+    private String nom;
 	
-	ETypesRendezVous(String nom) { this.nom = nom; }
+    /**
+     * Constructeur de l'énumération ETypesRendezVous.
+     * 
+     * @param nom Le nom du type de rendez-vous.
+     */
+    ETypesRendezVous(String nom) {
+        this.nom = nom;
+    }
 	
-	public String getNom() { return this.nom; }
+    /**
+     * Retourne le nom du type de rendez-vous.
+     * 
+     * @return Le nom du type de rendez-vous.
+     */
+    public String getNom() { 
+        return this.nom; 
+    }
 }

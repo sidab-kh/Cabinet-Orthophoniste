@@ -1,4 +1,4 @@
-package app;
+package app.controllers;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -6,6 +6,7 @@ import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+import app.Main;
 import app.mvc.Controlleur;
 import app.util.enumerations.EScenes;
 import app.util.fabriques.FabriqueRendezVous;

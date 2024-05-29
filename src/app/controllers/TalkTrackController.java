@@ -1,5 +1,7 @@
-package app;
+package app.controllers;
 
+import app.Contexte;
+import app.Main;
 import app.data.rendezvous.RendezVous;
 import app.mvc.Controlleur;
 import app.util.enumerations.EScenes;

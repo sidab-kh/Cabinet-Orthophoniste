@@ -38,12 +38,13 @@ public class TestQuestionnaire extends Test {
      */
     public Set<Question> getQuestions() { return questionnaire; }
 
-    
-    //JAVA DOC
-    
+    /**
+     * Obtient le compte rendu des réponses à chaque question du test questionnaire.
+     * 
+     * @return Le compte rendu des réponses à chaque question du test questionnaire.
+     */
     public Map<Question, Integer> getCompteRendu() { return compteRendu; }
-    
-    
+
     /**
      * Définit le compte rendu des réponses à chaque question du test questionnaire.
      * 
@@ -66,6 +67,12 @@ public class TestQuestionnaire extends Test {
         return scoreTotal;
     }
     
+    /**
+     * Obtient une chaîne de caractères représentant les informations essentielles du test questionnaire.
+     * Cette méthode inclut le nom, la capacité et le type du test.
+     * 
+     * @return Une chaîne de caractères représentant les informations essentielles du test questionnaire.
+     */
     @Override
     public String getChaine() { return super.getChaine() + "Type : Questionnaire"; }
 }

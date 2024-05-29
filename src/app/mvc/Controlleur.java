@@ -314,61 +314,82 @@ public final class Controlleur {
     	vue.afficher("Test ajouté avec succès.");
     }
     
+    /**
+     * Obtient le rendez-vous actuel de l'orthophoniste, s'il en a un.
+     * 
+     * @return Le rendez-vous actuel de l'orthophoniste, ou null s'il n'en a pas.
+     */
     public RendezVous getRendezVousActuel() {
-    	LocalDateTime dateEtHeure = LocalDateTime.now();
+        LocalDateTime dateEtHeure = LocalDateTime.now();
         for (RendezVous rdv : serviceOrthophoniste.getAgenda()) {
             if (rdv.getDateEtHeure().equals(dateEtHeure) || (dateEtHeure.isAfter(rdv.getDateEtHeure()) &&
-            		dateEtHeure.isBefore(rdv.calculerHeureFin())))
-            	return rdv;
+                    dateEtHeure.isBefore(rdv.calculerHeureFin())))
+                return rdv;
         }
         return null; 
     }
     
+    /**
+     * Crée des épreuves cliniques à partir des tests sélectionnés et les ajoute à un bilan orthophonique.
+     * 
+     * @param indicesTests La liste des indices des tests à utiliser.
+     * @param bo Le bilan orthophonique auquel ajouter les épreuves cliniques.
+     */
     public void creerEpreuvesCliniques(List<Integer> indicesTests, BilanOrthophonique bo) {
-		List<Test> tests = serviceOrthophoniste.getTests();
-		for (int indice : indicesTests) {
-			Test testCopy = copierTest(tests.get(indice));
-	        bo.ajouterEpreuveClinique(new EpreuveClinique(testCopy));
-	    }
-	}
+        List<Test> tests = serviceOrthophoniste.getTests();
+        for (int indice : indicesTests) {
+            Test testCopy = copierTest(tests.get(indice));
+            bo.ajouterEpreuveClinique(new EpreuveClinique(testCopy));
+        }
+    }
 
+    /**
+     * Crée une copie profonde d'un test.
+     * 
+     * @param test Le test à copier.
+     * @return Une copie profonde du test.
+     */
     public Test copierTest(Test test) {
-    	if (test instanceof TestExercices) {
-    		ArrayList<Exercice> exercices = new ArrayList<>();
-    		for (Exercice exercice : ((TestExercices)test).getExercices()) {
-    			exercices.add(new Exercice(exercice.getConsigne(), exercice.getMateriel()));
-			}
-    		
-    		return new TestExercices(test.getNom(), test.getCapacite(), exercices);
-    	
-    	} else {
-    		HashSet<Question> questions = new HashSet<>(); 
-    		
-    		for (Question question : ((TestQuestionnaire)test).getQuestions()) {
-    			if (question instanceof QO) {
-    				questions.add(new QO(question.getEnonce()));
-    			} else {
-    				List<Proposition> propositions = new ArrayList<>();    				
-    				for (Proposition proposition : ((QuestionAvecPropositions)question).getPropositions()) {
-    					propositions.add(new Proposition(proposition.getEnonce(), proposition.EstVrai()));
-					}
-    				if (question instanceof QCU)
-    					questions.add(new QCU(question.getEnonce(), propositions));
-    				else
-    					questions.add(new QCM(question.getEnonce(), propositions));
-				}
-			}
-    		
-    		return new TestQuestionnaire(test.getNom(), test.getCapacite(), questions);
-    	}
-	}
+        if (test instanceof TestExercices) {
+            ArrayList<Exercice> exercices = new ArrayList<>();
+            for (Exercice exercice : ((TestExercices)test).getExercices()) {
+                exercices.add(new Exercice(exercice.getConsigne(), exercice.getMateriel()));
+            }
+            return new TestExercices(test.getNom(), test.getCapacite(), exercices);
+        
+        } else {
+            HashSet<Question> questions = new HashSet<>(); 
+            
+            for (Question question : ((TestQuestionnaire)test).getQuestions()) {
+                if (question instanceof QO) {
+                    questions.add(new QO(question.getEnonce()));
+                } else {
+                    List<Proposition> propositions = new ArrayList<>();                    
+                    for (Proposition proposition : ((QuestionAvecPropositions)question).getPropositions()) {
+                        propositions.add(new Proposition(proposition.getEnonce(), proposition.EstVrai()));
+                    }
+                    if (question instanceof QCU)
+                        questions.add(new QCU(question.getEnonce(), propositions));
+                    else
+                        questions.add(new QCM(question.getEnonce(), propositions));
+                }
+            }
+            
+            return new TestQuestionnaire(test.getNom(), test.getCapacite(), questions);
+        }
+    }
     
-	public Anamnese copierAnamnese(Anamnese anamnese) {
-		List<QO> copyQuestions = new ArrayList<>();
-		for (QO question : anamnese.getQuestions()) {
-			copyQuestions.add(new QO(question.getEnonce(), question.getCategorie()));
-		}
-		return new Anamnese(anamnese.getNomAnamnese(), copyQuestions, anamnese.getTypeAnamnese());
-	}
-	
+    /**
+     * Crée une copie d'une anamnèse.
+     * 
+     * @param anamnese L'anamnèse à copier.
+     * @return Une copie de l'anamnèse.
+     */
+    public Anamnese copierAnamnese(Anamnese anamnese) {
+        List<QO> copyQuestions = new ArrayList<>();
+        for (QO question : anamnese.getQuestions()) {
+            copyQuestions.add(new QO(question.getEnonce(), question.getCategorie()));
+        }
+        return new Anamnese(anamnese.getNomAnamnese(), copyQuestions, anamnese.getTypeAnamnese());
+    }
 }

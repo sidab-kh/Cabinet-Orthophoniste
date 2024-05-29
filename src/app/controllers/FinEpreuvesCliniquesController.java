@@ -1,7 +1,9 @@
-package app;
+package app.controllers;
 
 import java.util.ArrayList;
 
+import app.Contexte;
+import app.Main;
 import app.data.bilans.EpreuveClinique;
 import app.data.tests.Test;
 import app.data.tests.TestExercices;

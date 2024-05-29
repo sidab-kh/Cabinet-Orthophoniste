@@ -1,8 +1,10 @@
-package app;
+package app.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import app.Contexte;
+import app.Main;
 import app.data.bilans.Diagnostic;
 import app.data.bilans.Trouble;
 import app.util.enumerations.ECategoriesTroubles;

@@ -71,6 +71,12 @@ public class TestExercices extends Test {
         return scoreTotal;
     }
     
+    /**
+     * Obtient une chaîne de caractères représentant les informations essentielles du test d'exercices.
+     * Cette méthode inclut le nom, la capacité et le type du test.
+     * 
+     * @return Une chaîne de caractères représentant les informations essentielles du test d'exercices.
+     */
     @Override
     public String getChaine() { return super.getChaine() + "Type : Exercices"; }
 }

@@ -1,8 +1,10 @@
-package app;
+package app.controllers;
 
+import app.Contexte;
+import app.Main;
 import app.data.questions.QO;
 import app.mvc.Controlleur;
-import app.util.enumerations.ECategoriesQOEnfant;
+import app.util.enumerations.ECategoriesQOAdulte;
 import app.util.enumerations.EScenes;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,11 +13,11 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
-public class LireQOEnfantController {
+public class LireQOAdulteController {
 
 	Controlleur controlleur;
 	Contexte contexte;
-	private String[] CategoriesEnfant = ECategoriesQOEnfant.getAllStrings();
+	private String[] CategoriesAdulte = ECategoriesQOAdulte.getAllStrings();
 	
     @FXML
     private ChoiceBox<String> categorieBox;
@@ -29,7 +31,7 @@ public class LireQOEnfantController {
     @FXML
     private void initialize() { 
     	controlleur = Controlleur.getInstance();
-    	categorieBox.getItems().addAll(CategoriesEnfant);
+    	categorieBox.getItems().addAll(CategoriesAdulte);
     	erreurText.setVisible(false);
     	contexte = Contexte.getInstance();
     }
@@ -39,18 +41,13 @@ public class LireQOEnfantController {
     	String enonce = enonceArea.getText();
         String categorieStr = categorieBox.getValue();
 
-        if (enonce == null || enonce.isEmpty() || categorieStr == null || categorieStr.isEmpty()) {
+        if (enonce == null || enonce.isEmpty() || categorieStr == null) {
             erreurText.setText("Tous les champs sont obligatoires.");
             erreurText.setVisible(true);
             return;
         }
 
-        ECategoriesQOEnfant categorie = ECategoriesQOEnfant.getCategorieFromString(categorieStr);
-        if (categorie == null) {
-        	erreurText.setText("Erreur catégorie.");
-            erreurText.setVisible(true);
-            return;
-        }
+        ECategoriesQOAdulte categorie = ECategoriesQOAdulte.getCategorieFromString(categorieStr);
         QO question = new QO(enonce, categorie);
         contexte.addQuestion(question);
 

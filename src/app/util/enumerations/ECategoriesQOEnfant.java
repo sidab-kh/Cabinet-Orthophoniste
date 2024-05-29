@@ -4,14 +4,15 @@ package app.util.enumerations;
  * Cette énumération représente les différentes catégories de questions ouvertes pour les enfants.
  */
 public enum ECategoriesQOEnfant implements ECategoriesQOs {
-    STRUCTURE_FAMILIALE("Structure familiale"),
-    DYNAMIQUE_FAMILIALE("Dynamique familiale"),
-    ANTECEDENTS_FAMILIAUX("Antécédents familiaux"),
-    CONDITIONS_NATALES("Conditions natales"),
-    DEVELOPPEMENT_PSYCHOMOTEUR("Développement psychomoteur"),
-    DEVELOPPEMENT_LANGAGIER("Développement langagier"),
-    COMPORTEMENT("Comportement");
+    STRUCTURE_FAMILIALE("Structure familiale"), // Catégorie de structure familiale.
+    DYNAMIQUE_FAMILIALE("Dynamique familiale"), // Catégorie de dynamique familiale.
+    ANTECEDENTS_FAMILIAUX("Antécédents familiaux"), // Catégorie d'antécédents familiaux.
+    CONDITIONS_NATALES("Conditions natales"), // Catégorie de conditions natales.
+    DEVELOPPEMENT_PSYCHOMOTEUR("Développement psychomoteur"), // Catégorie de développement psychomoteur.
+    DEVELOPPEMENT_LANGAGIER("Développement langagier"), // Catégorie de développement langagier.
+    COMPORTEMENT("Comportement"); // Catégorie de comportement.
 
+    /** La représentation textuelle de la catégorie. */
     private final String nom;
 
     /**

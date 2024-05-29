@@ -13,16 +13,7 @@ public class Trouble implements Serializable {
     /** Le nom du trouble. */
     String nom;
     
-    // Getters et setters
-    public String getNom() { return nom; }
-
-	public void setNom(String nom) { this.nom = nom; }
-
-	public ECategoriesTroubles getCategorie() { return categorie; }
-
-	public void setCategorie(ECategoriesTroubles categorie) { this.categorie = categorie; }
-
-	/** La catégorie à laquelle appartient le trouble. */
+    /** La catégorie à laquelle appartient le trouble. */
     ECategoriesTroubles categorie;
     
     /**
@@ -35,4 +26,32 @@ public class Trouble implements Serializable {
         this.nom = nom;
         this.categorie = categorie;
     }
+    
+    /**
+     * Obtient le nom du trouble.
+     * 
+     * @return Le nom du trouble.
+     */
+    public String getNom() { return nom; }
+
+    /**
+     * Modifie le nom du trouble.
+     * 
+     * @param nom Le nouveau nom du trouble.
+     */
+    public void setNom(String nom) { this.nom = nom; }
+
+    /**
+     * Obtient la catégorie à laquelle appartient le trouble.
+     * 
+     * @return La catégorie du trouble.
+     */
+    public ECategoriesTroubles getCategorie() { return categorie; }
+
+    /**
+     * Modifie la catégorie du trouble.
+     * 
+     * @param categorie La nouvelle catégorie du trouble.
+     */
+    public void setCategorie(ECategoriesTroubles categorie) { this.categorie = categorie; }
 }

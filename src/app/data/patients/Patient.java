@@ -157,11 +157,17 @@ public abstract class Patient implements Serializable, Affichable {
      */
     public ETypesPatients getType() { return getAge() < 18 ? ETypesPatients.ENFANT : ETypesPatients.ADULTE ; }
 
-	public BilanOrthophonique getPremierBo() {
-		return premierBo;
-	}
+    /**
+     * Obtient le premier bilan orthophonique du patient.
+     * 
+     * @return Le premier bilan orthophonique du patient, ou null s'il n'y a pas de bilan enregistré.
+     */
+    public BilanOrthophonique getPremierBo() { return premierBo; }
 
-	public void setPremierBo(BilanOrthophonique premierBo) {
-		this.premierBo = premierBo;
-	}
+    /**
+     * Modifie le premier bilan orthophonique du patient.
+     * 
+     * @param premierBo Le nouveau premier bilan orthophonique du patient.
+     */
+    public void setPremierBo(BilanOrthophonique premierBo) { this.premierBo = premierBo; }
 }
