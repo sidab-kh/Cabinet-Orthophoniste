@@ -54,6 +54,8 @@ public class DeroulerConsultationController {
         contexte = Contexte.getInstance();
         erreurText.setVisible(false);
         anamneses = (ArrayList<Anamnese>) controlleur.getServiceOrthophoniste().getAnamneses();
+        nomPrenomText.setText(((Consultation)contexte.getRendezVous()).getPatient().getNom() + " " +
+        ((Consultation)contexte.getRendezVous()).getPatient().getPrenom());
         afficherAnamneses();
     }
 

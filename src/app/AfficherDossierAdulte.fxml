@@ -26,7 +26,7 @@
                   <Image url="@../assets/design4.jpg" />
                </image>
             </ImageView>
-            <TextArea fx:id="affichageArea" editable="false" layoutX="401.0" layoutY="181.0" prefHeight="269.0" prefWidth="350.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-border-color: #000000; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextArea fx:id="affichageArea" editable="false" layoutX="401.0" layoutY="181.0" prefHeight="269.0" prefWidth="350.0" style="-fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; -fx-background-color: transparent; -fx-border-color: #000000; -fx-border-width: 0px 0px 2px 0px;" wrapText="true" />
             <Text fx:id="numeroDossierText" layoutX="45.0" layoutY="94.0" opacity="0.9" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: 900; -fx-font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;" text="Dossier n°XXXX">
                <font>
                   <Font size="40.0" />

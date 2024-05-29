@@ -86,13 +86,18 @@ public final class ServiceOrthophoniste {
  	        // Extraire les deux premiers caractères de l'année de naissance
  	        String deuxPremiersCaracteres = anneeNaissance.substring(2, 4);
  	        // Formatage du compteur de numéro de dossier en tant que nombre à quatre chiffres
- 	        String compteurFormatte = String.format("%04d", DossierPatient.compteurNumero);
+ 	        String compteurFormatte = String.format("%04d", orthophoniste.getCompteurNumeroDossier());
  	        // Concaténation des deux premiers caractères de l'année de naissance avec le compteur formaté
  	        int numero = Integer.parseInt(deuxPremiersCaracteres + compteurFormatte);
  	        dossier.setNumero(numero);
  			ajouterDossierPatient(dossier);
  			orthophoniste.patients.put(numero, patient);
- 			DossierPatient.compteurNumero++;
+ 			orthophoniste.incrementerCompteurNumeroDossier();
+ 			// Déplacer le premier Bilan dans le dossier du patient
+ 			if (patient.getPremierBo() != null) {
+ 				dossier.ajouterBilanOrthophonique(patient.getPremierBo());
+ 				patient.setPremierBo(null);
+ 			}
  	 		orthophoniste.nouveauxPatients.remove(patient);
  		}
  	}

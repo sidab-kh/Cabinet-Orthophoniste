@@ -16,11 +16,6 @@ import app.data.rendezvous.RendezVous;
 @SuppressWarnings("serial")
 public class DossierPatient implements Serializable, Comparable<DossierPatient> {
     /**
-     * Compteur pour générer automatiquement les numéros de dossier des patients.
-     */
-    public static int compteurNumero;
-
-    /**
      * Numéro unique attribué à ce dossier patient.
      */
     private int numero;
@@ -138,6 +133,10 @@ public class DossierPatient implements Serializable, Comparable<DossierPatient> 
     	return rendezVousEnChaine;
     }
     
+    /**
+     * Convertit la liste des bilans orthophoniques en une liste de chaînes de caractères.
+     * @return Une liste de chaînes représentant les bilans orthophoniques du patient.
+     */
     public List<String> listeBilansOrthophoniquesToString() {
     	List<String> bilansEnChaine = new ArrayList<String>();
     	for (BilanOrthophonique bilan : listeBilansOrthophoniques) {

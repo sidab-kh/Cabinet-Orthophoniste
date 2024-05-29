@@ -57,6 +57,11 @@ public final class Orthophoniste implements Serializable {
     /** Les tests réalisés par l'orthophoniste. */
     List<Test> tests = new ArrayList<Test>();
     
+    /**
+     * Compteur pour générer automatiquement les numéros de dossier des patients.
+     */
+    private int compteurNumeroDossier;
+    
     /** Constructeur par défaut. */
     public Orthophoniste() {}
     
@@ -78,6 +83,18 @@ public final class Orthophoniste implements Serializable {
         this.motDePasseCrypte = CryptageMotDePasse.crypter(motDePasse);
         this.numeroTelephone = numeroTelephone;
     }
+    
+    /**
+     * Passe au prochain numéro de dossier.
+     */
+    public void incrementerCompteurNumeroDossier() { this.compteurNumeroDossier++; }
+    
+    /**
+     * Obtient le compteur de numéro de dossiers.
+     * 
+     * @return le compteur de numéro de dossiers.
+     */
+    public int getCompteurNumeroDossier() { return this.compteurNumeroDossier; }
     
     /**
      * Obtient le nom de l'orthophoniste.

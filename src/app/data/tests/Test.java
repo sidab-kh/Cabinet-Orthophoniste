@@ -109,5 +109,5 @@ public abstract class Test implements Serializable, Affichable {
      * 
      * @return Une chaîne de caractères représentant le test.
      */
-    public String getChaine() { return indiceTest + "- " + nom + " / " + "Capacité : " + capacite + " / "; }
+    public String getChaine() { return indiceTest + " - " + nom + " / " + "Capacité : " + capacite + " / "; }
 }

@@ -23,10 +23,15 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
+/**
+ * Contrôleur pour la gestion de l'inscription des orthophonistes.
+ * Cette classe gère la validation des informations d'inscription, l'affichage des erreurs et 
+ * la création de tests et d'exercices pour les orthophonistes inscrits.
+ */
 public class InscriptionController {
 
-	Controlleur controlleur;
-	
+    private Controlleur controlleur;
+
     @FXML
     private TextField nomField, prenomField, adresseField, emailField, telephoneField;
 
@@ -38,14 +43,23 @@ public class InscriptionController {
     
     @FXML
     private Text erreurText;
-    
+
+    /**
+     * Initialise le contrôleur d'inscription.
+     * Récupère l'instance du contrôleur et cache le texte d'erreur.
+     */
     @FXML
     private void initialize() {
-    	controlleur = Controlleur.getInstance();
-    	erreurText.setVisible(false);
+        controlleur = Controlleur.getInstance();
+        erreurText.setVisible(false);
     }
 
-    @FXML // Lire les informations
+    /**
+     * Gère l'action du bouton d'inscription.
+     * Valide les informations saisies, affiche les erreurs le cas échéant,
+     * et enregistre l'orthophoniste si tout est correct.
+     */
+    @FXML
     private void handleInscriptionButtonAction() {
         String nom = nomField.getText();
         String prenom = prenomField.getText();
@@ -55,6 +69,7 @@ public class InscriptionController {
         String motDePasse = motDePasseField.getText();
         String messageErreur = "";
 
+        // Validation des champs
         if (nom.isEmpty() || prenom.isEmpty() || adresse.isEmpty() || email.isEmpty() || telephone.isEmpty() || motDePasse.isEmpty()) {
             messageErreur = "Tous les champs sont obligatoires.";
         } else if (!email.matches("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")) {
@@ -64,16 +79,14 @@ public class InscriptionController {
         } else if (motDePasse.length() < 8) {
             messageErreur = "Le mot de passe doit contenir au moins 8 caractères.";
         }
-        
+
         if (!messageErreur.isEmpty()) {
             erreurText.setText(messageErreur);
             erreurText.setVisible(true);
         } else {
             controlleur.inscription(new Orthophoniste(nom, prenom, adresse, email, motDePasse, telephone));
             
-            // HARD CODE
-            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Code en dur pour ajouter des tests et des exercices (à titre d'exemple)
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // EXERCICE 1
             List<EMateriel> materiel1 = new ArrayList<>();
@@ -116,7 +129,7 @@ public class InscriptionController {
             exercicesList2.add(exercice3);
             exercicesList2.add(exercice5);
             exercicesList2.add(exercice5);
-            
+
             // TESTS EXERCICES
             TestExercices testExercices1 = FabriqueTest.creerTestExercices("Test exercices 1", "La prononciation", exercicesList1);
             TestExercices testExercices2 = FabriqueTest.creerTestExercices("Test exercices 2", "La pensée", exercicesList2);
@@ -132,7 +145,7 @@ public class InscriptionController {
             propositions1.add(prop3);
             propositions1.add(prop4);
             QCM qcm1 = new QCM("C'est de la nourriture", propositions1);
-            
+
             // QCM 2
             prop1 = new Proposition("Pizza", false);
             prop2 = new Proposition("Poisson", false);
@@ -144,7 +157,7 @@ public class InscriptionController {
             propositions1.add(prop3);
             propositions1.add(prop4);
             QCM qcm2 = new QCM("C'est un animal", propositions1);
-            
+
             // QCM 3
             prop1 = new Proposition("Pizza", true);
             prop2 = new Proposition("Poisson", true);
@@ -175,7 +188,7 @@ public class InscriptionController {
             questionsSet2.add(qcm3);
             questionsSet2.add(qo2);
             questionsSet2.add(qo4);
-            
+
             // TESTS QUESTIONNAIRES
             TestQuestionnaire testQuestionnaire1 = FabriqueTest.creerTestQuestionnaire("Test questionnaire 1", "L'analyse", questionsSet1);
             TestQuestionnaire testQuestionnaire2 = FabriqueTest.creerTestQuestionnaire("Test questionnaire 2", "L'anxiété", questionsSet2);
@@ -185,14 +198,18 @@ public class InscriptionController {
             controlleur.getServiceOrthophoniste().ajouterTest(testExercices2);
             controlleur.getServiceOrthophoniste().ajouterTest(testQuestionnaire1);
             controlleur.getServiceOrthophoniste().ajouterTest(testQuestionnaire2);
-			/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-			/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-			/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             
             Main.changerScene(EScenes.AGENDA);
         }
     }
 
-    @FXML // Aller a la page de connexion
-    private void handleConnexionButtonAction() { Main.changerScene(EScenes.CONNEXION); }
+    /**
+     * Gère l'action du bouton de connexion.
+     * Change la scène vers la page de connexion.
+     */
+    @FXML
+    private void handleConnexionButtonAction() { 
+        Main.changerScene(EScenes.CONNEXION); 
+    }
 }
