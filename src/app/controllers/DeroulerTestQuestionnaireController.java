@@ -167,7 +167,7 @@ public class DeroulerTestQuestionnaireController {
     		for (int i = 0; i < propositions.size(); i++) {
     			enonceArea.appendText(i + " - " + propositions.get(i).getEnonce() + "\n");
             }
-    		noteField.setEditable(false);
+    		noteField.setVisible(false);
     		if (question instanceof QCU) {
     			reponseArea.setPromptText("Veuillez entrer le numéro de la proposition");
     			reponsetext.setText("Réponse unique");
@@ -179,7 +179,7 @@ public class DeroulerTestQuestionnaireController {
     			numeroQuestionText.setText(numeroQuestionText.getText() + " (QCM)");
     		}
     	} else { // QO
-    		noteField.setEditable(true);
+    		noteField.setVisible(true);
     		reponsetext.setText("Réponse du patient");
     		numeroQuestionText.setText(numeroQuestionText.getText() + " (QO)");
     	}
